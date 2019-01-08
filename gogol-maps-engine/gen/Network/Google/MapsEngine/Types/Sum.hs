@@ -16,7 +16,7 @@
 --
 module Network.Google.MapsEngine.Types.Sum where
 
-import           Network.Google.Prelude
+import           Network.Google.Prelude hiding (Bytes)
 
 -- | The processing status of this Raster.
 data RasterProcessingStatus
