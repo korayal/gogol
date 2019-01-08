@@ -195,7 +195,7 @@ serviceImports s = Imports
     { tocImports    = [preludeNS]
     , typeImports   = sort [preludeNS, prodNS s, sumNS s]
     , prodImports   = sort [preludeNS, sumNS s]
-    , sumImports    = [preludeNS']
+    , sumImports    = [preludeSumNS]
     , actionImports = sort [preludeNS, typesNS s]
     }
 
@@ -207,6 +207,10 @@ sumNS   = (<> "Sum")     . typesNS
 
 preludeNS :: NS
 preludeNS = "Network.Google.Prelude"
+
+-- | hide some conflicting (unneeded) data types from Sum modules
+preludeSumNS :: NS
+preludeSumNS = "Network.Google.Prelude hiding (Bytes)"
 
 resourceNS, methodNS :: NS
 resourceNS = "Network.Google.Resource"
