@@ -149,7 +149,7 @@ newtype ServiceId = ServiceId Text
         )
 
 -- | An opaque client secret.
-newtype Secret = Secret Text
+newtype GSecret = GSecret Text
     deriving
         ( Eq
         , Ord
@@ -163,7 +163,7 @@ newtype Secret = Secret Text
         , ToJSON
         )
 
-instance Show Secret where
+instance Show GSecret where
     show = const "*****"
 
 newtype MediaDownload a = MediaDownload a
