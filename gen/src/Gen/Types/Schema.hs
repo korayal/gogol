@@ -197,7 +197,7 @@ data Lit
     | Time
     | Date
     | DateTime
-    | FieldMask
+    | GFieldMask
     | Duration
 
     -- Core types.
@@ -228,7 +228,7 @@ instance FromJSON Lit where
             "date-time"        -> pure DateTime
 
             "google-datetime"  -> pure DateTime
-            "google-fieldmask" -> pure FieldMask
+            "google-fieldmask" -> pure GFieldMask
             "google-duration"  -> pure Duration
 
             _                 -> fail $
