@@ -10453,7 +10453,7 @@ instance ToJSON GooglePrivacyDlpV2Location where
 --
 -- /See:/ 'googlePrivacyDlpV2Schedule' smart constructor.
 newtype GooglePrivacyDlpV2Schedule = GooglePrivacyDlpV2Schedule'
-    { _gpdvsRecurrencePeriodDuration :: Maybe Duration
+    { _gpdvsRecurrencePeriodDuration :: Maybe GDuration
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GooglePrivacyDlpV2Schedule' with the minimum fields required to make a request.
@@ -10477,7 +10477,7 @@ gpdvsRecurrencePeriodDuration :: Lens' GooglePrivacyDlpV2Schedule (Maybe Scienti
 gpdvsRecurrencePeriodDuration
   = lens _gpdvsRecurrencePeriodDuration
       (\ s a -> s{_gpdvsRecurrencePeriodDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON GooglePrivacyDlpV2Schedule where
         parseJSON

@@ -1561,7 +1561,7 @@ instance ToJSON PartialUpdateInstanceRequest where
 --
 -- /See:/ 'gcRule' smart constructor.
 data GcRule = GcRule'
-    { _grMaxAge         :: !(Maybe Duration)
+    { _grMaxAge         :: !(Maybe GDuration)
     , _grUnion          :: !(Maybe Union)
     , _grIntersection   :: !(Maybe Intersection)
     , _grMaxNumVersions :: !(Maybe (Textual Int32))
@@ -1593,7 +1593,7 @@ gcRule =
 grMaxAge :: Lens' GcRule (Maybe Scientific)
 grMaxAge
   = lens _grMaxAge (\ s a -> s{_grMaxAge = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | Delete cells that would be deleted by any nested rule.
 grUnion :: Lens' GcRule (Maybe Union)

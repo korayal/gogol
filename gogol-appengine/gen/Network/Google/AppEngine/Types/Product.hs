@@ -884,10 +884,10 @@ instance ToJSON ListOperationsResponse where
 data HealthCheck = HealthCheck'
     { _hcHealthyThreshold   :: !(Maybe (Textual Word32))
     , _hcDisableHealthCheck :: !(Maybe Bool)
-    , _hcCheckInterval      :: !(Maybe Duration)
+    , _hcCheckInterval      :: !(Maybe GDuration)
     , _hcRestartThreshold   :: !(Maybe (Textual Word32))
     , _hcHost               :: !(Maybe Text)
-    , _hcTimeout            :: !(Maybe Duration)
+    , _hcTimeout            :: !(Maybe GDuration)
     , _hcUnhealthyThreshold :: !(Maybe (Textual Word32))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -940,7 +940,7 @@ hcCheckInterval :: Lens' HealthCheck (Maybe Scientific)
 hcCheckInterval
   = lens _hcCheckInterval
       (\ s a -> s{_hcCheckInterval = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Number of consecutive failed health checks required before an instance
 -- is restarted.
@@ -959,7 +959,7 @@ hcHost = lens _hcHost (\ s a -> s{_hcHost = a})
 hcTimeout :: Lens' HealthCheck (Maybe Scientific)
 hcTimeout
   = lens _hcTimeout (\ s a -> s{_hcTimeout = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | Number of consecutive failed health checks required before removing
 -- traffic.
@@ -1279,7 +1279,7 @@ instance ToJSON VersionEnvVariables where
 -- /See:/ 'application' smart constructor.
 data Application = Application'
     { _aDefaultHostname         :: !(Maybe Text)
-    , _aDefaultCookieExpiration :: !(Maybe Duration)
+    , _aDefaultCookieExpiration :: !(Maybe GDuration)
     , _aIap                     :: !(Maybe IdentityAwareProxy)
     , _aAuthDomain              :: !(Maybe Text)
     , _aCodeBucket              :: !(Maybe Text)
@@ -1353,7 +1353,7 @@ aDefaultCookieExpiration :: Lens' Application (Maybe Scientific)
 aDefaultCookieExpiration
   = lens _aDefaultCookieExpiration
       (\ s a -> s{_aDefaultCookieExpiration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 aIap :: Lens' Application (Maybe IdentityAwareProxy)
 aIap = lens _aIap (\ s a -> s{_aIap = a})
@@ -2383,14 +2383,14 @@ data AutomaticScaling = AutomaticScaling'
     , _asMaxTotalInstances         :: !(Maybe (Textual Int32))
     , _asMinIdleInstances          :: !(Maybe (Textual Int32))
     , _asDiskUtilization           :: !(Maybe DiskUtilization)
-    , _asMinPendingLatency         :: !(Maybe Duration)
+    , _asMinPendingLatency         :: !(Maybe GDuration)
     , _asCPUUtilization            :: !(Maybe CPUUtilization)
     , _asMaxIdleInstances          :: !(Maybe (Textual Int32))
     , _asMinTotalInstances         :: !(Maybe (Textual Int32))
     , _asMaxConcurrentRequests     :: !(Maybe (Textual Int32))
-    , _asCoolDownPeriod            :: !(Maybe Duration)
+    , _asCoolDownPeriod            :: !(Maybe GDuration)
     , _asRequestUtilization        :: !(Maybe RequestUtilization)
-    , _asMaxPendingLatency         :: !(Maybe Duration)
+    , _asMaxPendingLatency         :: !(Maybe GDuration)
     , _asStandardSchedulerSettings :: !(Maybe StandardSchedulerSettings)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -2476,7 +2476,7 @@ asMinPendingLatency :: Lens' AutomaticScaling (Maybe Scientific)
 asMinPendingLatency
   = lens _asMinPendingLatency
       (\ s a -> s{_asMinPendingLatency = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Target scaling by CPU usage.
 asCPUUtilization :: Lens' AutomaticScaling (Maybe CPUUtilization)
@@ -2519,7 +2519,7 @@ asCoolDownPeriod :: Lens' AutomaticScaling (Maybe Scientific)
 asCoolDownPeriod
   = lens _asCoolDownPeriod
       (\ s a -> s{_asCoolDownPeriod = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Target scaling by request utilization.
 asRequestUtilization :: Lens' AutomaticScaling (Maybe RequestUtilization)
@@ -2533,7 +2533,7 @@ asMaxPendingLatency :: Lens' AutomaticScaling (Maybe Scientific)
 asMaxPendingLatency
   = lens _asMaxPendingLatency
       (\ s a -> s{_asMaxPendingLatency = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Scheduler settings for standard environment.
 asStandardSchedulerSettings :: Lens' AutomaticScaling (Maybe StandardSchedulerSettings)
@@ -2937,10 +2937,10 @@ data ReadinessCheck = ReadinessCheck'
     { _rcSuccessThreshold :: !(Maybe (Textual Word32))
     , _rcFailureThreshold :: !(Maybe (Textual Word32))
     , _rcPath             :: !(Maybe Text)
-    , _rcCheckInterval    :: !(Maybe Duration)
-    , _rcAppStartTimeout  :: !(Maybe Duration)
+    , _rcCheckInterval    :: !(Maybe GDuration)
+    , _rcAppStartTimeout  :: !(Maybe GDuration)
     , _rcHost             :: !(Maybe Text)
-    , _rcTimeout          :: !(Maybe Duration)
+    , _rcTimeout          :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReadinessCheck' with the minimum fields required to make a request.
@@ -2997,7 +2997,7 @@ rcCheckInterval :: Lens' ReadinessCheck (Maybe Scientific)
 rcCheckInterval
   = lens _rcCheckInterval
       (\ s a -> s{_rcCheckInterval = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | A maximum time limit on application initialization, measured from moment
 -- the application successfully replies to a healthcheck until it is ready
@@ -3006,7 +3006,7 @@ rcAppStartTimeout :: Lens' ReadinessCheck (Maybe Scientific)
 rcAppStartTimeout
   = lens _rcAppStartTimeout
       (\ s a -> s{_rcAppStartTimeout = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Host header to send when performing a HTTP Readiness check. Example:
 -- \"myapp.appspot.com\"
@@ -3017,7 +3017,7 @@ rcHost = lens _rcHost (\ s a -> s{_rcHost = a})
 rcTimeout :: Lens' ReadinessCheck (Maybe Scientific)
 rcTimeout
   = lens _rcTimeout (\ s a -> s{_rcTimeout = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 instance FromJSON ReadinessCheck where
         parseJSON
@@ -3486,7 +3486,7 @@ instance ToJSON BatchUpdateIngressRulesResponse where
 --
 -- /See:/ 'cpuUtilization' smart constructor.
 data CPUUtilization = CPUUtilization'
-    { _cuAggregationWindowLength :: !(Maybe Duration)
+    { _cuAggregationWindowLength :: !(Maybe GDuration)
     , _cuTargetUtilization       :: !(Maybe (Textual Double))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -3510,7 +3510,7 @@ cuAggregationWindowLength :: Lens' CPUUtilization (Maybe Scientific)
 cuAggregationWindowLength
   = lens _cuAggregationWindowLength
       (\ s a -> s{_cuAggregationWindowLength = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Target CPU utilization ratio to maintain when scaling. Must be between 0
 -- and 1.
@@ -3622,7 +3622,7 @@ instance ToJSON TrafficSplitAllocations where
 --
 -- /See:/ 'cloudBuildOptions' smart constructor.
 data CloudBuildOptions = CloudBuildOptions'
-    { _cboCloudBuildTimeout :: !(Maybe Duration)
+    { _cboCloudBuildTimeout :: !(Maybe GDuration)
     , _cboAppYamlPath       :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -3647,7 +3647,7 @@ cboCloudBuildTimeout :: Lens' CloudBuildOptions (Maybe Scientific)
 cboCloudBuildTimeout
   = lens _cboCloudBuildTimeout
       (\ s a -> s{_cboCloudBuildTimeout = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Path to the yaml file used in deployment, used to determine runtime
 -- configuration details.Required for flexible environment builds.See
@@ -3720,7 +3720,7 @@ instance ToJSON ManualScaling where
 -- /See:/ 'basicScaling' smart constructor.
 data BasicScaling = BasicScaling'
     { _bsMaxInstances :: !(Maybe (Textual Int32))
-    , _bsIdleTimeout  :: !(Maybe Duration)
+    , _bsIdleTimeout  :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BasicScaling' with the minimum fields required to make a request.
@@ -3751,7 +3751,7 @@ bsIdleTimeout :: Lens' BasicScaling (Maybe Scientific)
 bsIdleTimeout
   = lens _bsIdleTimeout
       (\ s a -> s{_bsIdleTimeout = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON BasicScaling where
         parseJSON
@@ -3904,7 +3904,7 @@ data Version = Version'
     , _verEnv                       :: !(Maybe Text)
     , _verZones                     :: !(Maybe [Text])
     , _verEntrypoint                :: !(Maybe Entrypoint)
-    , _verDefaultExpiration         :: !(Maybe Duration)
+    , _verDefaultExpiration         :: !(Maybe GDuration)
     , _verAutomaticScaling          :: !(Maybe AutomaticScaling)
     , _verErrorHandlers             :: !(Maybe [ErrorHandler])
     , _verCreatedBy                 :: !(Maybe Text)
@@ -4128,7 +4128,7 @@ verDefaultExpiration :: Lens' Version (Maybe Scientific)
 verDefaultExpiration
   = lens _verDefaultExpiration
       (\ s a -> s{_verDefaultExpiration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Automatic scaling is based on request rate, response latencies, and
 -- other application metrics.
@@ -4481,7 +4481,7 @@ data StaticFilesHandler = StaticFilesHandler'
     { _sfhHTTPHeaders         :: !(Maybe StaticFilesHandlerHTTPHeaders)
     , _sfhPath                :: !(Maybe Text)
     , _sfhRequireMatchingFile :: !(Maybe Bool)
-    , _sfhExpiration          :: !(Maybe Duration)
+    , _sfhExpiration          :: !(Maybe GDuration)
     , _sfhMimeType            :: !(Maybe Text)
     , _sfhApplicationReadable :: !(Maybe Bool)
     , _sfhUploadPathRegex     :: !(Maybe Text)
@@ -4542,7 +4542,7 @@ sfhExpiration :: Lens' StaticFilesHandler (Maybe Scientific)
 sfhExpiration
   = lens _sfhExpiration
       (\ s a -> s{_sfhExpiration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | MIME type used to serve all files served by this handler.Defaults to
 -- file-specific MIME types, which are derived from each file\'s filename
@@ -5154,10 +5154,10 @@ data LivenessCheck = LivenessCheck'
     { _lcSuccessThreshold :: !(Maybe (Textual Word32))
     , _lcFailureThreshold :: !(Maybe (Textual Word32))
     , _lcPath             :: !(Maybe Text)
-    , _lcCheckInterval    :: !(Maybe Duration)
+    , _lcCheckInterval    :: !(Maybe GDuration)
     , _lcHost             :: !(Maybe Text)
-    , _lcInitialDelay     :: !(Maybe Duration)
-    , _lcTimeout          :: !(Maybe Duration)
+    , _lcInitialDelay     :: !(Maybe GDuration)
+    , _lcTimeout          :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LivenessCheck' with the minimum fields required to make a request.
@@ -5215,7 +5215,7 @@ lcCheckInterval :: Lens' LivenessCheck (Maybe Scientific)
 lcCheckInterval
   = lens _lcCheckInterval
       (\ s a -> s{_lcCheckInterval = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Host header to send when performing a HTTP Liveness check. Example:
 -- \"myapp.appspot.com\"
@@ -5227,13 +5227,13 @@ lcInitialDelay :: Lens' LivenessCheck (Maybe Scientific)
 lcInitialDelay
   = lens _lcInitialDelay
       (\ s a -> s{_lcInitialDelay = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Time before the check is considered failed.
 lcTimeout :: Lens' LivenessCheck (Maybe Scientific)
 lcTimeout
   = lens _lcTimeout (\ s a -> s{_lcTimeout = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 instance FromJSON LivenessCheck where
         parseJSON

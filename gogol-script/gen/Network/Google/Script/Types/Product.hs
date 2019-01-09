@@ -249,7 +249,7 @@ data GoogleAppsScriptTypeProcess = GoogleAppsScriptTypeProcess'
     , _gastpUserAccessLevel :: !(Maybe GoogleAppsScriptTypeProcessUserAccessLevel)
     , _gastpProcessType     :: !(Maybe GoogleAppsScriptTypeProcessProcessType)
     , _gastpExecutingUser   :: !(Maybe Text)
-    , _gastpDuration        :: !(Maybe Duration)
+    , _gastpDuration        :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GoogleAppsScriptTypeProcess' with the minimum fields required to make a request.
@@ -333,7 +333,7 @@ gastpDuration :: Lens' GoogleAppsScriptTypeProcess (Maybe Scientific)
 gastpDuration
   = lens _gastpDuration
       (\ s a -> s{_gastpDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON GoogleAppsScriptTypeProcess where
         parseJSON

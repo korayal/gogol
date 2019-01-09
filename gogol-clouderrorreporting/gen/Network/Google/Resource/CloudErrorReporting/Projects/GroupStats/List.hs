@@ -65,7 +65,7 @@ type ProjectsGroupStatsListResource =
              QueryParam "upload_protocol" Text :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
-                   QueryParam "timedCountDuration" Duration :>
+                   QueryParam "timedCountDuration" GDuration :>
                      QueryParam "alignment" Text :>
                        QueryParams "groupId" Text :>
                          QueryParam "alignmentTime" DateTime' :>
@@ -90,7 +90,7 @@ data ProjectsGroupStatsList = ProjectsGroupStatsList'
     , _pgslUploadProtocol            :: !(Maybe Text)
     , _pgslAccessToken               :: !(Maybe Text)
     , _pgslUploadType                :: !(Maybe Text)
-    , _pgslTimedCountDuration        :: !(Maybe Duration)
+    , _pgslTimedCountDuration        :: !(Maybe GDuration)
     , _pgslAlignment                 :: !(Maybe Text)
     , _pgslProjectName               :: !Text
     , _pgslGroupId                   :: !(Maybe [Text])
@@ -195,7 +195,7 @@ pgslTimedCountDuration :: Lens' ProjectsGroupStatsList (Maybe Scientific)
 pgslTimedCountDuration
   = lens _pgslTimedCountDuration
       (\ s a -> s{_pgslTimedCountDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | [Optional] The alignment of the timed counts to be returned. Default is
 -- \`ALIGNMENT_EQUAL_AT_END\`.

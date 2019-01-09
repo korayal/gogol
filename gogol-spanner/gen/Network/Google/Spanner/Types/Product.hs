@@ -3935,8 +3935,8 @@ instance ToJSON OperationResponse where
 -- /See:/ 'readOnly' smart constructor.
 data ReadOnly = ReadOnly'
     { _roReadTimestamp       :: !(Maybe DateTime')
-    , _roExactStaleness      :: !(Maybe Duration)
-    , _roMaxStaleness        :: !(Maybe Duration)
+    , _roExactStaleness      :: !(Maybe GDuration)
+    , _roMaxStaleness        :: !(Maybe GDuration)
     , _roStrong              :: !(Maybe Bool)
     , _roMinReadTimestamp    :: !(Maybe DateTime')
     , _roReturnReadTimestamp :: !(Maybe Bool)
@@ -3995,7 +3995,7 @@ roExactStaleness :: Lens' ReadOnly (Maybe Scientific)
 roExactStaleness
   = lens _roExactStaleness
       (\ s a -> s{_roExactStaleness = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Read data at a timestamp >= \`NOW - max_staleness\` seconds. Guarantees
 -- that all writes that have committed more than the specified number of
@@ -4009,7 +4009,7 @@ roMaxStaleness :: Lens' ReadOnly (Maybe Scientific)
 roMaxStaleness
   = lens _roMaxStaleness
       (\ s a -> s{_roMaxStaleness = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Read at a timestamp where all previously committed transactions are
 -- visible.

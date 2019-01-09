@@ -35,7 +35,7 @@ data BuildStep = BuildStep'
     , _bsId         :: !(Maybe Text)
     , _bsTiming     :: !(Maybe TimeSpan)
     , _bsSecretEnv  :: !(Maybe [Text])
-    , _bsTimeout    :: !(Maybe Duration)
+    , _bsTimeout    :: !(Maybe GDuration)
     , _bsVolumes    :: !(Maybe [Volume])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -184,7 +184,7 @@ bsSecretEnv
 bsTimeout :: Lens' BuildStep (Maybe Scientific)
 bsTimeout
   = lens _bsTimeout (\ s a -> s{_bsTimeout = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | List of volumes to mount into the build step. Each volume is created as
 -- an empty volume prior to execution of the build step. Upon completion of
@@ -1199,7 +1199,7 @@ data Build = Build'
     , _bProjectId        :: !(Maybe Text)
     , _bTiming           :: !(Maybe BuildTiming)
     , _bBuildTriggerId   :: !(Maybe Text)
-    , _bTimeout          :: !(Maybe Duration)
+    , _bTimeout          :: !(Maybe GDuration)
     , _bFinishTime       :: !(Maybe DateTime')
     , _bCreateTime       :: !(Maybe DateTime')
     , _bTags             :: !(Maybe [Text])
@@ -1392,7 +1392,7 @@ bBuildTriggerId
 bTimeout :: Lens' Build (Maybe Scientific)
 bTimeout
   = lens _bTimeout (\ s a -> s{_bTimeout = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | Output only. Time at which execution of the build was finished. The
 -- difference between finish_time and start_time is the duration of the

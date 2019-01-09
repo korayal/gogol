@@ -1052,7 +1052,7 @@ data ThreatMatch = ThreatMatch'
     , _tmThreatEntryType     :: !(Maybe ThreatMatchThreatEntryType)
     , _tmThreatType          :: !(Maybe ThreatMatchThreatType)
     , _tmPlatformType        :: !(Maybe ThreatMatchPlatformType)
-    , _tmCacheDuration       :: !(Maybe Duration)
+    , _tmCacheDuration       :: !(Maybe GDuration)
     , _tmThreat              :: !(Maybe ThreatEntry)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -1112,7 +1112,7 @@ tmCacheDuration :: Lens' ThreatMatch (Maybe Scientific)
 tmCacheDuration
   = lens _tmCacheDuration
       (\ s a -> s{_tmCacheDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The threat matching this threat.
 tmThreat :: Lens' ThreatMatch (Maybe ThreatEntry)
@@ -1525,8 +1525,8 @@ instance ToJSON ThreatSource where
 -- /See:/ 'findFullHashesResponse' smart constructor.
 data FindFullHashesResponse = FindFullHashesResponse'
     { _ffhrMatches               :: !(Maybe [ThreatMatch])
-    , _ffhrNegativeCacheDuration :: !(Maybe Duration)
-    , _ffhrMinimumWaitDuration   :: !(Maybe Duration)
+    , _ffhrNegativeCacheDuration :: !(Maybe GDuration)
+    , _ffhrMinimumWaitDuration   :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FindFullHashesResponse' with the minimum fields required to make a request.
@@ -1560,7 +1560,7 @@ ffhrNegativeCacheDuration :: Lens' FindFullHashesResponse (Maybe Scientific)
 ffhrNegativeCacheDuration
   = lens _ffhrNegativeCacheDuration
       (\ s a -> s{_ffhrNegativeCacheDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The minimum duration the client must wait before issuing any find hashes
 -- request. If this field is not set, clients can issue a request as soon
@@ -1569,7 +1569,7 @@ ffhrMinimumWaitDuration :: Lens' FindFullHashesResponse (Maybe Scientific)
 ffhrMinimumWaitDuration
   = lens _ffhrMinimumWaitDuration
       (\ s a -> s{_ffhrMinimumWaitDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON FindFullHashesResponse where
         parseJSON
@@ -1642,7 +1642,7 @@ instance ToJSON MetadataEntry where
 -- /See:/ 'fetchThreatListUpdatesResponse' smart constructor.
 data FetchThreatListUpdatesResponse = FetchThreatListUpdatesResponse'
     { _ftlurListUpdateResponses :: !(Maybe [ListUpdateResponse])
-    , _ftlurMinimumWaitDuration :: !(Maybe Duration)
+    , _ftlurMinimumWaitDuration :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FetchThreatListUpdatesResponse' with the minimum fields required to make a request.
@@ -1675,7 +1675,7 @@ ftlurMinimumWaitDuration :: Lens' FetchThreatListUpdatesResponse (Maybe Scientif
 ftlurMinimumWaitDuration
   = lens _ftlurMinimumWaitDuration
       (\ s a -> s{_ftlurMinimumWaitDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON FetchThreatListUpdatesResponse
          where

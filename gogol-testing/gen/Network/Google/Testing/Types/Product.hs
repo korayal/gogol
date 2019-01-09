@@ -1439,7 +1439,7 @@ instance ToJSON AndroidDeviceCatalog where
 -- /See:/ 'testSpecification' smart constructor.
 data TestSpecification = TestSpecification'
     { _tsIosTestSetup               :: !(Maybe IosTestSetup)
-    , _tsTestTimeout                :: !(Maybe Duration)
+    , _tsTestTimeout                :: !(Maybe GDuration)
     , _tsAndroidRoboTest            :: !(Maybe AndroidRoboTest)
     , _tsAutoGoogleLogin            :: !(Maybe Bool)
     , _tsDisableVideoRecording      :: !(Maybe Bool)
@@ -1501,7 +1501,7 @@ tsTestTimeout :: Lens' TestSpecification (Maybe Scientific)
 tsTestTimeout
   = lens _tsTestTimeout
       (\ s a -> s{_tsTestTimeout = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | An Android robo test.
 tsAndroidRoboTest :: Lens' TestSpecification (Maybe AndroidRoboTest)
@@ -1636,7 +1636,7 @@ data TrafficRule = TrafficRule'
     , _trPacketDuplicationRatio :: !(Maybe (Textual Double))
     , _trBandwidth              :: !(Maybe (Textual Double))
     , _trBurst                  :: !(Maybe (Textual Double))
-    , _trDelay                  :: !(Maybe Duration)
+    , _trDelay                  :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TrafficRule' with the minimum fields required to make a request.
@@ -1693,7 +1693,7 @@ trBurst
 trDelay :: Lens' TrafficRule (Maybe Scientific)
 trDelay
   = lens _trDelay (\ s a -> s{_trDelay = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 instance FromJSON TrafficRule where
         parseJSON

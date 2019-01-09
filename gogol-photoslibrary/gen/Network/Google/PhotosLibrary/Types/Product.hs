@@ -169,7 +169,7 @@ instance ToJSON DateFilter where
 data Photo = Photo'
     { _pFocalLength     :: !(Maybe (Textual Double))
     , _pCameraMake      :: !(Maybe Text)
-    , _pExposureTime    :: !(Maybe Duration)
+    , _pExposureTime    :: !(Maybe GDuration)
     , _pCameraModel     :: !(Maybe Text)
     , _pIsoEquivalent   :: !(Maybe (Textual Int32))
     , _pApertureFNumber :: !(Maybe (Textual Double))
@@ -218,7 +218,7 @@ pExposureTime :: Lens' Photo (Maybe Scientific)
 pExposureTime
   = lens _pExposureTime
       (\ s a -> s{_pExposureTime = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Model of the camera which took the photo.
 pCameraModel :: Lens' Photo (Maybe Text)

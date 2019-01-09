@@ -1033,7 +1033,7 @@ instance ToJSON ListDataSourcesResponse where
 -- /See:/ 'dataSource' smart constructor.
 data DataSource = DataSource'
     { _dsClientId                     :: !(Maybe Text)
-    , _dsMinimumScheduleInterval      :: !(Maybe Duration)
+    , _dsMinimumScheduleInterval      :: !(Maybe GDuration)
     , _dsSupportsCustomSchedule       :: !(Maybe Bool)
     , _dsUpdateDeadlineSeconds        :: !(Maybe (Textual Int32))
     , _dsManualRunsDisabled           :: !(Maybe Bool)
@@ -1125,7 +1125,7 @@ dsMinimumScheduleInterval :: Lens' DataSource (Maybe Scientific)
 dsMinimumScheduleInterval
   = lens _dsMinimumScheduleInterval
       (\ s a -> s{_dsMinimumScheduleInterval = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Specifies whether the data source supports a user defined schedule, or
 -- operates on the default schedule. When set to \`true\`, user can

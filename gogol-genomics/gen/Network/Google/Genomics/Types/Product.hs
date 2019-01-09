@@ -1421,7 +1421,7 @@ data Action = Action'
     , _aImageURI     :: !(Maybe Text)
     , _aName         :: !(Maybe Text)
     , _aLabels       :: !(Maybe ActionLabels)
-    , _aTimeout      :: !(Maybe Duration)
+    , _aTimeout      :: !(Maybe GDuration)
     , _aPidNamespace :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -1576,7 +1576,7 @@ aLabels = lens _aLabels (\ s a -> s{_aLabels = a})
 aTimeout :: Lens' Action (Maybe Scientific)
 aTimeout
   = lens _aTimeout (\ s a -> s{_aTimeout = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | The PID namespace to run the action inside. If unspecified, a separate
 -- isolated namespace is used.
@@ -2483,7 +2483,7 @@ data Pipeline = Pipeline'
     { _pActions     :: !(Maybe [Action])
     , _pEnvironment :: !(Maybe PipelineEnvironment)
     , _pResources   :: !(Maybe Resources)
-    , _pTimeout     :: !(Maybe Duration)
+    , _pTimeout     :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Pipeline' with the minimum fields required to make a request.
@@ -2534,7 +2534,7 @@ pResources
 pTimeout :: Lens' Pipeline (Maybe Scientific)
 pTimeout
   = lens _pTimeout (\ s a -> s{_pTimeout = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 instance FromJSON Pipeline where
         parseJSON

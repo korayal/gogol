@@ -729,7 +729,7 @@ data BuildBazelRemoteExecutionV2Action = BuildBazelRemoteExecutionV2Action'
     { _bbrevaDoNotCache      :: !(Maybe Bool)
     , _bbrevaCommandDigest   :: !(Maybe BuildBazelRemoteExecutionV2Digest)
     , _bbrevaInputRootDigest :: !(Maybe BuildBazelRemoteExecutionV2Digest)
-    , _bbrevaTimeout         :: !(Maybe Duration)
+    , _bbrevaTimeout         :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BuildBazelRemoteExecutionV2Action' with the minimum fields required to make a request.
@@ -794,7 +794,7 @@ bbrevaTimeout :: Lens' BuildBazelRemoteExecutionV2Action (Maybe Scientific)
 bbrevaTimeout
   = lens _bbrevaTimeout
       (\ s a -> s{_bbrevaTimeout = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON BuildBazelRemoteExecutionV2Action
          where
@@ -1505,9 +1505,9 @@ instance ToJSON
 --
 -- /See:/ 'googleDevtoolsRemoteworkersV1test2CommandTaskTimeouts' smart constructor.
 data GoogleDevtoolsRemoteworkersV1test2CommandTaskTimeouts = GoogleDevtoolsRemoteworkersV1test2CommandTaskTimeouts'
-    { _gdrvcttIdle      :: !(Maybe Duration)
-    , _gdrvcttShutdown  :: !(Maybe Duration)
-    , _gdrvcttExecution :: !(Maybe Duration)
+    { _gdrvcttIdle      :: !(Maybe GDuration)
+    , _gdrvcttShutdown  :: !(Maybe GDuration)
+    , _gdrvcttExecution :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GoogleDevtoolsRemoteworkersV1test2CommandTaskTimeouts' with the minimum fields required to make a request.
@@ -1535,7 +1535,7 @@ googleDevtoolsRemoteworkersV1test2CommandTaskTimeouts =
 gdrvcttIdle :: Lens' GoogleDevtoolsRemoteworkersV1test2CommandTaskTimeouts (Maybe Scientific)
 gdrvcttIdle
   = lens _gdrvcttIdle (\ s a -> s{_gdrvcttIdle = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | If the execution or IO timeouts are exceeded, the worker will try to
 -- gracefully terminate the task and return any existing logs. However,
@@ -1547,7 +1547,7 @@ gdrvcttShutdown :: Lens' GoogleDevtoolsRemoteworkersV1test2CommandTaskTimeouts (
 gdrvcttShutdown
   = lens _gdrvcttShutdown
       (\ s a -> s{_gdrvcttShutdown = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | This specifies the maximum time that the task can run, excluding the
 -- time required to download inputs or upload outputs. That is, the worker
@@ -1556,7 +1556,7 @@ gdrvcttExecution :: Lens' GoogleDevtoolsRemoteworkersV1test2CommandTaskTimeouts 
 gdrvcttExecution
   = lens _gdrvcttExecution
       (\ s a -> s{_gdrvcttExecution = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON
          GoogleDevtoolsRemoteworkersV1test2CommandTaskTimeouts
@@ -2821,8 +2821,8 @@ instance ToJSON BuildBazelSemverSemVer where
 --
 -- /See:/ 'googleDevtoolsRemoteworkersV1test2CommandOverhead' smart constructor.
 data GoogleDevtoolsRemoteworkersV1test2CommandOverhead = GoogleDevtoolsRemoteworkersV1test2CommandOverhead'
-    { _gdrvcoOverhead :: !(Maybe Duration)
-    , _gdrvcoDuration :: !(Maybe Duration)
+    { _gdrvcoOverhead :: !(Maybe GDuration)
+    , _gdrvcoDuration :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GoogleDevtoolsRemoteworkersV1test2CommandOverhead' with the minimum fields required to make a request.
@@ -2846,7 +2846,7 @@ gdrvcoOverhead :: Lens' GoogleDevtoolsRemoteworkersV1test2CommandOverhead (Maybe
 gdrvcoOverhead
   = lens _gdrvcoOverhead
       (\ s a -> s{_gdrvcoOverhead = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The elapsed time between calling Accept and Complete. The server will
 -- also have its own idea of what this should be, but this excludes the
@@ -2855,7 +2855,7 @@ gdrvcoDuration :: Lens' GoogleDevtoolsRemoteworkersV1test2CommandOverhead (Maybe
 gdrvcoDuration
   = lens _gdrvcoDuration
       (\ s a -> s{_gdrvcoDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON
          GoogleDevtoolsRemoteworkersV1test2CommandOverhead
@@ -3457,11 +3457,11 @@ instance ToJSON
 -- /See:/ 'googleDevtoolsRemoteworkersV1test2CommandResult' smart constructor.
 data GoogleDevtoolsRemoteworkersV1test2CommandResult = GoogleDevtoolsRemoteworkersV1test2CommandResult'
     { _gdrvcrStatus     :: !(Maybe GoogleRpcStatus)
-    , _gdrvcrOverhead   :: !(Maybe Duration)
+    , _gdrvcrOverhead   :: !(Maybe GDuration)
     , _gdrvcrOutputs    :: !(Maybe GoogleDevtoolsRemoteworkersV1test2Digest)
     , _gdrvcrExitCode   :: !(Maybe (Textual Int32))
     , _gdrvcrStatistics :: !(Maybe [GoogleDevtoolsRemoteworkersV1test2CommandResultStatisticsItem])
-    , _gdrvcrDuration   :: !(Maybe Duration)
+    , _gdrvcrDuration   :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GoogleDevtoolsRemoteworkersV1test2CommandResult' with the minimum fields required to make a request.
@@ -3505,7 +3505,7 @@ gdrvcrOverhead :: Lens' GoogleDevtoolsRemoteworkersV1test2CommandResult (Maybe S
 gdrvcrOverhead
   = lens _gdrvcrOverhead
       (\ s a -> s{_gdrvcrOverhead = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The output files. The blob referenced by the digest should contain one
 -- of the following (implementation-dependent): * A marshalled
@@ -3545,7 +3545,7 @@ gdrvcrDuration :: Lens' GoogleDevtoolsRemoteworkersV1test2CommandResult (Maybe S
 gdrvcrDuration
   = lens _gdrvcrDuration
       (\ s a -> s{_gdrvcrDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON
          GoogleDevtoolsRemoteworkersV1test2CommandResult where
@@ -3743,13 +3743,13 @@ instance ToJSON
 --
 -- /See:/ 'googleDevtoolsRemotebuildbotCommandDurations' smart constructor.
 data GoogleDevtoolsRemotebuildbotCommandDurations = GoogleDevtoolsRemotebuildbotCommandDurations'
-    { _gdrcdStdout      :: !(Maybe Duration)
-    , _gdrcdDockerPrep  :: !(Maybe Duration)
-    , _gdrcdDownload    :: !(Maybe Duration)
-    , _gdrcdOverall     :: !(Maybe Duration)
-    , _gdrcdExecution   :: !(Maybe Duration)
+    { _gdrcdStdout      :: !(Maybe GDuration)
+    , _gdrcdDockerPrep  :: !(Maybe GDuration)
+    , _gdrcdDownload    :: !(Maybe GDuration)
+    , _gdrcdOverall     :: !(Maybe GDuration)
+    , _gdrcdExecution   :: !(Maybe GDuration)
     , _gdrcdIsoPrepDone :: !(Maybe DateTime')
-    , _gdrcdUpload      :: !(Maybe Duration)
+    , _gdrcdUpload      :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GoogleDevtoolsRemotebuildbotCommandDurations' with the minimum fields required to make a request.
@@ -3786,7 +3786,7 @@ googleDevtoolsRemotebuildbotCommandDurations =
 gdrcdStdout :: Lens' GoogleDevtoolsRemotebuildbotCommandDurations (Maybe Scientific)
 gdrcdStdout
   = lens _gdrcdStdout (\ s a -> s{_gdrcdStdout = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | The time spent preparing the command to be run in a Docker container
 -- (includes pulling the Docker image, if necessary).
@@ -3794,7 +3794,7 @@ gdrcdDockerPrep :: Lens' GoogleDevtoolsRemotebuildbotCommandDurations (Maybe Sci
 gdrcdDockerPrep
   = lens _gdrcdDockerPrep
       (\ s a -> s{_gdrcdDockerPrep = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The time spent downloading the input files and constructing the working
 -- directory.
@@ -3802,20 +3802,20 @@ gdrcdDownload :: Lens' GoogleDevtoolsRemotebuildbotCommandDurations (Maybe Scien
 gdrcdDownload
   = lens _gdrcdDownload
       (\ s a -> s{_gdrcdDownload = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The time spent completing the command, in total.
 gdrcdOverall :: Lens' GoogleDevtoolsRemotebuildbotCommandDurations (Maybe Scientific)
 gdrcdOverall
   = lens _gdrcdOverall (\ s a -> s{_gdrcdOverall = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The time spent executing the command (i.e., doing useful work).
 gdrcdExecution :: Lens' GoogleDevtoolsRemotebuildbotCommandDurations (Maybe Scientific)
 gdrcdExecution
   = lens _gdrcdExecution
       (\ s a -> s{_gdrcdExecution = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The timestamp when preparation is done and bot starts downloading files.
 gdrcdIsoPrepDone :: Lens' GoogleDevtoolsRemotebuildbotCommandDurations (Maybe UTCTime)
@@ -3828,7 +3828,7 @@ gdrcdIsoPrepDone
 gdrcdUpload :: Lens' GoogleDevtoolsRemotebuildbotCommandDurations (Maybe Scientific)
 gdrcdUpload
   = lens _gdrcdUpload (\ s a -> s{_gdrcdUpload = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 instance FromJSON
          GoogleDevtoolsRemotebuildbotCommandDurations where

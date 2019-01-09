@@ -2381,7 +2381,7 @@ instance ToJSON WorkflowTemplateLabels where
 --
 -- /See:/ 'nodeInitializationAction' smart constructor.
 data NodeInitializationAction = NodeInitializationAction'
-    { _niaExecutionTimeout :: !(Maybe Duration)
+    { _niaExecutionTimeout :: !(Maybe GDuration)
     , _niaExecutableFile   :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -2408,7 +2408,7 @@ niaExecutionTimeout :: Lens' NodeInitializationAction (Maybe Scientific)
 niaExecutionTimeout
   = lens _niaExecutionTimeout
       (\ s a -> s{_niaExecutionTimeout = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Required. Cloud Storage URI of executable file.
 niaExecutableFile :: Lens' NodeInitializationAction (Maybe Text)

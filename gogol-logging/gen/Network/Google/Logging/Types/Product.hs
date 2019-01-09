@@ -799,11 +799,11 @@ data RequestLog = RequestLog'
     , _rlVersionId         :: !(Maybe Text)
     , _rlHTTPVersion       :: !(Maybe Text)
     , _rlTaskName          :: !(Maybe Text)
-    , _rlPendingTime       :: !(Maybe Duration)
+    , _rlPendingTime       :: !(Maybe GDuration)
     , _rlWasLoadingRequest :: !(Maybe Bool)
     , _rlFirst             :: !(Maybe Bool)
     , _rlStartTime         :: !(Maybe DateTime')
-    , _rlLatency           :: !(Maybe Duration)
+    , _rlLatency           :: !(Maybe GDuration)
     , _rlURLMapEntry       :: !(Maybe Text)
     , _rlCost              :: !(Maybe (Textual Double))
     , _rlReferrer          :: !(Maybe Text)
@@ -991,7 +991,7 @@ rlPendingTime :: Lens' RequestLog (Maybe Scientific)
 rlPendingTime
   = lens _rlPendingTime
       (\ s a -> s{_rlPendingTime = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Whether this was a loading request for the instance.
 rlWasLoadingRequest :: Lens' RequestLog (Maybe Bool)
@@ -1015,7 +1015,7 @@ rlStartTime
 rlLatency :: Lens' RequestLog (Maybe Scientific)
 rlLatency
   = lens _rlLatency (\ s a -> s{_rlLatency = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | File or class that handled the request.
 rlURLMapEntry :: Lens' RequestLog (Maybe Text)
@@ -1796,7 +1796,7 @@ data HTTPRequest = HTTPRequest'
     , _httprRequestURL                     :: !(Maybe Text)
     , _httprCacheFillBytes                 :: !(Maybe (Textual Int64))
     , _httprRemoteIP                       :: !(Maybe Text)
-    , _httprLatency                        :: !(Maybe Duration)
+    , _httprLatency                        :: !(Maybe GDuration)
     , _httprProtocol                       :: !(Maybe Text)
     , _httprServerIP                       :: !(Maybe Text)
     , _httprRequestSize                    :: !(Maybe (Textual Int64))
@@ -1897,7 +1897,7 @@ httprRemoteIP
 httprLatency :: Lens' HTTPRequest (Maybe Scientific)
 httprLatency
   = lens _httprLatency (\ s a -> s{_httprLatency = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Protocol used for the request. Examples: \"HTTP\/1.1\", \"HTTP\/2\",
 -- \"websocket\"
@@ -2253,8 +2253,8 @@ instance ToJSON LogLine where
 --
 -- /See:/ 'metricDescriptorMetadata' smart constructor.
 data MetricDescriptorMetadata = MetricDescriptorMetadata'
-    { _mdmSamplePeriod :: !(Maybe Duration)
-    , _mdmIngestDelay  :: !(Maybe Duration)
+    { _mdmSamplePeriod :: !(Maybe GDuration)
+    , _mdmIngestDelay  :: !(Maybe GDuration)
     , _mdmLaunchStage  :: !(Maybe MetricDescriptorMetadataLaunchStage)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -2284,7 +2284,7 @@ mdmSamplePeriod :: Lens' MetricDescriptorMetadata (Maybe Scientific)
 mdmSamplePeriod
   = lens _mdmSamplePeriod
       (\ s a -> s{_mdmSamplePeriod = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The delay of data points caused by ingestion. Data points older than
 -- this age are guaranteed to be ingested and available to be read,
@@ -2293,7 +2293,7 @@ mdmIngestDelay :: Lens' MetricDescriptorMetadata (Maybe Scientific)
 mdmIngestDelay
   = lens _mdmIngestDelay
       (\ s a -> s{_mdmIngestDelay = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The launch stage of the metric definition.
 mdmLaunchStage :: Lens' MetricDescriptorMetadata (Maybe MetricDescriptorMetadataLaunchStage)

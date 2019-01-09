@@ -66,7 +66,8 @@ type ProjectsRegionsClustersPatchResource =
                          QueryParam "updateMask" GFieldMask :>
                            QueryParam "access_token" Text :>
                              QueryParam "uploadType" Text :>
-                               QueryParam "gracefulDecommissionTimeout" Duration
+                               QueryParam "gracefulDecommissionTimeout"
+                                 GDuration
                                  :>
                                  QueryParam "callback" Text :>
                                    QueryParam "alt" AltJSON :>
@@ -84,7 +85,7 @@ data ProjectsRegionsClustersPatch = ProjectsRegionsClustersPatch'
     , _prcpAccessToken                 :: !(Maybe Text)
     , _prcpUploadType                  :: !(Maybe Text)
     , _prcpPayload                     :: !Cluster
-    , _prcpGracefulDecommissionTimeout :: !(Maybe Duration)
+    , _prcpGracefulDecommissionTimeout :: !(Maybe GDuration)
     , _prcpClusterName                 :: !Text
     , _prcpRegion                      :: !Text
     , _prcpProjectId                   :: !Text
@@ -214,7 +215,7 @@ prcpGracefulDecommissionTimeout :: Lens' ProjectsRegionsClustersPatch (Maybe Sci
 prcpGracefulDecommissionTimeout
   = lens _prcpGracefulDecommissionTimeout
       (\ s a -> s{_prcpGracefulDecommissionTimeout = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Required. The cluster name.
 prcpClusterName :: Lens' ProjectsRegionsClustersPatch Text

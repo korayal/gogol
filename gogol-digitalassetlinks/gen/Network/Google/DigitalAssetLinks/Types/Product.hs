@@ -204,7 +204,7 @@ instance ToJSON Asset where
 -- /See:/ 'listResponse' smart constructor.
 data ListResponse = ListResponse'
     { _lrDebugString :: !(Maybe Text)
-    , _lrMaxAge      :: !(Maybe Duration)
+    , _lrMaxAge      :: !(Maybe GDuration)
     , _lrErrorCode   :: !(Maybe [Text])
     , _lrStatements  :: !(Maybe [Statement])
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -247,7 +247,7 @@ lrDebugString
 lrMaxAge :: Lens' ListResponse (Maybe Scientific)
 lrMaxAge
   = lens _lrMaxAge (\ s a -> s{_lrMaxAge = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | Error codes that describe the result of the List operation.
 lrErrorCode :: Lens' ListResponse [Text]
@@ -286,7 +286,7 @@ instance ToJSON ListResponse where
 -- /See:/ 'checkResponse' smart constructor.
 data CheckResponse = CheckResponse'
     { _crDebugString :: !(Maybe Text)
-    , _crMaxAge      :: !(Maybe Duration)
+    , _crMaxAge      :: !(Maybe GDuration)
     , _crErrorCode   :: !(Maybe [Text])
     , _crLinked      :: !(Maybe Bool)
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -329,7 +329,7 @@ crDebugString
 crMaxAge :: Lens' CheckResponse (Maybe Scientific)
 crMaxAge
   = lens _crMaxAge (\ s a -> s{_crMaxAge = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | Error codes that describe the result of the Check operation.
 crErrorCode :: Lens' CheckResponse [Text]

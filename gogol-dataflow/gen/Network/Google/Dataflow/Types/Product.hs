@@ -574,7 +574,7 @@ instance ToJSON IntegerList where
 -- /See:/ 'workItem' smart constructor.
 data WorkItem = WorkItem'
     { _wiJobId                    :: !(Maybe Text)
-    , _wiReportStatusInterval     :: !(Maybe Duration)
+    , _wiReportStatusInterval     :: !(Maybe GDuration)
     , _wiShellTask                :: !(Maybe ShellTask)
     , _wiStreamingSetupTask       :: !(Maybe StreamingSetupTask)
     , _wiInitialReportIndex       :: !(Maybe (Textual Int64))
@@ -653,7 +653,7 @@ wiReportStatusInterval :: Lens' WorkItem (Maybe Scientific)
 wiReportStatusInterval
   = lens _wiReportStatusInterval
       (\ s a -> s{_wiReportStatusInterval = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Additional information for ShellTask WorkItems.
 wiShellTask :: Lens' WorkItem (Maybe ShellTask)
@@ -784,7 +784,7 @@ instance ToJSON WorkItem where
 -- /See:/ 'workerHealthReport' smart constructor.
 data WorkerHealthReport = WorkerHealthReport'
     { _whrVMIsHealthy    :: !(Maybe Bool)
-    , _whrReportInterval :: !(Maybe Duration)
+    , _whrReportInterval :: !(Maybe GDuration)
     , _whrPods           :: !(Maybe [WorkerHealthReportPodsItem])
     , _whrVMStartupTime  :: !(Maybe DateTime')
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -823,7 +823,7 @@ whrReportInterval :: Lens' WorkerHealthReport (Maybe Scientific)
 whrReportInterval
   = lens _whrReportInterval
       (\ s a -> s{_whrReportInterval = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The pods running on the worker. See:
 -- http:\/\/kubernetes.io\/v1.1\/docs\/api-reference\/v1\/definitions.html#_v1_pod
@@ -864,7 +864,7 @@ instance ToJSON WorkerHealthReport where
 -- /See:/ 'snapshot' smart constructor.
 data Snapshot = Snapshot'
     { _sCreationTime :: !(Maybe DateTime')
-    , _sTtl          :: !(Maybe Duration)
+    , _sTtl          :: !(Maybe GDuration)
     , _sSourceJobId  :: !(Maybe Text)
     , _sId           :: !(Maybe Text)
     , _sProjectId    :: !(Maybe Text)
@@ -905,7 +905,7 @@ sCreationTime
 sTtl :: Lens' Snapshot (Maybe Scientific)
 sTtl
   = lens _sTtl (\ s a -> s{_sTtl = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | The job this snapshot was created from.
 sSourceJobId :: Lens' Snapshot (Maybe Text)
@@ -1577,7 +1577,7 @@ instance ToJSON StringList where
 --
 -- /See:/ 'workerHealthReportResponse' smart constructor.
 newtype WorkerHealthReportResponse = WorkerHealthReportResponse'
-    { _whrrReportInterval :: Maybe Duration
+    { _whrrReportInterval :: Maybe GDuration
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'WorkerHealthReportResponse' with the minimum fields required to make a request.
@@ -1599,7 +1599,7 @@ whrrReportInterval :: Lens' WorkerHealthReportResponse (Maybe Scientific)
 whrrReportInterval
   = lens _whrrReportInterval
       (\ s a -> s{_whrrReportInterval = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON WorkerHealthReportResponse where
         parseJSON
@@ -1618,7 +1618,7 @@ instance ToJSON WorkerHealthReportResponse where
 --
 -- /See:/ 'displayData' smart constructor.
 data DisplayData = DisplayData'
-    { _ddDurationValue  :: !(Maybe Duration)
+    { _ddDurationValue  :: !(Maybe GDuration)
     , _ddBoolValue      :: !(Maybe Bool)
     , _ddTimestampValue :: !(Maybe DateTime')
     , _ddURL            :: !(Maybe Text)
@@ -1682,7 +1682,7 @@ ddDurationValue :: Lens' DisplayData (Maybe Scientific)
 ddDurationValue
   = lens _ddDurationValue
       (\ s a -> s{_ddDurationValue = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Contains value if the data is of a boolean type.
 ddBoolValue :: Lens' DisplayData (Maybe Bool)
@@ -3489,7 +3489,7 @@ data WorkItemStatus = WorkItemStatus'
     , _wisCompleted                     :: !(Maybe Bool)
     , _wisSourceFork                    :: !(Maybe SourceFork)
     , _wisReportIndex                   :: !(Maybe (Textual Int64))
-    , _wisRequestedLeaseDuration        :: !(Maybe Duration)
+    , _wisRequestedLeaseDuration        :: !(Maybe GDuration)
     , _wisErrors                        :: !(Maybe [Status])
     , _wisCounterUpdates                :: !(Maybe [CounterUpdate])
     , _wisMetricUpdates                 :: !(Maybe [MetricUpdate])
@@ -3639,7 +3639,7 @@ wisRequestedLeaseDuration :: Lens' WorkItemStatus (Maybe Scientific)
 wisRequestedLeaseDuration
   = lens _wisRequestedLeaseDuration
       (\ s a -> s{_wisRequestedLeaseDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Specifies errors which occurred during processing. If errors are
 -- provided, and completed = true, then the WorkItem is considered to have
@@ -4632,7 +4632,7 @@ data LeaseWorkItemRequest = LeaseWorkItemRequest'
     , _lwirCurrentWorkerTime      :: !(Maybe DateTime')
     , _lwirLocation               :: !(Maybe Text)
     , _lwirWorkerCapabilities     :: !(Maybe [Text])
-    , _lwirRequestedLeaseDuration :: !(Maybe Duration)
+    , _lwirRequestedLeaseDuration :: !(Maybe GDuration)
     , _lwirWorkerId               :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -4697,7 +4697,7 @@ lwirRequestedLeaseDuration :: Lens' LeaseWorkItemRequest (Maybe Scientific)
 lwirRequestedLeaseDuration
   = lens _lwirRequestedLeaseDuration
       (\ s a -> s{_lwirRequestedLeaseDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Identifies the worker leasing work -- typically the ID of the virtual
 -- machine running the worker.
@@ -5784,7 +5784,7 @@ instance ToJSON BigTableIODetails where
 -- /See:/ 'workItemServiceState' smart constructor.
 data WorkItemServiceState = WorkItemServiceState'
     { _wissNextReportIndex       :: !(Maybe (Textual Int64))
-    , _wissReportStatusInterval  :: !(Maybe Duration)
+    , _wissReportStatusInterval  :: !(Maybe GDuration)
     , _wissHarnessData           :: !(Maybe WorkItemServiceStateHarnessData)
     , _wissSuggestedStopPoint    :: !(Maybe ApproximateProgress)
     , _wissSuggestedStopPosition :: !(Maybe Position)
@@ -5840,7 +5840,7 @@ wissReportStatusInterval :: Lens' WorkItemServiceState (Maybe Scientific)
 wissReportStatusInterval
   = lens _wissReportStatusInterval
       (\ s a -> s{_wissReportStatusInterval = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Other data returned by the service, specific to the particular worker
 -- harness.
@@ -8766,7 +8766,7 @@ instance ToJSON DynamicSourceSplit where
 --
 -- /See:/ 'snapshotJobRequest' smart constructor.
 data SnapshotJobRequest = SnapshotJobRequest'
-    { _sjrTtl      :: !(Maybe Duration)
+    { _sjrTtl      :: !(Maybe GDuration)
     , _sjrLocation :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -8789,7 +8789,7 @@ snapshotJobRequest =
 sjrTtl :: Lens' SnapshotJobRequest (Maybe Scientific)
 sjrTtl
   = lens _sjrTtl (\ s a -> s{_sjrTtl = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | The location that contains this job.
 sjrLocation :: Lens' SnapshotJobRequest (Maybe Text)
@@ -9213,7 +9213,7 @@ instance ToJSON Source where
 --
 -- /See:/ 'approximateProgress' smart constructor.
 data ApproximateProgress = ApproximateProgress'
-    { _apRemainingTime   :: !(Maybe Duration)
+    { _apRemainingTime   :: !(Maybe GDuration)
     , _apPercentComplete :: !(Maybe (Textual Double))
     , _apPosition        :: !(Maybe Position)
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -9241,7 +9241,7 @@ apRemainingTime :: Lens' ApproximateProgress (Maybe Scientific)
 apRemainingTime
   = lens _apRemainingTime
       (\ s a -> s{_apRemainingTime = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Obsolete.
 apPercentComplete :: Lens' ApproximateProgress (Maybe Double)

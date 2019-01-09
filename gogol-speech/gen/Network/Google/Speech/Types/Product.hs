@@ -638,9 +638,9 @@ instance ToJSON SpeechRecognitionAlternative where
 --
 -- /See:/ 'wordInfo' smart constructor.
 data WordInfo = WordInfo'
-    { _wiStartTime  :: !(Maybe Duration)
+    { _wiStartTime  :: !(Maybe GDuration)
     , _wiConfidence :: !(Maybe (Textual Double))
-    , _wiEndTime    :: !(Maybe Duration)
+    , _wiEndTime    :: !(Maybe GDuration)
     , _wiWord       :: !(Maybe Text)
     , _wiSpeakerTag :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -676,7 +676,7 @@ wordInfo =
 wiStartTime :: Lens' WordInfo (Maybe Scientific)
 wiStartTime
   = lens _wiStartTime (\ s a -> s{_wiStartTime = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | Output only. The confidence estimate between 0.0 and 1.0. A higher
 -- number indicates an estimated greater likelihood that the recognized
@@ -697,7 +697,7 @@ wiConfidence
 wiEndTime :: Lens' WordInfo (Maybe Scientific)
 wiEndTime
   = lens _wiEndTime (\ s a -> s{_wiEndTime = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | Output only. The word corresponding to this set of information.
 wiWord :: Lens' WordInfo (Maybe Text)

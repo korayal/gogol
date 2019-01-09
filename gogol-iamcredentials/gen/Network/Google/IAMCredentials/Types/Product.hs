@@ -325,7 +325,7 @@ instance ToJSON
 -- /See:/ 'generateAccessTokenRequest' smart constructor.
 data GenerateAccessTokenRequest = GenerateAccessTokenRequest'
     { _gatrDelegates :: !(Maybe [Text])
-    , _gatrLifetime  :: !(Maybe Duration)
+    , _gatrLifetime  :: !(Maybe GDuration)
     , _gatrScope     :: !(Maybe [Text])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -369,7 +369,7 @@ gatrDelegates
 gatrLifetime :: Lens' GenerateAccessTokenRequest (Maybe Scientific)
 gatrLifetime
   = lens _gatrLifetime (\ s a -> s{_gatrLifetime = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Code to identify the scopes to be included in the OAuth 2.0 access
 -- token. See

@@ -1450,7 +1450,7 @@ instance ToJSON SeekResponse where
 --
 -- /See:/ 'expirationPolicy' smart constructor.
 newtype ExpirationPolicy = ExpirationPolicy'
-    { _epTtl :: Maybe Duration
+    { _epTtl :: Maybe GDuration
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ExpirationPolicy' with the minimum fields required to make a request.
@@ -1474,7 +1474,7 @@ expirationPolicy =
 epTtl :: Lens' ExpirationPolicy (Maybe Scientific)
 epTtl
   = lens _epTtl (\ s a -> s{_epTtl = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 instance FromJSON ExpirationPolicy where
         parseJSON
@@ -1538,7 +1538,7 @@ instance ToJSON PushConfigAttributes where
 -- /See:/ 'subscription' smart constructor.
 data Subscription = Subscription'
     { _subPushConfig               :: !(Maybe PushConfig)
-    , _subMessageRetentionDuration :: !(Maybe Duration)
+    , _subMessageRetentionDuration :: !(Maybe GDuration)
     , _subTopic                    :: !(Maybe Text)
     , _subName                     :: !(Maybe Text)
     , _subLabels                   :: !(Maybe SubscriptionLabels)
@@ -1601,7 +1601,7 @@ subMessageRetentionDuration :: Lens' Subscription (Maybe Scientific)
 subMessageRetentionDuration
   = lens _subMessageRetentionDuration
       (\ s a -> s{_subMessageRetentionDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The name of the topic from which this subscription is receiving
 -- messages. Format is \`projects\/{project}\/topics\/{topic}\`. The value

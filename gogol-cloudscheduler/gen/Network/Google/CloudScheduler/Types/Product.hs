@@ -271,10 +271,10 @@ instance ToJSON AppEngineHTTPTargetHeaders where
 -- /See:/ 'retryConfig' smart constructor.
 data RetryConfig = RetryConfig'
     { _rcMaxDoublings       :: !(Maybe (Textual Int32))
-    , _rcMaxRetryDuration   :: !(Maybe Duration)
-    , _rcMinBackoffDuration :: !(Maybe Duration)
+    , _rcMaxRetryDuration   :: !(Maybe GDuration)
+    , _rcMinBackoffDuration :: !(Maybe GDuration)
     , _rcRetryCount         :: !(Maybe (Textual Int32))
-    , _rcMaxBackoffDuration :: !(Maybe Duration)
+    , _rcMaxBackoffDuration :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RetryConfig' with the minimum fields required to make a request.
@@ -326,7 +326,7 @@ rcMaxRetryDuration :: Lens' RetryConfig (Maybe Scientific)
 rcMaxRetryDuration
   = lens _rcMaxRetryDuration
       (\ s a -> s{_rcMaxRetryDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The minimum amount of time to wait before retrying a job after it fails.
 -- The default value of this field is 5 seconds.
@@ -334,7 +334,7 @@ rcMinBackoffDuration :: Lens' RetryConfig (Maybe Scientific)
 rcMinBackoffDuration
   = lens _rcMinBackoffDuration
       (\ s a -> s{_rcMinBackoffDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The number of attempts that the system will make to run a job using the
 -- exponential backoff procedure described by max_doublings. The default
@@ -356,7 +356,7 @@ rcMaxBackoffDuration :: Lens' RetryConfig (Maybe Scientific)
 rcMaxBackoffDuration
   = lens _rcMaxBackoffDuration
       (\ s a -> s{_rcMaxBackoffDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON RetryConfig where
         parseJSON

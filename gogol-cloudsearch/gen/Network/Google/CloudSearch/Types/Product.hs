@@ -3729,7 +3729,7 @@ instance ToJSON ResultCounts where
 --
 -- /See:/ 'freshnessOptions' smart constructor.
 data FreshnessOptions = FreshnessOptions'
-    { _foFreshnessDuration :: !(Maybe Duration)
+    { _foFreshnessDuration :: !(Maybe GDuration)
     , _foFreshnessProperty :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -3754,7 +3754,7 @@ foFreshnessDuration :: Lens' FreshnessOptions (Maybe Scientific)
 foFreshnessDuration
   = lens _foFreshnessDuration
       (\ s a -> s{_foFreshnessDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | This property indicates the freshness level of the object in the index.
 -- If set, this property must be a top-level property within the property

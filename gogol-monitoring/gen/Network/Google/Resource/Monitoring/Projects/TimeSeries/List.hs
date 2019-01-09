@@ -74,7 +74,7 @@ type ProjectsTimeSeriesListResource =
                              QueryParam "aggregation.crossSeriesReducer" Text :>
                                QueryParam "filter" Text :>
                                  QueryParam "aggregation.alignmentPeriod"
-                                   Duration
+                                   GDuration
                                    :>
                                    QueryParam "pageToken" Text :>
                                      QueryParam "interval.endTime" DateTime' :>
@@ -100,7 +100,7 @@ data ProjectsTimeSeriesList = ProjectsTimeSeriesList'
     , _ptslView                          :: !(Maybe Text)
     , _ptslAggregationCrossSeriesReducer :: !(Maybe Text)
     , _ptslFilter                        :: !(Maybe Text)
-    , _ptslAggregationAlignmentPeriod    :: !(Maybe Duration)
+    , _ptslAggregationAlignmentPeriod    :: !(Maybe GDuration)
     , _ptslPageToken                     :: !(Maybe Text)
     , _ptslIntervalEndTime               :: !(Maybe DateTime')
     , _ptslPageSize                      :: !(Maybe (Textual Int32))
@@ -280,7 +280,7 @@ ptslAggregationAlignmentPeriod :: Lens' ProjectsTimeSeriesList (Maybe Scientific
 ptslAggregationAlignmentPeriod
   = lens _ptslAggregationAlignmentPeriod
       (\ s a -> s{_ptslAggregationAlignmentPeriod = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | If this field is not empty then it must contain the nextPageToken value
 -- returned by a previous call to this method. Using this field causes the

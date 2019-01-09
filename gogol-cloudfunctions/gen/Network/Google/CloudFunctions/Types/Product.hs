@@ -1724,7 +1724,7 @@ data CloudFunction = CloudFunction'
     , _cfLabels               :: !(Maybe CloudFunctionLabels)
     , _cfServiceAccountEmail  :: !(Maybe Text)
     , _cfEnvironmentVariables :: !(Maybe CloudFunctionEnvironmentVariables)
-    , _cfTimeout              :: !(Maybe Duration)
+    , _cfTimeout              :: !(Maybe GDuration)
     , _cfVPCConnector         :: !(Maybe Text)
     , _cfDescription          :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -1923,7 +1923,7 @@ cfEnvironmentVariables
 cfTimeout :: Lens' CloudFunction (Maybe Scientific)
 cfTimeout
   = lens _cfTimeout (\ s a -> s{_cfTimeout = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | The VPC Network Connector that this cloud function can connect to. It
 -- can be either the fully-qualified URI, or the short name of the network

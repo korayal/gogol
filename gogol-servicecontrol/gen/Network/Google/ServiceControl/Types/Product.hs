@@ -2028,7 +2028,7 @@ data HTTPRequest = HTTPRequest'
     , _httprRequestURL                     :: !(Maybe Text)
     , _httprCacheFillBytes                 :: !(Maybe (Textual Int64))
     , _httprRemoteIP                       :: !(Maybe Text)
-    , _httprLatency                        :: !(Maybe Duration)
+    , _httprLatency                        :: !(Maybe GDuration)
     , _httprProtocol                       :: !(Maybe Text)
     , _httprServerIP                       :: !(Maybe Text)
     , _httprRequestSize                    :: !(Maybe (Textual Int64))
@@ -2131,7 +2131,7 @@ httprRemoteIP
 httprLatency :: Lens' HTTPRequest (Maybe Scientific)
 httprLatency
   = lens _httprLatency (\ s a -> s{_httprLatency = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Protocol used for the request. Examples: \"HTTP\/1.1\", \"HTTP\/2\",
 -- \"websocket\"

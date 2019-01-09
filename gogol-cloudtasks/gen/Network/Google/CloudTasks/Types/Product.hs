@@ -370,10 +370,10 @@ instance ToJSON GetIAMPolicyRequest where
 -- /See:/ 'retryConfig' smart constructor.
 data RetryConfig = RetryConfig'
     { _rcMaxDoublings     :: !(Maybe (Textual Int32))
-    , _rcMaxRetryDuration :: !(Maybe Duration)
+    , _rcMaxRetryDuration :: !(Maybe GDuration)
     , _rcMaxAttempts      :: !(Maybe (Textual Int32))
-    , _rcMaxBackoff       :: !(Maybe Duration)
-    , _rcMinBackoff       :: !(Maybe Duration)
+    , _rcMaxBackoff       :: !(Maybe GDuration)
+    , _rcMinBackoff       :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RetryConfig' with the minimum fields required to make a request.
@@ -432,7 +432,7 @@ rcMaxRetryDuration :: Lens' RetryConfig (Maybe Scientific)
 rcMaxRetryDuration
   = lens _rcMaxRetryDuration
       (\ s a -> s{_rcMaxRetryDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Number of attempts per task. Cloud Tasks will attempt the task
 -- \`max_attempts\` times (that is, if the first attempt fails, then there
@@ -457,7 +457,7 @@ rcMaxAttempts
 rcMaxBackoff :: Lens' RetryConfig (Maybe Scientific)
 rcMaxBackoff
   = lens _rcMaxBackoff (\ s a -> s{_rcMaxBackoff = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | A task will be scheduled for retry between min_backoff and max_backoff
 -- duration after it fails, if the queue\'s RetryConfig specifies that the
@@ -469,7 +469,7 @@ rcMaxBackoff
 rcMinBackoff :: Lens' RetryConfig (Maybe Scientific)
 rcMinBackoff
   = lens _rcMinBackoff (\ s a -> s{_rcMinBackoff = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON RetryConfig where
         parseJSON

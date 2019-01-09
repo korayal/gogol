@@ -1801,7 +1801,7 @@ data MetricThreshold = MetricThreshold'
     , _mtDenominatorFilter       :: !(Maybe Text)
     , _mtFilter                  :: !(Maybe Text)
     , _mtTrigger                 :: !(Maybe Trigger)
-    , _mtDuration                :: !(Maybe Duration)
+    , _mtDuration                :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MetricThreshold' with the minimum fields required to make a request.
@@ -1930,7 +1930,7 @@ mtTrigger
 mtDuration :: Lens' MetricThreshold (Maybe Scientific)
 mtDuration
   = lens _mtDuration (\ s a -> s{_mtDuration = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 instance FromJSON MetricThreshold where
         parseJSON
@@ -2629,7 +2629,7 @@ instance ToJSON CreateCollectdTimeSeriesRequest where
 data Aggregation = Aggregation'
     { _aPerSeriesAligner   :: !(Maybe AggregationPerSeriesAligner)
     , _aCrossSeriesReducer :: !(Maybe AggregationCrossSeriesReducer)
-    , _aAlignmentPeriod    :: !(Maybe Duration)
+    , _aAlignmentPeriod    :: !(Maybe GDuration)
     , _aGroupByFields      :: !(Maybe [Text])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -2691,7 +2691,7 @@ aAlignmentPeriod :: Lens' Aggregation (Maybe Scientific)
 aAlignmentPeriod
   = lens _aAlignmentPeriod
       (\ s a -> s{_aAlignmentPeriod = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The set of fields to preserve when crossSeriesReducer is specified. The
 -- groupByFields determine how the time series are partitioned into subsets
@@ -2737,7 +2737,7 @@ instance ToJSON Aggregation where
 -- /See:/ 'uptimeCheckConfig' smart constructor.
 data UptimeCheckConfig = UptimeCheckConfig'
     { _uccInternalCheckers  :: !(Maybe [InternalChecker])
-    , _uccPeriod            :: !(Maybe Duration)
+    , _uccPeriod            :: !(Maybe GDuration)
     , _uccContentMatchers   :: !(Maybe [ContentMatcher])
     , _uccName              :: !(Maybe Text)
     , _uccMonitoredResource :: !(Maybe MonitoredResource)
@@ -2745,7 +2745,7 @@ data UptimeCheckConfig = UptimeCheckConfig'
     , _uccIsInternal        :: !(Maybe Bool)
     , _uccDisplayName       :: !(Maybe Text)
     , _uccResourceGroup     :: !(Maybe ResourceGroup)
-    , _uccTimeout           :: !(Maybe Duration)
+    , _uccTimeout           :: !(Maybe GDuration)
     , _uccHTTPCheck         :: !(Maybe HTTPCheck)
     , _uccTCPCheck          :: !(Maybe TCPCheck)
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -2811,7 +2811,7 @@ uccInternalCheckers
 uccPeriod :: Lens' UptimeCheckConfig (Maybe Scientific)
 uccPeriod
   = lens _uccPeriod (\ s a -> s{_uccPeriod = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | The expected content on the page the check is run against. Currently,
 -- only the first entry in the list is supported, and other entries will be
@@ -2884,7 +2884,7 @@ uccResourceGroup
 uccTimeout :: Lens' UptimeCheckConfig (Maybe Scientific)
 uccTimeout
   = lens _uccTimeout (\ s a -> s{_uccTimeout = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | Contains information needed to make an HTTP or HTTPS check.
 uccHTTPCheck :: Lens' UptimeCheckConfig (Maybe HTTPCheck)
@@ -3693,8 +3693,8 @@ instance ToJSON Exemplar where
 --
 -- /See:/ 'metricDescriptorMetadata' smart constructor.
 data MetricDescriptorMetadata = MetricDescriptorMetadata'
-    { _mdmSamplePeriod :: !(Maybe Duration)
-    , _mdmIngestDelay  :: !(Maybe Duration)
+    { _mdmSamplePeriod :: !(Maybe GDuration)
+    , _mdmIngestDelay  :: !(Maybe GDuration)
     , _mdmLaunchStage  :: !(Maybe MetricDescriptorMetadataLaunchStage)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -3724,7 +3724,7 @@ mdmSamplePeriod :: Lens' MetricDescriptorMetadata (Maybe Scientific)
 mdmSamplePeriod
   = lens _mdmSamplePeriod
       (\ s a -> s{_mdmSamplePeriod = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The delay of data points caused by ingestion. Data points older than
 -- this age are guaranteed to be ingested and available to be read,
@@ -3733,7 +3733,7 @@ mdmIngestDelay :: Lens' MetricDescriptorMetadata (Maybe Scientific)
 mdmIngestDelay
   = lens _mdmIngestDelay
       (\ s a -> s{_mdmIngestDelay = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The launch stage of the metric definition.
 mdmLaunchStage :: Lens' MetricDescriptorMetadata (Maybe MetricDescriptorMetadataLaunchStage)
@@ -5311,7 +5311,7 @@ data MetricAbsence = MetricAbsence'
     { _maAggregations :: !(Maybe [Aggregation])
     , _maFilter       :: !(Maybe Text)
     , _maTrigger      :: !(Maybe Trigger)
-    , _maDuration     :: !(Maybe Duration)
+    , _maDuration     :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MetricAbsence' with the minimum fields required to make a request.
@@ -5376,7 +5376,7 @@ maTrigger
 maDuration :: Lens' MetricAbsence (Maybe Scientific)
 maDuration
   = lens _maDuration (\ s a -> s{_maDuration = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 instance FromJSON MetricAbsence where
         parseJSON

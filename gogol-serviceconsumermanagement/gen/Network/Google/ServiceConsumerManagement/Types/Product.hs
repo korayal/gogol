@@ -3175,8 +3175,8 @@ instance ToJSON Documentation where
 --
 -- /See:/ 'metricDescriptorMetadata' smart constructor.
 data MetricDescriptorMetadata = MetricDescriptorMetadata'
-    { _mdmSamplePeriod :: !(Maybe Duration)
-    , _mdmIngestDelay  :: !(Maybe Duration)
+    { _mdmSamplePeriod :: !(Maybe GDuration)
+    , _mdmIngestDelay  :: !(Maybe GDuration)
     , _mdmLaunchStage  :: !(Maybe MetricDescriptorMetadataLaunchStage)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -3206,7 +3206,7 @@ mdmSamplePeriod :: Lens' MetricDescriptorMetadata (Maybe Scientific)
 mdmSamplePeriod
   = lens _mdmSamplePeriod
       (\ s a -> s{_mdmSamplePeriod = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The delay of data points caused by ingestion. Data points older than
 -- this age are guaranteed to be ingested and available to be read,
@@ -3215,7 +3215,7 @@ mdmIngestDelay :: Lens' MetricDescriptorMetadata (Maybe Scientific)
 mdmIngestDelay
   = lens _mdmIngestDelay
       (\ s a -> s{_mdmIngestDelay = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The launch stage of the metric definition.
 mdmLaunchStage :: Lens' MetricDescriptorMetadata (Maybe MetricDescriptorMetadataLaunchStage)

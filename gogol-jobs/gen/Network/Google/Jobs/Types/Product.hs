@@ -1169,7 +1169,7 @@ instance ToJSON ListCompaniesResponse where
 data CommuteFilter = CommuteFilter'
     { _cfCommuteMethod           :: !(Maybe CommuteFilterCommuteMethod)
     , _cfAllowImpreciseAddresses :: !(Maybe Bool)
-    , _cfTravelDuration          :: !(Maybe Duration)
+    , _cfTravelDuration          :: !(Maybe GDuration)
     , _cfStartCoordinates        :: !(Maybe LatLng)
     , _cfRoadTraffic             :: !(Maybe CommuteFilterRoadTraffic)
     , _cfDePartureTime           :: !(Maybe TimeOfDay')
@@ -1225,7 +1225,7 @@ cfTravelDuration :: Lens' CommuteFilter (Maybe Scientific)
 cfTravelDuration
   = lens _cfTravelDuration
       (\ s a -> s{_cfTravelDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Required. The latitude and longitude of the location from which to
 -- calculate the commute time.
@@ -1883,7 +1883,7 @@ instance ToJSON ResponseMetadata where
 --
 -- /See:/ 'commuteInfo' smart constructor.
 data CommuteInfo = CommuteInfo'
-    { _ciTravelDuration :: !(Maybe Duration)
+    { _ciTravelDuration :: !(Maybe GDuration)
     , _ciJobLocation    :: !(Maybe Location)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -1910,7 +1910,7 @@ ciTravelDuration :: Lens' CommuteInfo (Maybe Scientific)
 ciTravelDuration
   = lens _ciTravelDuration
       (\ s a -> s{_ciTravelDuration = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Location used as the destination in the commute calculation.
 ciJobLocation :: Lens' CommuteInfo (Maybe Location)

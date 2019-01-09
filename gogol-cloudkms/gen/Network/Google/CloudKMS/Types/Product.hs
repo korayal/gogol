@@ -856,7 +856,7 @@ instance ToJSON CryptoKeyLabels where
 data CryptoKey = CryptoKey'
     { _ckVersionTemplate  :: !(Maybe CryptoKeyVersionTemplate)
     , _ckPurpose          :: !(Maybe CryptoKeyPurpose)
-    , _ckRotationPeriod   :: !(Maybe Duration)
+    , _ckRotationPeriod   :: !(Maybe GDuration)
     , _ckPrimary          :: !(Maybe CryptoKeyVersion)
     , _ckName             :: !(Maybe Text)
     , _ckLabels           :: !(Maybe CryptoKeyLabels)
@@ -919,7 +919,7 @@ ckRotationPeriod :: Lens' CryptoKey (Maybe Scientific)
 ckRotationPeriod
   = lens _ckRotationPeriod
       (\ s a -> s{_ckRotationPeriod = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Output only. A copy of the \"primary\" CryptoKeyVersion that will be
 -- used by Encrypt when this CryptoKey is given in EncryptRequest.name. The

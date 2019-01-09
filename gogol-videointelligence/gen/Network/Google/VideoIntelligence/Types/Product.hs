@@ -359,9 +359,9 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1_WordInfo' smart constructor.
 data GoogleCloudVideointelligenceV1_WordInfo = GoogleCloudVideointelligenceV1_WordInfo'
-    { _gcvvwiStartTime  :: !(Maybe Duration)
+    { _gcvvwiStartTime  :: !(Maybe GDuration)
     , _gcvvwiConfidence :: !(Maybe (Textual Double))
-    , _gcvvwiEndTime    :: !(Maybe Duration)
+    , _gcvvwiEndTime    :: !(Maybe GDuration)
     , _gcvvwiWord       :: !(Maybe Text)
     , _gcvvwiSpeakerTag :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -398,7 +398,7 @@ gcvvwiStartTime :: Lens' GoogleCloudVideointelligenceV1_WordInfo (Maybe Scientif
 gcvvwiStartTime
   = lens _gcvvwiStartTime
       (\ s a -> s{_gcvvwiStartTime = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Output only. The confidence estimate between 0.0 and 1.0. A higher
 -- number indicates an estimated greater likelihood that the recognized
@@ -420,7 +420,7 @@ gcvvwiEndTime :: Lens' GoogleCloudVideointelligenceV1_WordInfo (Maybe Scientific
 gcvvwiEndTime
   = lens _gcvvwiEndTime
       (\ s a -> s{_gcvvwiEndTime = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The word corresponding to this set of information.
 gcvvwiWord :: Lens' GoogleCloudVideointelligenceV1_WordInfo (Maybe Text)
@@ -464,7 +464,7 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1p1beta1_ExplicitContentFrame' smart constructor.
 data GoogleCloudVideointelligenceV1p1beta1_ExplicitContentFrame = GoogleCloudVideointelligenceV1p1beta1_ExplicitContentFrame'
-    { _gcvvecfTimeOffSet            :: !(Maybe Duration)
+    { _gcvvecfTimeOffSet            :: !(Maybe GDuration)
     , _gcvvecfPornographyLikelihood :: !(Maybe GoogleCloudVideointelligenceV1p1beta1_ExplicitContentFramePornographyLikelihood)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -489,7 +489,7 @@ gcvvecfTimeOffSet :: Lens' GoogleCloudVideointelligenceV1p1beta1_ExplicitContent
 gcvvecfTimeOffSet
   = lens _gcvvecfTimeOffSet
       (\ s a -> s{_gcvvecfTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Likelihood of the pornography content..
 gcvvecfPornographyLikelihood :: Lens' GoogleCloudVideointelligenceV1p1beta1_ExplicitContentFrame (Maybe GoogleCloudVideointelligenceV1p1beta1_ExplicitContentFramePornographyLikelihood)
@@ -648,8 +648,8 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1p2beta1_VideoSegment' smart constructor.
 data GoogleCloudVideointelligenceV1p2beta1_VideoSegment = GoogleCloudVideointelligenceV1p2beta1_VideoSegment'
-    { _gcvvvsStartTimeOffSet :: !(Maybe Duration)
-    , _gcvvvsEndTimeOffSet   :: !(Maybe Duration)
+    { _gcvvvsStartTimeOffSet :: !(Maybe GDuration)
+    , _gcvvvsEndTimeOffSet   :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GoogleCloudVideointelligenceV1p2beta1_VideoSegment' with the minimum fields required to make a request.
@@ -673,7 +673,7 @@ gcvvvsStartTimeOffSet :: Lens' GoogleCloudVideointelligenceV1p2beta1_VideoSegmen
 gcvvvsStartTimeOffSet
   = lens _gcvvvsStartTimeOffSet
       (\ s a -> s{_gcvvvsStartTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Time-offset, relative to the beginning of the video, corresponding to
 -- the end of the segment (inclusive).
@@ -681,7 +681,7 @@ gcvvvsEndTimeOffSet :: Lens' GoogleCloudVideointelligenceV1p2beta1_VideoSegment 
 gcvvvsEndTimeOffSet
   = lens _gcvvvsEndTimeOffSet
       (\ s a -> s{_gcvvvsEndTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON
          GoogleCloudVideointelligenceV1p2beta1_VideoSegment
@@ -794,7 +794,7 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1beta2_LabelFrame' smart constructor.
 data GoogleCloudVideointelligenceV1beta2_LabelFrame = GoogleCloudVideointelligenceV1beta2_LabelFrame'
-    { _gcvvlfTimeOffSet :: !(Maybe Duration)
+    { _gcvvlfTimeOffSet :: !(Maybe GDuration)
     , _gcvvlfConfidence :: !(Maybe (Textual Double))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -819,7 +819,7 @@ gcvvlfTimeOffSet :: Lens' GoogleCloudVideointelligenceV1beta2_LabelFrame (Maybe 
 gcvvlfTimeOffSet
   = lens _gcvvlfTimeOffSet
       (\ s a -> s{_gcvvlfTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Confidence that the label is accurate. Range: [0, 1].
 gcvvlfConfidence :: Lens' GoogleCloudVideointelligenceV1beta2_LabelFrame (Maybe Double)
@@ -965,7 +965,7 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1p2beta1_ObjectTrackingFrame' smart constructor.
 data GoogleCloudVideointelligenceV1p2beta1_ObjectTrackingFrame = GoogleCloudVideointelligenceV1p2beta1_ObjectTrackingFrame'
-    { _gcvvotfTimeOffSet            :: !(Maybe Duration)
+    { _gcvvotfTimeOffSet            :: !(Maybe GDuration)
     , _gcvvotfNormalizedBoundingBox :: !(Maybe GoogleCloudVideointelligenceV1p2beta1_NormalizedBoundingBox)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -989,7 +989,7 @@ gcvvotfTimeOffSet :: Lens' GoogleCloudVideointelligenceV1p2beta1_ObjectTrackingF
 gcvvotfTimeOffSet
   = lens _gcvvotfTimeOffSet
       (\ s a -> s{_gcvvotfTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The normalized bounding box location of this object track for the frame.
 gcvvotfNormalizedBoundingBox :: Lens' GoogleCloudVideointelligenceV1p2beta1_ObjectTrackingFrame (Maybe GoogleCloudVideointelligenceV1p2beta1_NormalizedBoundingBox)
@@ -1184,9 +1184,9 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1p2beta1_WordInfo' smart constructor.
 data GoogleCloudVideointelligenceV1p2beta1_WordInfo = GoogleCloudVideointelligenceV1p2beta1_WordInfo'
-    { _gooStartTime  :: !(Maybe Duration)
+    { _gooStartTime  :: !(Maybe GDuration)
     , _gooConfidence :: !(Maybe (Textual Double))
-    , _gooEndTime    :: !(Maybe Duration)
+    , _gooEndTime    :: !(Maybe GDuration)
     , _gooWord       :: !(Maybe Text)
     , _gooSpeakerTag :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -1222,7 +1222,7 @@ googleCloudVideointelligenceV1p2beta1_WordInfo =
 gooStartTime :: Lens' GoogleCloudVideointelligenceV1p2beta1_WordInfo (Maybe Scientific)
 gooStartTime
   = lens _gooStartTime (\ s a -> s{_gooStartTime = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Output only. The confidence estimate between 0.0 and 1.0. A higher
 -- number indicates an estimated greater likelihood that the recognized
@@ -1243,7 +1243,7 @@ gooConfidence
 gooEndTime :: Lens' GoogleCloudVideointelligenceV1p2beta1_WordInfo (Maybe Scientific)
 gooEndTime
   = lens _gooEndTime (\ s a -> s{_gooEndTime = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | The word corresponding to this set of information.
 gooWord :: Lens' GoogleCloudVideointelligenceV1p2beta1_WordInfo (Maybe Text)
@@ -1288,7 +1288,7 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1p1beta1_LabelFrame' smart constructor.
 data GoogleCloudVideointelligenceV1p1beta1_LabelFrame = GoogleCloudVideointelligenceV1p1beta1_LabelFrame'
-    { _gcvvlfcTimeOffSet :: !(Maybe Duration)
+    { _gcvvlfcTimeOffSet :: !(Maybe GDuration)
     , _gcvvlfcConfidence :: !(Maybe (Textual Double))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -1313,7 +1313,7 @@ gcvvlfcTimeOffSet :: Lens' GoogleCloudVideointelligenceV1p1beta1_LabelFrame (May
 gcvvlfcTimeOffSet
   = lens _gcvvlfcTimeOffSet
       (\ s a -> s{_gcvvlfcTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Confidence that the label is accurate. Range: [0, 1].
 gcvvlfcConfidence :: Lens' GoogleCloudVideointelligenceV1p1beta1_LabelFrame (Maybe Double)
@@ -2074,7 +2074,7 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1p2beta1_LabelFrame' smart constructor.
 data GoogleCloudVideointelligenceV1p2beta1_LabelFrame = GoogleCloudVideointelligenceV1p2beta1_LabelFrame'
-    { _ggTimeOffSet :: !(Maybe Duration)
+    { _ggTimeOffSet :: !(Maybe GDuration)
     , _ggConfidence :: !(Maybe (Textual Double))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -2098,7 +2098,7 @@ googleCloudVideointelligenceV1p2beta1_LabelFrame =
 ggTimeOffSet :: Lens' GoogleCloudVideointelligenceV1p2beta1_LabelFrame (Maybe Scientific)
 ggTimeOffSet
   = lens _ggTimeOffSet (\ s a -> s{_ggTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Confidence that the label is accurate. Range: [0, 1].
 ggConfidence :: Lens' GoogleCloudVideointelligenceV1p2beta1_LabelFrame (Maybe Double)
@@ -2279,9 +2279,9 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1p1beta1_WordInfo' smart constructor.
 data GoogleCloudVideointelligenceV1p1beta1_WordInfo = GoogleCloudVideointelligenceV1p1beta1_WordInfo'
-    { _gcvvwicStartTime  :: !(Maybe Duration)
+    { _gcvvwicStartTime  :: !(Maybe GDuration)
     , _gcvvwicConfidence :: !(Maybe (Textual Double))
-    , _gcvvwicEndTime    :: !(Maybe Duration)
+    , _gcvvwicEndTime    :: !(Maybe GDuration)
     , _gcvvwicWord       :: !(Maybe Text)
     , _gcvvwicSpeakerTag :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -2318,7 +2318,7 @@ gcvvwicStartTime :: Lens' GoogleCloudVideointelligenceV1p1beta1_WordInfo (Maybe 
 gcvvwicStartTime
   = lens _gcvvwicStartTime
       (\ s a -> s{_gcvvwicStartTime = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Output only. The confidence estimate between 0.0 and 1.0. A higher
 -- number indicates an estimated greater likelihood that the recognized
@@ -2340,7 +2340,7 @@ gcvvwicEndTime :: Lens' GoogleCloudVideointelligenceV1p1beta1_WordInfo (Maybe Sc
 gcvvwicEndTime
   = lens _gcvvwicEndTime
       (\ s a -> s{_gcvvwicEndTime = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | The word corresponding to this set of information.
 gcvvwicWord :: Lens' GoogleCloudVideointelligenceV1p1beta1_WordInfo (Maybe Text)
@@ -2555,7 +2555,7 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1_ExplicitContentFrame' smart constructor.
 data GoogleCloudVideointelligenceV1_ExplicitContentFrame = GoogleCloudVideointelligenceV1_ExplicitContentFrame'
-    { _gTimeOffSet            :: !(Maybe Duration)
+    { _gTimeOffSet            :: !(Maybe GDuration)
     , _gPornographyLikelihood :: !(Maybe GoogleCloudVideointelligenceV1_ExplicitContentFramePornographyLikelihood)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -2579,7 +2579,7 @@ googleCloudVideointelligenceV1_ExplicitContentFrame =
 gTimeOffSet :: Lens' GoogleCloudVideointelligenceV1_ExplicitContentFrame (Maybe Scientific)
 gTimeOffSet
   = lens _gTimeOffSet (\ s a -> s{_gTimeOffSet = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | Likelihood of the pornography content..
 gPornographyLikelihood :: Lens' GoogleCloudVideointelligenceV1_ExplicitContentFrame (Maybe GoogleCloudVideointelligenceV1_ExplicitContentFramePornographyLikelihood)
@@ -2614,8 +2614,8 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1beta2_VideoSegment' smart constructor.
 data GoogleCloudVideointelligenceV1beta2_VideoSegment = GoogleCloudVideointelligenceV1beta2_VideoSegment'
-    { _gStartTimeOffSet :: !(Maybe Duration)
-    , _gEndTimeOffSet   :: !(Maybe Duration)
+    { _gStartTimeOffSet :: !(Maybe GDuration)
+    , _gEndTimeOffSet   :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GoogleCloudVideointelligenceV1beta2_VideoSegment' with the minimum fields required to make a request.
@@ -2639,7 +2639,7 @@ gStartTimeOffSet :: Lens' GoogleCloudVideointelligenceV1beta2_VideoSegment (Mayb
 gStartTimeOffSet
   = lens _gStartTimeOffSet
       (\ s a -> s{_gStartTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Time-offset, relative to the beginning of the video, corresponding to
 -- the end of the segment (inclusive).
@@ -2647,7 +2647,7 @@ gEndTimeOffSet :: Lens' GoogleCloudVideointelligenceV1beta2_VideoSegment (Maybe 
 gEndTimeOffSet
   = lens _gEndTimeOffSet
       (\ s a -> s{_gEndTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON
          GoogleCloudVideointelligenceV1beta2_VideoSegment
@@ -2963,9 +2963,9 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1beta2_WordInfo' smart constructor.
 data GoogleCloudVideointelligenceV1beta2_WordInfo = GoogleCloudVideointelligenceV1beta2_WordInfo'
-    { _goooStartTime  :: !(Maybe Duration)
+    { _goooStartTime  :: !(Maybe GDuration)
     , _goooConfidence :: !(Maybe (Textual Double))
-    , _goooEndTime    :: !(Maybe Duration)
+    , _goooEndTime    :: !(Maybe GDuration)
     , _goooWord       :: !(Maybe Text)
     , _goooSpeakerTag :: !(Maybe (Textual Int32))
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -3002,7 +3002,7 @@ goooStartTime :: Lens' GoogleCloudVideointelligenceV1beta2_WordInfo (Maybe Scien
 goooStartTime
   = lens _goooStartTime
       (\ s a -> s{_goooStartTime = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Output only. The confidence estimate between 0.0 and 1.0. A higher
 -- number indicates an estimated greater likelihood that the recognized
@@ -3023,7 +3023,7 @@ goooConfidence
 goooEndTime :: Lens' GoogleCloudVideointelligenceV1beta2_WordInfo (Maybe Scientific)
 goooEndTime
   = lens _goooEndTime (\ s a -> s{_goooEndTime = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | The word corresponding to this set of information.
 goooWord :: Lens' GoogleCloudVideointelligenceV1beta2_WordInfo (Maybe Text)
@@ -3384,8 +3384,8 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1p1beta1_VideoSegment' smart constructor.
 data GoogleCloudVideointelligenceV1p1beta1_VideoSegment = GoogleCloudVideointelligenceV1p1beta1_VideoSegment'
-    { _gooStartTimeOffSet :: !(Maybe Duration)
-    , _gooEndTimeOffSet   :: !(Maybe Duration)
+    { _gooStartTimeOffSet :: !(Maybe GDuration)
+    , _gooEndTimeOffSet   :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GoogleCloudVideointelligenceV1p1beta1_VideoSegment' with the minimum fields required to make a request.
@@ -3409,7 +3409,7 @@ gooStartTimeOffSet :: Lens' GoogleCloudVideointelligenceV1p1beta1_VideoSegment (
 gooStartTimeOffSet
   = lens _gooStartTimeOffSet
       (\ s a -> s{_gooStartTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Time-offset, relative to the beginning of the video, corresponding to
 -- the end of the segment (inclusive).
@@ -3417,7 +3417,7 @@ gooEndTimeOffSet :: Lens' GoogleCloudVideointelligenceV1p1beta1_VideoSegment (Ma
 gooEndTimeOffSet
   = lens _gooEndTimeOffSet
       (\ s a -> s{_gooEndTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON
          GoogleCloudVideointelligenceV1p1beta1_VideoSegment
@@ -3575,7 +3575,7 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1_LabelFrame' smart constructor.
 data GoogleCloudVideointelligenceV1_LabelFrame = GoogleCloudVideointelligenceV1_LabelFrame'
-    { _gcvvlf1TimeOffSet :: !(Maybe Duration)
+    { _gcvvlf1TimeOffSet :: !(Maybe GDuration)
     , _gcvvlf1Confidence :: !(Maybe (Textual Double))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -3600,7 +3600,7 @@ gcvvlf1TimeOffSet :: Lens' GoogleCloudVideointelligenceV1_LabelFrame (Maybe Scie
 gcvvlf1TimeOffSet
   = lens _gcvvlf1TimeOffSet
       (\ s a -> s{_gcvvlf1TimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Confidence that the label is accurate. Range: [0, 1].
 gcvvlf1Confidence :: Lens' GoogleCloudVideointelligenceV1_LabelFrame (Maybe Double)
@@ -3630,7 +3630,7 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1p2beta1_ExplicitContentFrame' smart constructor.
 data GoogleCloudVideointelligenceV1p2beta1_ExplicitContentFrame = GoogleCloudVideointelligenceV1p2beta1_ExplicitContentFrame'
-    { _gooTimeOffSet            :: !(Maybe Duration)
+    { _gooTimeOffSet            :: !(Maybe GDuration)
     , _gooPornographyLikelihood :: !(Maybe GoogleCloudVideointelligenceV1p2beta1_ExplicitContentFramePornographyLikelihood)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -3655,7 +3655,7 @@ gooTimeOffSet :: Lens' GoogleCloudVideointelligenceV1p2beta1_ExplicitContentFram
 gooTimeOffSet
   = lens _gooTimeOffSet
       (\ s a -> s{_gooTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Likelihood of the pornography content..
 gooPornographyLikelihood :: Lens' GoogleCloudVideointelligenceV1p2beta1_ExplicitContentFrame (Maybe GoogleCloudVideointelligenceV1p2beta1_ExplicitContentFramePornographyLikelihood)
@@ -4413,7 +4413,7 @@ instance ToJSON
 -- /See:/ 'googleCloudVideointelligenceV1p2beta1_TextFrame' smart constructor.
 data GoogleCloudVideointelligenceV1p2beta1_TextFrame = GoogleCloudVideointelligenceV1p2beta1_TextFrame'
     { _gcvvtfRotatedBoundingBox :: !(Maybe GoogleCloudVideointelligenceV1p2beta1_NormalizedBoundingPoly)
-    , _gcvvtfTimeOffSet         :: !(Maybe Duration)
+    , _gcvvtfTimeOffSet         :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GoogleCloudVideointelligenceV1p2beta1_TextFrame' with the minimum fields required to make a request.
@@ -4442,7 +4442,7 @@ gcvvtfTimeOffSet :: Lens' GoogleCloudVideointelligenceV1p2beta1_TextFrame (Maybe
 gcvvtfTimeOffSet
   = lens _gcvvtfTimeOffSet
       (\ s a -> s{_gcvvtfTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON
          GoogleCloudVideointelligenceV1p2beta1_TextFrame where
@@ -5215,8 +5215,8 @@ instance ToJSON GoogleRpc_Status where
 --
 -- /See:/ 'googleCloudVideointelligenceV1_VideoSegment' smart constructor.
 data GoogleCloudVideointelligenceV1_VideoSegment = GoogleCloudVideointelligenceV1_VideoSegment'
-    { _gcvvvscStartTimeOffSet :: !(Maybe Duration)
-    , _gcvvvscEndTimeOffSet   :: !(Maybe Duration)
+    { _gcvvvscStartTimeOffSet :: !(Maybe GDuration)
+    , _gcvvvscEndTimeOffSet   :: !(Maybe GDuration)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GoogleCloudVideointelligenceV1_VideoSegment' with the minimum fields required to make a request.
@@ -5240,7 +5240,7 @@ gcvvvscStartTimeOffSet :: Lens' GoogleCloudVideointelligenceV1_VideoSegment (May
 gcvvvscStartTimeOffSet
   = lens _gcvvvscStartTimeOffSet
       (\ s a -> s{_gcvvvscStartTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Time-offset, relative to the beginning of the video, corresponding to
 -- the end of the segment (inclusive).
@@ -5248,7 +5248,7 @@ gcvvvscEndTimeOffSet :: Lens' GoogleCloudVideointelligenceV1_VideoSegment (Maybe
 gcvvvscEndTimeOffSet
   = lens _gcvvvscEndTimeOffSet
       (\ s a -> s{_gcvvvscEndTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 instance FromJSON
          GoogleCloudVideointelligenceV1_VideoSegment where
@@ -5369,7 +5369,7 @@ instance ToJSON
 --
 -- /See:/ 'googleCloudVideointelligenceV1beta2_ExplicitContentFrame' smart constructor.
 data GoogleCloudVideointelligenceV1beta2_ExplicitContentFrame = GoogleCloudVideointelligenceV1beta2_ExplicitContentFrame'
-    { _gcvvecfcTimeOffSet            :: !(Maybe Duration)
+    { _gcvvecfcTimeOffSet            :: !(Maybe GDuration)
     , _gcvvecfcPornographyLikelihood :: !(Maybe GoogleCloudVideointelligenceV1beta2_ExplicitContentFramePornographyLikelihood)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -5394,7 +5394,7 @@ gcvvecfcTimeOffSet :: Lens' GoogleCloudVideointelligenceV1beta2_ExplicitContentF
 gcvvecfcTimeOffSet
   = lens _gcvvecfcTimeOffSet
       (\ s a -> s{_gcvvecfcTimeOffSet = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | Likelihood of the pornography content..
 gcvvecfcPornographyLikelihood :: Lens' GoogleCloudVideointelligenceV1beta2_ExplicitContentFrame (Maybe GoogleCloudVideointelligenceV1beta2_ExplicitContentFramePornographyLikelihood)

@@ -71,7 +71,7 @@ data ProFile = ProFile'
     , _pfName         :: !(Maybe Text)
     , _pfLabels       :: !(Maybe ProFileLabels)
     , _pfProFileType  :: !(Maybe ProFileProFileType)
-    , _pfDuration     :: !(Maybe Duration)
+    , _pfDuration     :: !(Maybe GDuration)
     , _pfDeployment   :: !(Maybe Deployment)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -137,7 +137,7 @@ pfProFileType
 pfDuration :: Lens' ProFile (Maybe Scientific)
 pfDuration
   = lens _pfDuration (\ s a -> s{_pfDuration = a}) .
-      mapping _Duration
+      mapping _GDuration
 
 -- | Deployment this profile corresponds to.
 pfDeployment :: Lens' ProFile (Maybe Deployment)

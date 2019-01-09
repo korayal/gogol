@@ -308,9 +308,9 @@ instance ToJSON Schedule where
 --
 -- /See:/ 'objectConditions' smart constructor.
 data ObjectConditions = ObjectConditions'
-    { _ocMinTimeElapsedSinceLastModification :: !(Maybe Duration)
+    { _ocMinTimeElapsedSinceLastModification :: !(Maybe GDuration)
     , _ocIncludePrefixes                     :: !(Maybe [Text])
-    , _ocMaxTimeElapsedSinceLastModification :: !(Maybe Duration)
+    , _ocMaxTimeElapsedSinceLastModification :: !(Maybe GDuration)
     , _ocExcludePrefixes                     :: !(Maybe [Text])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -347,7 +347,7 @@ ocMinTimeElapsedSinceLastModification
   = lens _ocMinTimeElapsedSinceLastModification
       (\ s a ->
          s{_ocMinTimeElapsedSinceLastModification = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | If \`includePrefixes\` is specified, objects that satisfy the object
 -- conditions must have names that start with one of the
@@ -385,7 +385,7 @@ ocMaxTimeElapsedSinceLastModification
   = lens _ocMaxTimeElapsedSinceLastModification
       (\ s a ->
          s{_ocMaxTimeElapsedSinceLastModification = a})
-      . mapping _Duration
+      . mapping _GDuration
 
 -- | \`excludePrefixes\` must follow the requirements described for
 -- \`includePrefixes\`. The max size of \`excludePrefixes\` is 1000.
