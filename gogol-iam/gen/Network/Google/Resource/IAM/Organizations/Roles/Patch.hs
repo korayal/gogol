@@ -53,7 +53,7 @@ type OrganizationsRolesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -66,7 +66,7 @@ type OrganizationsRolesPatchResource =
 data OrganizationsRolesPatch = OrganizationsRolesPatch'
     { _orpXgafv          :: !(Maybe Xgafv)
     , _orpUploadProtocol :: !(Maybe Text)
-    , _orpUpdateMask     :: !(Maybe FieldMask)
+    , _orpUpdateMask     :: !(Maybe GFieldMask)
     , _orpAccessToken    :: !(Maybe Text)
     , _orpUploadType     :: !(Maybe Text)
     , _orpPayload        :: !Role
@@ -120,7 +120,7 @@ orpUploadProtocol
       (\ s a -> s{_orpUploadProtocol = a})
 
 -- | A mask describing which fields in the Role have changed.
-orpUpdateMask :: Lens' OrganizationsRolesPatch (Maybe FieldMask)
+orpUpdateMask :: Lens' OrganizationsRolesPatch (Maybe GFieldMask)
 orpUpdateMask
   = lens _orpUpdateMask
       (\ s a -> s{_orpUpdateMask = a})

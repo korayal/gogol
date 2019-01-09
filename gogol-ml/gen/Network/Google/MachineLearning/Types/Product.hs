@@ -2469,7 +2469,7 @@ instance ToJSON
 --
 -- /See:/ 'googleIAMV1__SetIAMPolicyRequest' smart constructor.
 data GoogleIAMV1__SetIAMPolicyRequest = GoogleIAMV1__SetIAMPolicyRequest'
-    { _givsiprUpdateMask :: !(Maybe FieldMask)
+    { _givsiprUpdateMask :: !(Maybe GFieldMask)
     , _givsiprPolicy     :: !(Maybe GoogleIAMV1__Policy)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -2492,7 +2492,7 @@ googleIAMV1__SetIAMPolicyRequest =
 -- Only the fields in the mask will be modified. If no mask is provided,
 -- the following default mask is used: paths: \"bindings, etag\" This field
 -- is only used by Cloud IAM.
-givsiprUpdateMask :: Lens' GoogleIAMV1__SetIAMPolicyRequest (Maybe FieldMask)
+givsiprUpdateMask :: Lens' GoogleIAMV1__SetIAMPolicyRequest (Maybe GFieldMask)
 givsiprUpdateMask
   = lens _givsiprUpdateMask
       (\ s a -> s{_givsiprUpdateMask = a})

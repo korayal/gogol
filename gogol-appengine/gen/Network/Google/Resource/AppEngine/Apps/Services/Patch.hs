@@ -58,7 +58,7 @@ type AppsServicesPatchResource =
              Capture "servicesId" Text :>
                QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
-                   QueryParam "updateMask" FieldMask :>
+                   QueryParam "updateMask" GFieldMask :>
                      QueryParam "access_token" Text :>
                        QueryParam "uploadType" Text :>
                          QueryParam "migrateTraffic" Bool :>
@@ -73,7 +73,7 @@ type AppsServicesPatchResource =
 data AppsServicesPatch = AppsServicesPatch'
     { _aspXgafv          :: !(Maybe Xgafv)
     , _aspUploadProtocol :: !(Maybe Text)
-    , _aspUpdateMask     :: !(Maybe FieldMask)
+    , _aspUpdateMask     :: !(Maybe GFieldMask)
     , _aspAccessToken    :: !(Maybe Text)
     , _aspUploadType     :: !(Maybe Text)
     , _aspPayload        :: !Service
@@ -136,7 +136,7 @@ aspUploadProtocol
       (\ s a -> s{_aspUploadProtocol = a})
 
 -- | Standard field mask for the set of fields to be updated.
-aspUpdateMask :: Lens' AppsServicesPatch (Maybe FieldMask)
+aspUpdateMask :: Lens' AppsServicesPatch (Maybe GFieldMask)
 aspUpdateMask
   = lens _aspUpdateMask
       (\ s a -> s{_aspUpdateMask = a})

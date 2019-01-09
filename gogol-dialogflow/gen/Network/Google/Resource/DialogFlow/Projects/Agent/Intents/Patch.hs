@@ -56,7 +56,7 @@ type ProjectsAgentIntentsPatchResource =
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "languageCode" Text :>
              QueryParam "upload_protocol" Text :>
-               QueryParam "updateMask" FieldMask :>
+               QueryParam "updateMask" GFieldMask :>
                  QueryParam "access_token" Text :>
                    QueryParam "uploadType" Text :>
                      QueryParam "intentView" Text :>
@@ -72,7 +72,7 @@ data ProjectsAgentIntentsPatch = ProjectsAgentIntentsPatch'
     { _paipXgafv          :: !(Maybe Xgafv)
     , _paipLanguageCode   :: !(Maybe Text)
     , _paipUploadProtocol :: !(Maybe Text)
-    , _paipUpdateMask     :: !(Maybe FieldMask)
+    , _paipUpdateMask     :: !(Maybe GFieldMask)
     , _paipAccessToken    :: !(Maybe Text)
     , _paipUploadType     :: !(Maybe Text)
     , _paipPayload        :: !GoogleCloudDialogflowV2Intent
@@ -145,7 +145,7 @@ paipUploadProtocol
       (\ s a -> s{_paipUploadProtocol = a})
 
 -- | Optional. The mask to control which fields get updated.
-paipUpdateMask :: Lens' ProjectsAgentIntentsPatch (Maybe FieldMask)
+paipUpdateMask :: Lens' ProjectsAgentIntentsPatch (Maybe GFieldMask)
 paipUpdateMask
   = lens _paipUpdateMask
       (\ s a -> s{_paipUpdateMask = a})

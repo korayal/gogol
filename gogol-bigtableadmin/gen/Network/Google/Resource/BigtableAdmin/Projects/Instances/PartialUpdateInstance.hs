@@ -55,7 +55,7 @@ type ProjectsInstancesPartialUpdateInstanceResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -70,7 +70,7 @@ type ProjectsInstancesPartialUpdateInstanceResource =
 data ProjectsInstancesPartialUpdateInstance = ProjectsInstancesPartialUpdateInstance'
     { _pipuiXgafv          :: !(Maybe Xgafv)
     , _pipuiUploadProtocol :: !(Maybe Text)
-    , _pipuiUpdateMask     :: !(Maybe FieldMask)
+    , _pipuiUpdateMask     :: !(Maybe GFieldMask)
     , _pipuiAccessToken    :: !(Maybe Text)
     , _pipuiUploadType     :: !(Maybe Text)
     , _pipuiPayload        :: !Instance
@@ -126,7 +126,7 @@ pipuiUploadProtocol
 
 -- | The subset of Instance fields which should be replaced. Must be
 -- explicitly set.
-pipuiUpdateMask :: Lens' ProjectsInstancesPartialUpdateInstance (Maybe FieldMask)
+pipuiUpdateMask :: Lens' ProjectsInstancesPartialUpdateInstance (Maybe GFieldMask)
 pipuiUpdateMask
   = lens _pipuiUpdateMask
       (\ s a -> s{_pipuiUpdateMask = a})

@@ -53,7 +53,7 @@ type BillingAccountsExclusionsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -67,7 +67,7 @@ type BillingAccountsExclusionsPatchResource =
 data BillingAccountsExclusionsPatch = BillingAccountsExclusionsPatch'
     { _baepXgafv          :: !(Maybe Xgafv)
     , _baepUploadProtocol :: !(Maybe Text)
-    , _baepUpdateMask     :: !(Maybe FieldMask)
+    , _baepUpdateMask     :: !(Maybe GFieldMask)
     , _baepAccessToken    :: !(Maybe Text)
     , _baepUploadType     :: !(Maybe Text)
     , _baepPayload        :: !LogExclusion
@@ -127,7 +127,7 @@ baepUploadProtocol
 -- update_mask are not changed and are ignored in the request.For example,
 -- to change the filter and description of an exclusion, specify an
 -- update_mask of \"filter,description\".
-baepUpdateMask :: Lens' BillingAccountsExclusionsPatch (Maybe FieldMask)
+baepUpdateMask :: Lens' BillingAccountsExclusionsPatch (Maybe GFieldMask)
 baepUpdateMask
   = lens _baepUpdateMask
       (\ s a -> s{_baepUpdateMask = a})

@@ -63,7 +63,7 @@ type ProjectsDatabasesCollectionGroupsFieldsPatchResource
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -86,7 +86,7 @@ type ProjectsDatabasesCollectionGroupsFieldsPatchResource
 data ProjectsDatabasesCollectionGroupsFieldsPatch = ProjectsDatabasesCollectionGroupsFieldsPatch'
     { _pdcgfpXgafv          :: !(Maybe Xgafv)
     , _pdcgfpUploadProtocol :: !(Maybe Text)
-    , _pdcgfpUpdateMask     :: !(Maybe FieldMask)
+    , _pdcgfpUpdateMask     :: !(Maybe GFieldMask)
     , _pdcgfpAccessToken    :: !(Maybe Text)
     , _pdcgfpUploadType     :: !(Maybe Text)
     , _pdcgfpPayload        :: !GoogleFirestoreAdminV1Field
@@ -142,7 +142,7 @@ pdcgfpUploadProtocol
 
 -- | A mask, relative to the field. If specified, only configuration
 -- specified by this field_mask will be updated in the field.
-pdcgfpUpdateMask :: Lens' ProjectsDatabasesCollectionGroupsFieldsPatch (Maybe FieldMask)
+pdcgfpUpdateMask :: Lens' ProjectsDatabasesCollectionGroupsFieldsPatch (Maybe GFieldMask)
 pdcgfpUpdateMask
   = lens _pdcgfpUpdateMask
       (\ s a -> s{_pdcgfpUpdateMask = a})

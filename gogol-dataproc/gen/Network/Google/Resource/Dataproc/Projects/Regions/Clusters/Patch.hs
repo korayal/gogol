@@ -63,7 +63,7 @@ type ProjectsRegionsClustersPatchResource =
                    QueryParam "$.xgafv" Xgafv :>
                      QueryParam "requestId" Text :>
                        QueryParam "upload_protocol" Text :>
-                         QueryParam "updateMask" FieldMask :>
+                         QueryParam "updateMask" GFieldMask :>
                            QueryParam "access_token" Text :>
                              QueryParam "uploadType" Text :>
                                QueryParam "gracefulDecommissionTimeout" Duration
@@ -80,7 +80,7 @@ data ProjectsRegionsClustersPatch = ProjectsRegionsClustersPatch'
     { _prcpXgafv                       :: !(Maybe Xgafv)
     , _prcpRequestId                   :: !(Maybe Text)
     , _prcpUploadProtocol              :: !(Maybe Text)
-    , _prcpUpdateMask                  :: !(Maybe FieldMask)
+    , _prcpUpdateMask                  :: !(Maybe GFieldMask)
     , _prcpAccessToken                 :: !(Maybe Text)
     , _prcpUploadType                  :: !(Maybe Text)
     , _prcpPayload                     :: !Cluster
@@ -181,7 +181,7 @@ prcpUploadProtocol
 -- >   __/config.worker_config.num_instances/__             Resize primary worker group
 -- >   __/config.secondary_worker_config.num_instances/__   Resize secondary worker group
 -- >   ---------------------------------------------------- -------------------------------
-prcpUpdateMask :: Lens' ProjectsRegionsClustersPatch (Maybe FieldMask)
+prcpUpdateMask :: Lens' ProjectsRegionsClustersPatch (Maybe GFieldMask)
 prcpUpdateMask
   = lens _prcpUpdateMask
       (\ s a -> s{_prcpUpdateMask = a})

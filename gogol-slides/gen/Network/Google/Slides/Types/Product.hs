@@ -438,7 +438,7 @@ instance ToJSON Image where
 data UpdateLinePropertiesRequest = UpdateLinePropertiesRequest'
     { _ulprLineProperties :: !(Maybe LineProperties)
     , _ulprObjectId       :: !(Maybe Text)
-    , _ulprFields         :: !(Maybe FieldMask)
+    , _ulprFields         :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateLinePropertiesRequest' with the minimum fields required to make a request.
@@ -477,7 +477,7 @@ ulprObjectId
 -- \`\"lineFill.solidFill.color\"\`. To reset a property to its default
 -- value, include its field name in the field mask but leave the field
 -- itself unset.
-ulprFields :: Lens' UpdateLinePropertiesRequest (Maybe FieldMask)
+ulprFields :: Lens' UpdateLinePropertiesRequest (Maybe GFieldMask)
 ulprFields
   = lens _ulprFields (\ s a -> s{_ulprFields = a})
 
@@ -1355,7 +1355,7 @@ instance ToJSON RgbColor where
 data UpdatePagePropertiesRequest = UpdatePagePropertiesRequest'
     { _upprObjectId       :: !(Maybe Text)
     , _upprPageProperties :: !(Maybe PageProperties)
-    , _upprFields         :: !(Maybe FieldMask)
+    , _upprFields         :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdatePagePropertiesRequest' with the minimum fields required to make a request.
@@ -1394,7 +1394,7 @@ upprPageProperties
 -- to \`\"pageBackgroundFill.solidFill.color\"\`. To reset a property to
 -- its default value, include its field name in the field mask but leave
 -- the field itself unset.
-upprFields :: Lens' UpdatePagePropertiesRequest (Maybe FieldMask)
+upprFields :: Lens' UpdatePagePropertiesRequest (Maybe GFieldMask)
 upprFields
   = lens _upprFields (\ s a -> s{_upprFields = a})
 
@@ -1555,7 +1555,7 @@ data UpdateTableRowPropertiesRequest = UpdateTableRowPropertiesRequest'
     { _utrprTableRowProperties :: !(Maybe TableRowProperties)
     , _utrprRowIndices         :: !(Maybe [Textual Int32])
     , _utrprObjectId           :: !(Maybe Text)
-    , _utrprFields             :: !(Maybe FieldMask)
+    , _utrprFields             :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateTableRowPropertiesRequest' with the minimum fields required to make a request.
@@ -1607,7 +1607,7 @@ utrprObjectId
 -- \`\"min_row_height\"\`. If \'\"min_row_height\"\' is included in the
 -- field mask but the property is left unset, the minimum row height will
 -- default to 0.
-utrprFields :: Lens' UpdateTableRowPropertiesRequest (Maybe FieldMask)
+utrprFields :: Lens' UpdateTableRowPropertiesRequest (Maybe GFieldMask)
 utrprFields
   = lens _utrprFields (\ s a -> s{_utrprFields = a})
 
@@ -3306,7 +3306,7 @@ instance ToJSON Bullet where
 data UpdateImagePropertiesRequest = UpdateImagePropertiesRequest'
     { _uiprObjectId        :: !(Maybe Text)
     , _uiprImageProperties :: !(Maybe ImageProperties)
-    , _uiprFields          :: !(Maybe FieldMask)
+    , _uiprFields          :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateImagePropertiesRequest' with the minimum fields required to make a request.
@@ -3345,7 +3345,7 @@ uiprImageProperties
 -- \`\"outline.outlineFill.solidFill.color\"\`. To reset a property to its
 -- default value, include its field name in the field mask but leave the
 -- field itself unset.
-uiprFields :: Lens' UpdateImagePropertiesRequest (Maybe FieldMask)
+uiprFields :: Lens' UpdateImagePropertiesRequest (Maybe GFieldMask)
 uiprFields
   = lens _uiprFields (\ s a -> s{_uiprFields = a})
 
@@ -4334,7 +4334,7 @@ instance ToJSON Video where
 data UpdateTableColumnPropertiesRequest = UpdateTableColumnPropertiesRequest'
     { _utcprObjectId              :: !(Maybe Text)
     , _utcprTableColumnProperties :: !(Maybe TableColumnProperties)
-    , _utcprFields                :: !(Maybe FieldMask)
+    , _utcprFields                :: !(Maybe GFieldMask)
     , _utcprColumnIndices         :: !(Maybe [Textual Int32])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -4380,7 +4380,7 @@ utcprTableColumnProperties
 -- \`\"column_width\"\`. If \'\"column_width\"\' is included in the field
 -- mask but the property is left unset, the column width will default to
 -- 406,400 EMU (32 points).
-utcprFields :: Lens' UpdateTableColumnPropertiesRequest (Maybe FieldMask)
+utcprFields :: Lens' UpdateTableColumnPropertiesRequest (Maybe GFieldMask)
 utcprFields
   = lens _utcprFields (\ s a -> s{_utcprFields = a})
 
@@ -5667,7 +5667,7 @@ data UpdateTextStyleRequest = UpdateTextStyleRequest'
     , _utsrTextRange    :: !(Maybe Range)
     , _utsrObjectId     :: !(Maybe Text)
     , _utsrCellLocation :: !(Maybe TableCellLocation)
-    , _utsrFields       :: !(Maybe FieldMask)
+    , _utsrFields       :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateTextStyleRequest' with the minimum fields required to make a request.
@@ -5731,7 +5731,7 @@ utsrCellLocation
 -- example, to update the text style to bold, set \`fields\` to
 -- \`\"bold\"\`. To reset a property to its default value, include its
 -- field name in the field mask but leave the field itself unset.
-utsrFields :: Lens' UpdateTextStyleRequest (Maybe FieldMask)
+utsrFields :: Lens' UpdateTextStyleRequest (Maybe GFieldMask)
 utsrFields
   = lens _utsrFields (\ s a -> s{_utsrFields = a})
 
@@ -6865,7 +6865,7 @@ instance ToJSON Outline where
 data UpdateVideoPropertiesRequest = UpdateVideoPropertiesRequest'
     { _uvprObjectId        :: !(Maybe Text)
     , _uvprVideoProperties :: !(Maybe VideoProperties)
-    , _uvprFields          :: !(Maybe FieldMask)
+    , _uvprFields          :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateVideoPropertiesRequest' with the minimum fields required to make a request.
@@ -6904,7 +6904,7 @@ uvprVideoProperties
 -- \`\"outline.outlineFill.solidFill.color\"\`. To reset a property to its
 -- default value, include its field name in the field mask but leave the
 -- field itself unset.
-uvprFields :: Lens' UpdateVideoPropertiesRequest (Maybe FieldMask)
+uvprFields :: Lens' UpdateVideoPropertiesRequest (Maybe GFieldMask)
 uvprFields
   = lens _uvprFields (\ s a -> s{_uvprFields = a})
 
@@ -7375,7 +7375,7 @@ data UpdateTableBOrderPropertiesRequest = UpdateTableBOrderPropertiesRequest'
     , _utboprObjectId              :: !(Maybe Text)
     , _utboprTableBOrderProperties :: !(Maybe TableBOrderProperties)
     , _utboprTableRange            :: !(Maybe TableRange)
-    , _utboprFields                :: !(Maybe FieldMask)
+    , _utboprFields                :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateTableBOrderPropertiesRequest' with the minimum fields required to make a request.
@@ -7437,7 +7437,7 @@ utboprTableRange
 -- set \`fields\` to \`\"tableBorderFill.solidFill.color\"\`. To reset a
 -- property to its default value, include its field name in the field mask
 -- but leave the field itself unset.
-utboprFields :: Lens' UpdateTableBOrderPropertiesRequest (Maybe FieldMask)
+utboprFields :: Lens' UpdateTableBOrderPropertiesRequest (Maybe GFieldMask)
 utboprFields
   = lens _utboprFields (\ s a -> s{_utboprFields = a})
 
@@ -7679,7 +7679,7 @@ instance ToJSON LayoutProperties where
 data UpdateShapePropertiesRequest = UpdateShapePropertiesRequest'
     { _usprObjectId        :: !(Maybe Text)
     , _usprShapeProperties :: !(Maybe ShapeProperties)
-    , _usprFields          :: !(Maybe FieldMask)
+    , _usprFields          :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateShapePropertiesRequest' with the minimum fields required to make a request.
@@ -7718,7 +7718,7 @@ usprShapeProperties
 -- to \`\"shapeBackgroundFill.solidFill.color\"\`. To reset a property to
 -- its default value, include its field name in the field mask but leave
 -- the field itself unset.
-usprFields :: Lens' UpdateShapePropertiesRequest (Maybe FieldMask)
+usprFields :: Lens' UpdateShapePropertiesRequest (Maybe GFieldMask)
 usprFields
   = lens _usprFields (\ s a -> s{_usprFields = a})
 
@@ -8212,7 +8212,7 @@ data UpdateTableCellPropertiesRequest = UpdateTableCellPropertiesRequest'
     { _uObjectId            :: !(Maybe Text)
     , _uTableCellProperties :: !(Maybe TableCellProperties)
     , _uTableRange          :: !(Maybe TableRange)
-    , _uFields              :: !(Maybe FieldMask)
+    , _uFields              :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateTableCellPropertiesRequest' with the minimum fields required to make a request.
@@ -8261,7 +8261,7 @@ uTableRange
 -- \`fields\` to \`\"tableCellBackgroundFill.solidFill.color\"\`. To reset
 -- a property to its default value, include its field name in the field
 -- mask but leave the field itself unset.
-uFields :: Lens' UpdateTableCellPropertiesRequest (Maybe FieldMask)
+uFields :: Lens' UpdateTableCellPropertiesRequest (Maybe GFieldMask)
 uFields = lens _uFields (\ s a -> s{_uFields = a})
 
 instance FromJSON UpdateTableCellPropertiesRequest
@@ -8621,7 +8621,7 @@ data UpdateParagraphStyleRequest = UpdateParagraphStyleRequest'
     , _upsrTextRange    :: !(Maybe Range)
     , _upsrObjectId     :: !(Maybe Text)
     , _upsrCellLocation :: !(Maybe TableCellLocation)
-    , _upsrFields       :: !(Maybe FieldMask)
+    , _upsrFields       :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateParagraphStyleRequest' with the minimum fields required to make a request.
@@ -8678,7 +8678,7 @@ upsrCellLocation
 -- example, to update the paragraph alignment, set \`fields\` to
 -- \`\"alignment\"\`. To reset a property to its default value, include its
 -- field name in the field mask but leave the field itself unset.
-upsrFields :: Lens' UpdateParagraphStyleRequest (Maybe FieldMask)
+upsrFields :: Lens' UpdateParagraphStyleRequest (Maybe GFieldMask)
 upsrFields
   = lens _upsrFields (\ s a -> s{_upsrFields = a})
 

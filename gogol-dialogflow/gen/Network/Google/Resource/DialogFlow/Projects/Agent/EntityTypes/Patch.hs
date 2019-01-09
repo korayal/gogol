@@ -55,7 +55,7 @@ type ProjectsAgentEntityTypesPatchResource =
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "languageCode" Text :>
              QueryParam "upload_protocol" Text :>
-               QueryParam "updateMask" FieldMask :>
+               QueryParam "updateMask" GFieldMask :>
                  QueryParam "access_token" Text :>
                    QueryParam "uploadType" Text :>
                      QueryParam "callback" Text :>
@@ -70,7 +70,7 @@ data ProjectsAgentEntityTypesPatch = ProjectsAgentEntityTypesPatch'
     { _paetpXgafv          :: !(Maybe Xgafv)
     , _paetpLanguageCode   :: !(Maybe Text)
     , _paetpUploadProtocol :: !(Maybe Text)
-    , _paetpUpdateMask     :: !(Maybe FieldMask)
+    , _paetpUpdateMask     :: !(Maybe GFieldMask)
     , _paetpAccessToken    :: !(Maybe Text)
     , _paetpUploadType     :: !(Maybe Text)
     , _paetpPayload        :: !GoogleCloudDialogflowV2EntityType
@@ -138,7 +138,7 @@ paetpUploadProtocol
       (\ s a -> s{_paetpUploadProtocol = a})
 
 -- | Optional. The mask to control which fields get updated.
-paetpUpdateMask :: Lens' ProjectsAgentEntityTypesPatch (Maybe FieldMask)
+paetpUpdateMask :: Lens' ProjectsAgentEntityTypesPatch (Maybe GFieldMask)
 paetpUpdateMask
   = lens _paetpUpdateMask
       (\ s a -> s{_paetpUpdateMask = a})

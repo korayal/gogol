@@ -53,7 +53,7 @@ type ProjectsOccurrencesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -67,7 +67,7 @@ type ProjectsOccurrencesPatchResource =
 data ProjectsOccurrencesPatch = ProjectsOccurrencesPatch'
     { _popXgafv          :: !(Maybe Xgafv)
     , _popUploadProtocol :: !(Maybe Text)
-    , _popUpdateMask     :: !(Maybe FieldMask)
+    , _popUpdateMask     :: !(Maybe GFieldMask)
     , _popAccessToken    :: !(Maybe Text)
     , _popUploadType     :: !(Maybe Text)
     , _popPayload        :: !Occurrence
@@ -121,7 +121,7 @@ popUploadProtocol
       (\ s a -> s{_popUploadProtocol = a})
 
 -- | The fields to update.
-popUpdateMask :: Lens' ProjectsOccurrencesPatch (Maybe FieldMask)
+popUpdateMask :: Lens' ProjectsOccurrencesPatch (Maybe GFieldMask)
 popUpdateMask
   = lens _popUpdateMask
       (\ s a -> s{_popUpdateMask = a})

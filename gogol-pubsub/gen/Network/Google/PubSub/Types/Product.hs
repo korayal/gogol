@@ -1045,7 +1045,7 @@ instance ToJSON CreateSnapshotRequestLabels where
 -- /See:/ 'updateSnapshotRequest' smart constructor.
 data UpdateSnapshotRequest = UpdateSnapshotRequest'
     { _usrSnapshot   :: !(Maybe Snapshot)
-    , _usrUpdateMask :: !(Maybe FieldMask)
+    , _usrUpdateMask :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateSnapshotRequest' with the minimum fields required to make a request.
@@ -1070,7 +1070,7 @@ usrSnapshot
 
 -- | Indicates which fields in the provided snapshot to update. Must be
 -- specified and non-empty.
-usrUpdateMask :: Lens' UpdateSnapshotRequest (Maybe FieldMask)
+usrUpdateMask :: Lens' UpdateSnapshotRequest (Maybe GFieldMask)
 usrUpdateMask
   = lens _usrUpdateMask
       (\ s a -> s{_usrUpdateMask = a})
@@ -1707,7 +1707,7 @@ instance ToJSON Subscription where
 --
 -- /See:/ 'updateSubscriptionRequest' smart constructor.
 data UpdateSubscriptionRequest = UpdateSubscriptionRequest'
-    { _uUpdateMask   :: !(Maybe FieldMask)
+    { _uUpdateMask   :: !(Maybe GFieldMask)
     , _uSubscription :: !(Maybe Subscription)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -1728,7 +1728,7 @@ updateSubscriptionRequest =
 
 -- | Indicates which fields in the provided subscription to update. Must be
 -- specified and non-empty.
-uUpdateMask :: Lens' UpdateSubscriptionRequest (Maybe FieldMask)
+uUpdateMask :: Lens' UpdateSubscriptionRequest (Maybe GFieldMask)
 uUpdateMask
   = lens _uUpdateMask (\ s a -> s{_uUpdateMask = a})
 
@@ -1954,7 +1954,7 @@ instance ToJSON Binding where
 --
 -- /See:/ 'updateTopicRequest' smart constructor.
 data UpdateTopicRequest = UpdateTopicRequest'
-    { _utrUpdateMask :: !(Maybe FieldMask)
+    { _utrUpdateMask :: !(Maybe GFieldMask)
     , _utrTopic      :: !(Maybe Topic)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -1979,7 +1979,7 @@ updateTopicRequest =
 -- on the policy configured at the project or organization level. The
 -- \`message_storage_policy\` must not be set in the \`topic\` provided
 -- above.
-utrUpdateMask :: Lens' UpdateTopicRequest (Maybe FieldMask)
+utrUpdateMask :: Lens' UpdateTopicRequest (Maybe GFieldMask)
 utrUpdateMask
   = lens _utrUpdateMask
       (\ s a -> s{_utrUpdateMask = a})

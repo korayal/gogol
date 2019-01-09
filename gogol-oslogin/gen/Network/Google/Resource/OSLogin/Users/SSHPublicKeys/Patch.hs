@@ -54,7 +54,7 @@ type UsersSSHPublicKeysPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -69,7 +69,7 @@ type UsersSSHPublicKeysPatchResource =
 data UsersSSHPublicKeysPatch = UsersSSHPublicKeysPatch'
     { _uspkpXgafv          :: !(Maybe Xgafv)
     , _uspkpUploadProtocol :: !(Maybe Text)
-    , _uspkpUpdateMask     :: !(Maybe FieldMask)
+    , _uspkpUpdateMask     :: !(Maybe GFieldMask)
     , _uspkpAccessToken    :: !(Maybe Text)
     , _uspkpUploadType     :: !(Maybe Text)
     , _uspkpPayload        :: !SSHPublicKey
@@ -124,7 +124,7 @@ uspkpUploadProtocol
       (\ s a -> s{_uspkpUploadProtocol = a})
 
 -- | Mask to control which fields get updated. Updates all if not present.
-uspkpUpdateMask :: Lens' UsersSSHPublicKeysPatch (Maybe FieldMask)
+uspkpUpdateMask :: Lens' UsersSSHPublicKeysPatch (Maybe GFieldMask)
 uspkpUpdateMask
   = lens _uspkpUpdateMask
       (\ s a -> s{_uspkpUpdateMask = a})

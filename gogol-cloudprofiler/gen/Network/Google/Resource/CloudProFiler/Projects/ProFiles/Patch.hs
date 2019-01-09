@@ -56,7 +56,7 @@ type ProjectsProFilesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -72,7 +72,7 @@ type ProjectsProFilesPatchResource =
 data ProjectsProFilesPatch = ProjectsProFilesPatch'
     { _ppfpXgafv          :: !(Maybe Xgafv)
     , _ppfpUploadProtocol :: !(Maybe Text)
-    , _ppfpUpdateMask     :: !(Maybe FieldMask)
+    , _ppfpUpdateMask     :: !(Maybe GFieldMask)
     , _ppfpAccessToken    :: !(Maybe Text)
     , _ppfpUploadType     :: !(Maybe Text)
     , _ppfpPayload        :: !ProFile
@@ -130,7 +130,7 @@ ppfpUploadProtocol
 -- profile_bytes and labels fields are supported by UpdateProfile, so only
 -- those fields can be specified in the mask. When no mask is provided, all
 -- fields are overwritten.
-ppfpUpdateMask :: Lens' ProjectsProFilesPatch (Maybe FieldMask)
+ppfpUpdateMask :: Lens' ProjectsProFilesPatch (Maybe GFieldMask)
 ppfpUpdateMask
   = lens _ppfpUpdateMask
       (\ s a -> s{_ppfpUpdateMask = a})

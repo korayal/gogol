@@ -58,7 +58,7 @@ type AppsFirewallIngressRulesPatchResource =
                Capture "ingressRulesId" Text :>
                  QueryParam "$.xgafv" Xgafv :>
                    QueryParam "upload_protocol" Text :>
-                     QueryParam "updateMask" FieldMask :>
+                     QueryParam "updateMask" GFieldMask :>
                        QueryParam "access_token" Text :>
                          QueryParam "uploadType" Text :>
                            QueryParam "callback" Text :>
@@ -72,7 +72,7 @@ type AppsFirewallIngressRulesPatchResource =
 data AppsFirewallIngressRulesPatch = AppsFirewallIngressRulesPatch'
     { _afirpXgafv          :: !(Maybe Xgafv)
     , _afirpUploadProtocol :: !(Maybe Text)
-    , _afirpUpdateMask     :: !(Maybe FieldMask)
+    , _afirpUpdateMask     :: !(Maybe GFieldMask)
     , _afirpAccessToken    :: !(Maybe Text)
     , _afirpUploadType     :: !(Maybe Text)
     , _afirpPayload        :: !FirewallRule
@@ -132,7 +132,7 @@ afirpUploadProtocol
       (\ s a -> s{_afirpUploadProtocol = a})
 
 -- | Standard field mask for the set of fields to be updated.
-afirpUpdateMask :: Lens' AppsFirewallIngressRulesPatch (Maybe FieldMask)
+afirpUpdateMask :: Lens' AppsFirewallIngressRulesPatch (Maybe GFieldMask)
 afirpUpdateMask
   = lens _afirpUpdateMask
       (\ s a -> s{_afirpUpdateMask = a})

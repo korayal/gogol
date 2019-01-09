@@ -54,7 +54,7 @@ type ProjectsJobsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -69,7 +69,7 @@ type ProjectsJobsPatchResource =
 data ProjectsJobsPatch = ProjectsJobsPatch'
     { _pjpXgafv          :: !(Maybe Xgafv)
     , _pjpUploadProtocol :: !(Maybe Text)
-    , _pjpUpdateMask     :: !(Maybe FieldMask)
+    , _pjpUpdateMask     :: !(Maybe GFieldMask)
     , _pjpAccessToken    :: !(Maybe Text)
     , _pjpUploadType     :: !(Maybe Text)
     , _pjpPayload        :: !GoogleCloudMlV1__Job
@@ -133,7 +133,7 @@ pjpUploadProtocol
 -- replaced with the given ones, and the server end \`etag\` will be
 -- recalculated. Currently the only supported update masks are \`labels\`
 -- and \`etag\`.
-pjpUpdateMask :: Lens' ProjectsJobsPatch (Maybe FieldMask)
+pjpUpdateMask :: Lens' ProjectsJobsPatch (Maybe GFieldMask)
 pjpUpdateMask
   = lens _pjpUpdateMask
       (\ s a -> s{_pjpUpdateMask = a})

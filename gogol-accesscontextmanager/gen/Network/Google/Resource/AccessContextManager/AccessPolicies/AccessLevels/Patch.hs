@@ -56,7 +56,7 @@ type AccessPoliciesAccessLevelsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -73,7 +73,7 @@ type AccessPoliciesAccessLevelsPatchResource =
 data AccessPoliciesAccessLevelsPatch = AccessPoliciesAccessLevelsPatch'
     { _apalpXgafv          :: !(Maybe Xgafv)
     , _apalpUploadProtocol :: !(Maybe Text)
-    , _apalpUpdateMask     :: !(Maybe FieldMask)
+    , _apalpUpdateMask     :: !(Maybe GFieldMask)
     , _apalpAccessToken    :: !(Maybe Text)
     , _apalpUploadType     :: !(Maybe Text)
     , _apalpPayload        :: !AccessLevel
@@ -128,7 +128,7 @@ apalpUploadProtocol
       (\ s a -> s{_apalpUploadProtocol = a})
 
 -- | Required. Mask to control which fields get updated. Must be non-empty.
-apalpUpdateMask :: Lens' AccessPoliciesAccessLevelsPatch (Maybe FieldMask)
+apalpUpdateMask :: Lens' AccessPoliciesAccessLevelsPatch (Maybe GFieldMask)
 apalpUpdateMask
   = lens _apalpUpdateMask
       (\ s a -> s{_apalpUpdateMask = a})

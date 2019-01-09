@@ -54,7 +54,7 @@ type ProjectsNotificationChannelsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -69,7 +69,7 @@ type ProjectsNotificationChannelsPatchResource =
 data ProjectsNotificationChannelsPatch = ProjectsNotificationChannelsPatch'
     { _pncpXgafv          :: !(Maybe Xgafv)
     , _pncpUploadProtocol :: !(Maybe Text)
-    , _pncpUpdateMask     :: !(Maybe FieldMask)
+    , _pncpUpdateMask     :: !(Maybe GFieldMask)
     , _pncpAccessToken    :: !(Maybe Text)
     , _pncpUploadType     :: !(Maybe Text)
     , _pncpPayload        :: !NotificationChannel
@@ -124,7 +124,7 @@ pncpUploadProtocol
       (\ s a -> s{_pncpUploadProtocol = a})
 
 -- | The fields to update.
-pncpUpdateMask :: Lens' ProjectsNotificationChannelsPatch (Maybe FieldMask)
+pncpUpdateMask :: Lens' ProjectsNotificationChannelsPatch (Maybe GFieldMask)
 pncpUpdateMask
   = lens _pncpUpdateMask
       (\ s a -> s{_pncpUpdateMask = a})

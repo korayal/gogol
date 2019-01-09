@@ -56,7 +56,7 @@ type AccessPoliciesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -73,7 +73,7 @@ type AccessPoliciesPatchResource =
 data AccessPoliciesPatch = AccessPoliciesPatch'
     { _appXgafv          :: !(Maybe Xgafv)
     , _appUploadProtocol :: !(Maybe Text)
-    , _appUpdateMask     :: !(Maybe FieldMask)
+    , _appUpdateMask     :: !(Maybe GFieldMask)
     , _appAccessToken    :: !(Maybe Text)
     , _appUploadType     :: !(Maybe Text)
     , _appPayload        :: !AccessPolicy
@@ -127,7 +127,7 @@ appUploadProtocol
       (\ s a -> s{_appUploadProtocol = a})
 
 -- | Required. Mask to control which fields get updated. Must be non-empty.
-appUpdateMask :: Lens' AccessPoliciesPatch (Maybe FieldMask)
+appUpdateMask :: Lens' AccessPoliciesPatch (Maybe GFieldMask)
 appUpdateMask
   = lens _appUpdateMask
       (\ s a -> s{_appUpdateMask = a})

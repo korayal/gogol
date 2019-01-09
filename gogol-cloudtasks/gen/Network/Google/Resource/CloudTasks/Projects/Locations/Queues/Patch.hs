@@ -61,7 +61,7 @@ type ProjectsLocationsQueuesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -82,7 +82,7 @@ type ProjectsLocationsQueuesPatchResource =
 data ProjectsLocationsQueuesPatch = ProjectsLocationsQueuesPatch'
     { _plqpXgafv          :: !(Maybe Xgafv)
     , _plqpUploadProtocol :: !(Maybe Text)
-    , _plqpUpdateMask     :: !(Maybe FieldMask)
+    , _plqpUpdateMask     :: !(Maybe GFieldMask)
     , _plqpAccessToken    :: !(Maybe Text)
     , _plqpUploadType     :: !(Maybe Text)
     , _plqpPayload        :: !Queue
@@ -138,7 +138,7 @@ plqpUploadProtocol
 
 -- | A mask used to specify which fields of the queue are being updated. If
 -- empty, then all fields will be updated.
-plqpUpdateMask :: Lens' ProjectsLocationsQueuesPatch (Maybe FieldMask)
+plqpUpdateMask :: Lens' ProjectsLocationsQueuesPatch (Maybe GFieldMask)
 plqpUpdateMask
   = lens _plqpUpdateMask
       (\ s a -> s{_plqpUpdateMask = a})

@@ -53,7 +53,7 @@ type FoldersExclusionsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -67,7 +67,7 @@ type FoldersExclusionsPatchResource =
 data FoldersExclusionsPatch = FoldersExclusionsPatch'
     { _fepXgafv          :: !(Maybe Xgafv)
     , _fepUploadProtocol :: !(Maybe Text)
-    , _fepUpdateMask     :: !(Maybe FieldMask)
+    , _fepUpdateMask     :: !(Maybe GFieldMask)
     , _fepAccessToken    :: !(Maybe Text)
     , _fepUploadType     :: !(Maybe Text)
     , _fepPayload        :: !LogExclusion
@@ -126,7 +126,7 @@ fepUploadProtocol
 -- update_mask are not changed and are ignored in the request.For example,
 -- to change the filter and description of an exclusion, specify an
 -- update_mask of \"filter,description\".
-fepUpdateMask :: Lens' FoldersExclusionsPatch (Maybe FieldMask)
+fepUpdateMask :: Lens' FoldersExclusionsPatch (Maybe GFieldMask)
 fepUpdateMask
   = lens _fepUpdateMask
       (\ s a -> s{_fepUpdateMask = a})

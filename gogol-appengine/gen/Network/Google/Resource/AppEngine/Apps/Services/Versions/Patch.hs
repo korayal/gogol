@@ -89,7 +89,7 @@ type AppsServicesVersionsPatchResource =
                  Capture "versionsId" Text :>
                    QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
-                       QueryParam "updateMask" FieldMask :>
+                       QueryParam "updateMask" GFieldMask :>
                          QueryParam "access_token" Text :>
                            QueryParam "uploadType" Text :>
                              QueryParam "callback" Text :>
@@ -132,7 +132,7 @@ type AppsServicesVersionsPatchResource =
 data AppsServicesVersionsPatch = AppsServicesVersionsPatch'
     { _asvpXgafv          :: !(Maybe Xgafv)
     , _asvpUploadProtocol :: !(Maybe Text)
-    , _asvpUpdateMask     :: !(Maybe FieldMask)
+    , _asvpUpdateMask     :: !(Maybe GFieldMask)
     , _asvpAccessToken    :: !(Maybe Text)
     , _asvpUploadType     :: !(Maybe Text)
     , _asvpPayload        :: !Version
@@ -197,7 +197,7 @@ asvpUploadProtocol
       (\ s a -> s{_asvpUploadProtocol = a})
 
 -- | Standard field mask for the set of fields to be updated.
-asvpUpdateMask :: Lens' AppsServicesVersionsPatch (Maybe FieldMask)
+asvpUpdateMask :: Lens' AppsServicesVersionsPatch (Maybe GFieldMask)
 asvpUpdateMask
   = lens _asvpUpdateMask
       (\ s a -> s{_asvpUpdateMask = a})

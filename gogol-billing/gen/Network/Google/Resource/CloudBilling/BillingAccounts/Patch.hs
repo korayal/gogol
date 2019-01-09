@@ -58,7 +58,7 @@ type BillingAccountsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -77,7 +77,7 @@ type BillingAccountsPatchResource =
 data BillingAccountsPatch = BillingAccountsPatch'
     { _bapXgafv          :: !(Maybe Xgafv)
     , _bapUploadProtocol :: !(Maybe Text)
-    , _bapUpdateMask     :: !(Maybe FieldMask)
+    , _bapUpdateMask     :: !(Maybe GFieldMask)
     , _bapAccessToken    :: !(Maybe Text)
     , _bapUploadType     :: !(Maybe Text)
     , _bapPayload        :: !BillingAccount
@@ -132,7 +132,7 @@ bapUploadProtocol
 
 -- | The update mask applied to the resource. Only \"display_name\" is
 -- currently supported.
-bapUpdateMask :: Lens' BillingAccountsPatch (Maybe FieldMask)
+bapUpdateMask :: Lens' BillingAccountsPatch (Maybe GFieldMask)
 bapUpdateMask
   = lens _bapUpdateMask
       (\ s a -> s{_bapUpdateMask = a})

@@ -250,7 +250,7 @@ instance ToJSON Photo where
 -- /See:/ 'updatePhotoRequest' smart constructor.
 data UpdatePhotoRequest = UpdatePhotoRequest'
     { _uprPhoto      :: !(Maybe Photo)
-    , _uprUpdateMask :: !(Maybe FieldMask)
+    , _uprUpdateMask :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdatePhotoRequest' with the minimum fields required to make a request.
@@ -284,7 +284,7 @@ uprPhoto = lens _uprPhoto (\ s a -> s{_uprPhoto = a})
 -- updateMask contains \`connections\` and
 -- \`UpdatePhotoRequest.photo.connections\` is empty, all connections will
 -- be removed.
-uprUpdateMask :: Lens' UpdatePhotoRequest (Maybe FieldMask)
+uprUpdateMask :: Lens' UpdatePhotoRequest (Maybe GFieldMask)
 uprUpdateMask
   = lens _uprUpdateMask
       (\ s a -> s{_uprUpdateMask = a})

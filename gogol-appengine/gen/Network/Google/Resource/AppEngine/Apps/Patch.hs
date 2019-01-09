@@ -57,7 +57,7 @@ type AppsPatchResource =
          Capture "appsId" Text :>
            QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
-               QueryParam "updateMask" FieldMask :>
+               QueryParam "updateMask" GFieldMask :>
                  QueryParam "access_token" Text :>
                    QueryParam "uploadType" Text :>
                      QueryParam "callback" Text :>
@@ -74,7 +74,7 @@ type AppsPatchResource =
 data AppsPatch = AppsPatch'
     { _apXgafv          :: !(Maybe Xgafv)
     , _apUploadProtocol :: !(Maybe Text)
-    , _apUpdateMask     :: !(Maybe FieldMask)
+    , _apUpdateMask     :: !(Maybe GFieldMask)
     , _apAccessToken    :: !(Maybe Text)
     , _apUploadType     :: !(Maybe Text)
     , _apPayload        :: !Application
@@ -128,7 +128,7 @@ apUploadProtocol
       (\ s a -> s{_apUploadProtocol = a})
 
 -- | Standard field mask for the set of fields to be updated.
-apUpdateMask :: Lens' AppsPatch (Maybe FieldMask)
+apUpdateMask :: Lens' AppsPatch (Maybe GFieldMask)
 apUpdateMask
   = lens _apUpdateMask (\ s a -> s{_apUpdateMask = a})
 

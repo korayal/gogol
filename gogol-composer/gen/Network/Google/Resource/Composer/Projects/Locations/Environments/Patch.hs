@@ -53,7 +53,7 @@ type ProjectsLocationsEnvironmentsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -67,7 +67,7 @@ type ProjectsLocationsEnvironmentsPatchResource =
 data ProjectsLocationsEnvironmentsPatch = ProjectsLocationsEnvironmentsPatch'
     { _plepXgafv          :: !(Maybe Xgafv)
     , _plepUploadProtocol :: !(Maybe Text)
-    , _plepUpdateMask     :: !(Maybe FieldMask)
+    , _plepUpdateMask     :: !(Maybe GFieldMask)
     , _plepAccessToken    :: !(Maybe Text)
     , _plepUploadType     :: !(Maybe Text)
     , _plepPayload        :: !Environment
@@ -163,7 +163,7 @@ plepUploadProtocol
 -- >   config.softwareConfig.airflowConfigOverrides.section-name   Override the Apache Airflow config property name in the section named section, preserving other properties. To delete the property override, include it in \`updateMask\` and omit its mapping in \`environment.config.softwareConfig.airflowConfigOverrides\`. It is an error to provide both a mask of this form and the \"config.softwareConfig.airflowConfigOverrides\" mask.
 -- >   config.softwareConfig.envVariables                          Replace all environment variables. If a replacement environment variable map is not included in \`environment\`, all custom environment variables are cleared. It is an error to provide both this mask and a mask specifying one or more individual environment variables.
 -- >   ----------------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-plepUpdateMask :: Lens' ProjectsLocationsEnvironmentsPatch (Maybe FieldMask)
+plepUpdateMask :: Lens' ProjectsLocationsEnvironmentsPatch (Maybe GFieldMask)
 plepUpdateMask
   = lens _plepUpdateMask
       (\ s a -> s{_plepUpdateMask = a})

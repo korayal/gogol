@@ -60,7 +60,7 @@ type UpdateCompaniesResource =
        "companies" :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "requestMetadata.partnersSessionId" Text
@@ -93,7 +93,7 @@ type UpdateCompaniesResource =
 data UpdateCompanies = UpdateCompanies'
     { _ucXgafv                                       :: !(Maybe Xgafv)
     , _ucUploadProtocol                              :: !(Maybe Text)
-    , _ucUpdateMask                                  :: !(Maybe FieldMask)
+    , _ucUpdateMask                                  :: !(Maybe GFieldMask)
     , _ucAccessToken                                 :: !(Maybe Text)
     , _ucUploadType                                  :: !(Maybe Text)
     , _ucPayload                                     :: !Company
@@ -171,7 +171,7 @@ ucUploadProtocol
 
 -- | Standard field mask for the set of fields to be updated. Required with
 -- at least 1 value in FieldMask\'s paths.
-ucUpdateMask :: Lens' UpdateCompanies (Maybe FieldMask)
+ucUpdateMask :: Lens' UpdateCompanies (Maybe GFieldMask)
 ucUpdateMask
   = lens _ucUpdateMask (\ s a -> s{_ucUpdateMask = a})
 

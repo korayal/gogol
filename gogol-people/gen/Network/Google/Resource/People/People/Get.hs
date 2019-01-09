@@ -55,10 +55,10 @@ type PeopleGetResource =
        Capture "resourceName" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "requestMask.includeField" FieldMask :>
+             QueryParam "requestMask.includeField" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
-                   QueryParam "personFields" FieldMask :>
+                   QueryParam "personFields" GFieldMask :>
                      QueryParam "callback" Text :>
                        QueryParam "alt" AltJSON :> Get '[JSON] Person
 
@@ -71,10 +71,10 @@ data PeopleGet = PeopleGet'
     { _pgXgafv                   :: !(Maybe Xgafv)
     , _pgUploadProtocol          :: !(Maybe Text)
     , _pgResourceName            :: !Text
-    , _pgRequestMaskIncludeField :: !(Maybe FieldMask)
+    , _pgRequestMaskIncludeField :: !(Maybe GFieldMask)
     , _pgAccessToken             :: !(Maybe Text)
     , _pgUploadType              :: !(Maybe Text)
-    , _pgPersonFields            :: !(Maybe FieldMask)
+    , _pgPersonFields            :: !(Maybe GFieldMask)
     , _pgCallback                :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -136,7 +136,7 @@ pgResourceName
 -- | **Required.** Comma-separated list of person fields to be included in
 -- the response. Each path should start with \`person.\`: for example,
 -- \`person.names\` or \`person.photos\`.
-pgRequestMaskIncludeField :: Lens' PeopleGet (Maybe FieldMask)
+pgRequestMaskIncludeField :: Lens' PeopleGet (Maybe GFieldMask)
 pgRequestMaskIncludeField
   = lens _pgRequestMaskIncludeField
       (\ s a -> s{_pgRequestMaskIncludeField = a})
@@ -160,7 +160,7 @@ pgUploadType
 -- names * nicknames * occupations * organizations * phoneNumbers * photos
 -- * relations * relationshipInterests * relationshipStatuses * residences
 -- * sipAddresses * skills * taglines * urls * userDefined
-pgPersonFields :: Lens' PeopleGet (Maybe FieldMask)
+pgPersonFields :: Lens' PeopleGet (Maybe GFieldMask)
 pgPersonFields
   = lens _pgPersonFields
       (\ s a -> s{_pgPersonFields = a})

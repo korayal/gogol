@@ -61,7 +61,7 @@ type PeopleUpdateContactResource =
        CaptureMode "resourceName" "updateContact" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updatePersonFields" FieldMask :>
+             QueryParam "updatePersonFields" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -83,7 +83,7 @@ data PeopleUpdateContact = PeopleUpdateContact'
     { _pucXgafv              :: !(Maybe Xgafv)
     , _pucUploadProtocol     :: !(Maybe Text)
     , _pucResourceName       :: !Text
-    , _pucUpdatePersonFields :: !(Maybe FieldMask)
+    , _pucUpdatePersonFields :: !(Maybe GFieldMask)
     , _pucAccessToken        :: !(Maybe Text)
     , _pucUploadType         :: !(Maybe Text)
     , _pucPayload            :: !Person
@@ -150,7 +150,7 @@ pucResourceName
 -- * imClients * interests * locales * names * nicknames * occupations *
 -- organizations * phoneNumbers * relations * residences * sipAddresses *
 -- urls * userDefined
-pucUpdatePersonFields :: Lens' PeopleUpdateContact (Maybe FieldMask)
+pucUpdatePersonFields :: Lens' PeopleUpdateContact (Maybe GFieldMask)
 pucUpdatePersonFields
   = lens _pucUpdatePersonFields
       (\ s a -> s{_pucUpdatePersonFields = a})

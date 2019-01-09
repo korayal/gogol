@@ -56,7 +56,7 @@ type AccessPoliciesServicePerimetersPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -73,7 +73,7 @@ type AccessPoliciesServicePerimetersPatchResource =
 data AccessPoliciesServicePerimetersPatch = AccessPoliciesServicePerimetersPatch'
     { _apsppXgafv          :: !(Maybe Xgafv)
     , _apsppUploadProtocol :: !(Maybe Text)
-    , _apsppUpdateMask     :: !(Maybe FieldMask)
+    , _apsppUpdateMask     :: !(Maybe GFieldMask)
     , _apsppAccessToken    :: !(Maybe Text)
     , _apsppUploadType     :: !(Maybe Text)
     , _apsppPayload        :: !ServicePerimeter
@@ -128,7 +128,7 @@ apsppUploadProtocol
       (\ s a -> s{_apsppUploadProtocol = a})
 
 -- | Required. Mask to control which fields get updated. Must be non-empty.
-apsppUpdateMask :: Lens' AccessPoliciesServicePerimetersPatch (Maybe FieldMask)
+apsppUpdateMask :: Lens' AccessPoliciesServicePerimetersPatch (Maybe GFieldMask)
 apsppUpdateMask
   = lens _apsppUpdateMask
       (\ s a -> s{_apsppUpdateMask = a})

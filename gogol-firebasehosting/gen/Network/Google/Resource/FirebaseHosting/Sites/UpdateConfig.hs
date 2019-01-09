@@ -53,7 +53,7 @@ type SitesUpdateConfigResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -67,7 +67,7 @@ type SitesUpdateConfigResource =
 data SitesUpdateConfig = SitesUpdateConfig'
     { _sucXgafv          :: !(Maybe Xgafv)
     , _sucUploadProtocol :: !(Maybe Text)
-    , _sucUpdateMask     :: !(Maybe FieldMask)
+    , _sucUpdateMask     :: !(Maybe GFieldMask)
     , _sucAccessToken    :: !(Maybe Text)
     , _sucUploadType     :: !(Maybe Text)
     , _sucPayload        :: !SiteConfig
@@ -125,7 +125,7 @@ sucUploadProtocol
 -- A field will be overwritten if, and only if, it\'s in the mask.
 -- If a mask is not provided then a default mask of only
 -- [\`max_versions\`](..\/sites.SiteConfig.max_versions) will be used.
-sucUpdateMask :: Lens' SitesUpdateConfig (Maybe FieldMask)
+sucUpdateMask :: Lens' SitesUpdateConfig (Maybe GFieldMask)
 sucUpdateMask
   = lens _sucUpdateMask
       (\ s a -> s{_sucUpdateMask = a})

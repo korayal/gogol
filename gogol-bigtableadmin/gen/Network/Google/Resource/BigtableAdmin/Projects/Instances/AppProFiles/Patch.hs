@@ -54,7 +54,7 @@ type ProjectsInstancesAppProFilesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "ignoreWarnings" Bool :>
@@ -68,7 +68,7 @@ type ProjectsInstancesAppProFilesPatchResource =
 data ProjectsInstancesAppProFilesPatch = ProjectsInstancesAppProFilesPatch'
     { _piapfpXgafv          :: !(Maybe Xgafv)
     , _piapfpUploadProtocol :: !(Maybe Text)
-    , _piapfpUpdateMask     :: !(Maybe FieldMask)
+    , _piapfpUpdateMask     :: !(Maybe GFieldMask)
     , _piapfpAccessToken    :: !(Maybe Text)
     , _piapfpUploadType     :: !(Maybe Text)
     , _piapfpPayload        :: !AppProFile
@@ -128,7 +128,7 @@ piapfpUploadProtocol
 
 -- | The subset of app profile fields which should be replaced. If unset, all
 -- fields will be replaced.
-piapfpUpdateMask :: Lens' ProjectsInstancesAppProFilesPatch (Maybe FieldMask)
+piapfpUpdateMask :: Lens' ProjectsInstancesAppProFilesPatch (Maybe GFieldMask)
 piapfpUpdateMask
   = lens _piapfpUpdateMask
       (\ s a -> s{_piapfpUpdateMask = a})

@@ -53,7 +53,7 @@ type EnterprisesPoliciesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -66,7 +66,7 @@ type EnterprisesPoliciesPatchResource =
 data EnterprisesPoliciesPatch = EnterprisesPoliciesPatch'
     { _eppXgafv          :: !(Maybe Xgafv)
     , _eppUploadProtocol :: !(Maybe Text)
-    , _eppUpdateMask     :: !(Maybe FieldMask)
+    , _eppUpdateMask     :: !(Maybe GFieldMask)
     , _eppAccessToken    :: !(Maybe Text)
     , _eppUploadType     :: !(Maybe Text)
     , _eppPayload        :: !Policy
@@ -121,7 +121,7 @@ eppUploadProtocol
 
 -- | The field mask indicating the fields to update. If not set, all
 -- modifiable fields will be modified.
-eppUpdateMask :: Lens' EnterprisesPoliciesPatch (Maybe FieldMask)
+eppUpdateMask :: Lens' EnterprisesPoliciesPatch (Maybe GFieldMask)
 eppUpdateMask
   = lens _eppUpdateMask
       (\ s a -> s{_eppUpdateMask = a})

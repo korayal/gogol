@@ -58,7 +58,7 @@ type OrganizationsSinksUpdateResource =
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "uniqueWriterIdentity" Bool :>
              QueryParam "upload_protocol" Text :>
-               QueryParam "updateMask" FieldMask :>
+               QueryParam "updateMask" GFieldMask :>
                  QueryParam "access_token" Text :>
                    QueryParam "uploadType" Text :>
                      QueryParam "callback" Text :>
@@ -75,7 +75,7 @@ data OrganizationsSinksUpdate = OrganizationsSinksUpdate'
     { _osuXgafv                :: !(Maybe Xgafv)
     , _osuUniqueWriterIdentity :: !(Maybe Bool)
     , _osuUploadProtocol       :: !(Maybe Text)
-    , _osuUpdateMask           :: !(Maybe FieldMask)
+    , _osuUpdateMask           :: !(Maybe GFieldMask)
     , _osuAccessToken          :: !(Maybe Text)
     , _osuUploadType           :: !(Maybe Text)
     , _osuPayload              :: !LogSink
@@ -155,7 +155,7 @@ osuUploadProtocol
 -- see
 -- https:\/\/developers.google.com\/protocol-buffers\/docs\/reference\/google.protobuf#google.protobuf.FieldMaskExample:
 -- updateMask=filter.
-osuUpdateMask :: Lens' OrganizationsSinksUpdate (Maybe FieldMask)
+osuUpdateMask :: Lens' OrganizationsSinksUpdate (Maybe GFieldMask)
 osuUpdateMask
   = lens _osuUpdateMask
       (\ s a -> s{_osuUpdateMask = a})

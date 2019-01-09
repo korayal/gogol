@@ -70,7 +70,7 @@ type UserProFilesGuardianInvitationsPatchResource =
              Capture "invitationId" Text :>
                QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
-                   QueryParam "updateMask" FieldMask :>
+                   QueryParam "updateMask" GFieldMask :>
                      QueryParam "access_token" Text :>
                        QueryParam "uploadType" Text :>
                          QueryParam "callback" Text :>
@@ -98,7 +98,7 @@ data UserProFilesGuardianInvitationsPatch = UserProFilesGuardianInvitationsPatch
     { _upfgipStudentId      :: !Text
     , _upfgipXgafv          :: !(Maybe Xgafv)
     , _upfgipUploadProtocol :: !(Maybe Text)
-    , _upfgipUpdateMask     :: !(Maybe FieldMask)
+    , _upfgipUpdateMask     :: !(Maybe GFieldMask)
     , _upfgipAccessToken    :: !(Maybe Text)
     , _upfgipUploadType     :: !(Maybe Text)
     , _upfgipPayload        :: !GuardianInvitation
@@ -166,7 +166,7 @@ upfgipUploadProtocol
 -- required to do an update. The update will fail if invalid fields are
 -- specified. The following fields are valid: * \`state\` When set in a
 -- query parameter, this field should be specified as \`updateMask=,,...\`
-upfgipUpdateMask :: Lens' UserProFilesGuardianInvitationsPatch (Maybe FieldMask)
+upfgipUpdateMask :: Lens' UserProFilesGuardianInvitationsPatch (Maybe GFieldMask)
 upfgipUpdateMask
   = lens _upfgipUpdateMask
       (\ s a -> s{_upfgipUpdateMask = a})

@@ -1782,7 +1782,7 @@ instance ToJSON
 --
 -- /See:/ 'googleDevtoolsRemotebuildexecutionAdminV1alphaUpdateWorkerPoolRequest' smart constructor.
 data GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateWorkerPoolRequest = GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateWorkerPoolRequest'
-    { _gdravuwprUpdateMask :: !(Maybe FieldMask)
+    { _gdravuwprUpdateMask :: !(Maybe GFieldMask)
     , _gdravuwprWorkerPool :: !(Maybe GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -1808,7 +1808,7 @@ googleDevtoolsRemotebuildexecutionAdminV1alphaUpdateWorkerPoolRequest =
 -- in the worker pool field will be updated. Note that in order to update a
 -- field to the default value (zero, false, empty string) an explicit
 -- update_mask must be provided.
-gdravuwprUpdateMask :: Lens' GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateWorkerPoolRequest (Maybe FieldMask)
+gdravuwprUpdateMask :: Lens' GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateWorkerPoolRequest (Maybe GFieldMask)
 gdravuwprUpdateMask
   = lens _gdravuwprUpdateMask
       (\ s a -> s{_gdravuwprUpdateMask = a})

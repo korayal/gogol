@@ -696,7 +696,7 @@ instance ToJSON Date where
 data UpdateTransferJobRequest = UpdateTransferJobRequest'
     { _utjrTransferJob                :: !(Maybe TransferJob)
     , _utjrProjectId                  :: !(Maybe Text)
-    , _utjrUpdateTransferJobFieldMask :: !(Maybe FieldMask)
+    , _utjrUpdateTransferJobFieldMask :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateTransferJobRequest' with the minimum fields required to make a request.
@@ -739,7 +739,7 @@ utjrProjectId
 -- \`transferSpec\` of the job, a complete transfer specification has to be
 -- provided. An incomplete specification which misses any required fields
 -- will be rejected with the error \`INVALID_ARGUMENT\`.
-utjrUpdateTransferJobFieldMask :: Lens' UpdateTransferJobRequest (Maybe FieldMask)
+utjrUpdateTransferJobFieldMask :: Lens' UpdateTransferJobRequest (Maybe GFieldMask)
 utjrUpdateTransferJobFieldMask
   = lens _utjrUpdateTransferJobFieldMask
       (\ s a -> s{_utjrUpdateTransferJobFieldMask = a})

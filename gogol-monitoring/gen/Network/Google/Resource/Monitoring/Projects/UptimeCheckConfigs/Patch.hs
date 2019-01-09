@@ -56,7 +56,7 @@ type ProjectsUptimeCheckConfigsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -73,7 +73,7 @@ type ProjectsUptimeCheckConfigsPatchResource =
 data ProjectsUptimeCheckConfigsPatch = ProjectsUptimeCheckConfigsPatch'
     { _puccpXgafv          :: !(Maybe Xgafv)
     , _puccpUploadProtocol :: !(Maybe Text)
-    , _puccpUpdateMask     :: !(Maybe FieldMask)
+    , _puccpUpdateMask     :: !(Maybe GFieldMask)
     , _puccpAccessToken    :: !(Maybe Text)
     , _puccpUploadType     :: !(Maybe Text)
     , _puccpPayload        :: !UptimeCheckConfig
@@ -131,7 +131,7 @@ puccpUploadProtocol
 -- configuration are updated with values from the new configuration. If
 -- this field is empty, then the current configuration is completely
 -- replaced with the new configuration.
-puccpUpdateMask :: Lens' ProjectsUptimeCheckConfigsPatch (Maybe FieldMask)
+puccpUpdateMask :: Lens' ProjectsUptimeCheckConfigsPatch (Maybe GFieldMask)
 puccpUpdateMask
   = lens _puccpUpdateMask
       (\ s a -> s{_puccpUpdateMask = a})

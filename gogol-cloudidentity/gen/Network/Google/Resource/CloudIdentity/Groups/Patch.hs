@@ -53,7 +53,7 @@ type GroupsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -66,7 +66,7 @@ type GroupsPatchResource =
 data GroupsPatch = GroupsPatch'
     { _gpXgafv          :: !(Maybe Xgafv)
     , _gpUploadProtocol :: !(Maybe Text)
-    , _gpUpdateMask     :: !(Maybe FieldMask)
+    , _gpUpdateMask     :: !(Maybe GFieldMask)
     , _gpAccessToken    :: !(Maybe Text)
     , _gpUploadType     :: !(Maybe Text)
     , _gpPayload        :: !Group
@@ -120,7 +120,7 @@ gpUploadProtocol
       (\ s a -> s{_gpUploadProtocol = a})
 
 -- | Editable fields: \`display_name\`, \`description\`
-gpUpdateMask :: Lens' GroupsPatch (Maybe FieldMask)
+gpUpdateMask :: Lens' GroupsPatch (Maybe GFieldMask)
 gpUpdateMask
   = lens _gpUpdateMask (\ s a -> s{_gpUpdateMask = a})
 

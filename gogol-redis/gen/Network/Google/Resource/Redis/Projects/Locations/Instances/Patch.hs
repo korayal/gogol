@@ -56,7 +56,7 @@ type ProjectsLocationsInstancesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -72,7 +72,7 @@ type ProjectsLocationsInstancesPatchResource =
 data ProjectsLocationsInstancesPatch = ProjectsLocationsInstancesPatch'
     { _plipXgafv          :: !(Maybe Xgafv)
     , _plipUploadProtocol :: !(Maybe Text)
-    , _plipUpdateMask     :: !(Maybe FieldMask)
+    , _plipUpdateMask     :: !(Maybe GFieldMask)
     , _plipAccessToken    :: !(Maybe Text)
     , _plipUploadType     :: !(Maybe Text)
     , _plipPayload        :: !Instance
@@ -130,7 +130,7 @@ plipUploadProtocol
 -- in this field. The elements of the repeated paths field may only include
 -- these fields from Instance: * \`displayName\` * \`labels\` *
 -- \`memorySizeGb\` * \`redisConfig\`
-plipUpdateMask :: Lens' ProjectsLocationsInstancesPatch (Maybe FieldMask)
+plipUpdateMask :: Lens' ProjectsLocationsInstancesPatch (Maybe GFieldMask)
 plipUpdateMask
   = lens _plipUpdateMask
       (\ s a -> s{_plipUpdateMask = a})

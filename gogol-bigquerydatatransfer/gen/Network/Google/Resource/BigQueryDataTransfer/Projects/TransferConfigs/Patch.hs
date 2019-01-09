@@ -55,7 +55,7 @@ type ProjectsTransferConfigsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "authorizationCode" Text :>
@@ -71,7 +71,7 @@ type ProjectsTransferConfigsPatchResource =
 data ProjectsTransferConfigsPatch = ProjectsTransferConfigsPatch'
     { _ptcpXgafv             :: !(Maybe Xgafv)
     , _ptcpUploadProtocol    :: !(Maybe Text)
-    , _ptcpUpdateMask        :: !(Maybe FieldMask)
+    , _ptcpUpdateMask        :: !(Maybe GFieldMask)
     , _ptcpAccessToken       :: !(Maybe Text)
     , _ptcpUploadType        :: !(Maybe Text)
     , _ptcpAuthorizationCode :: !(Maybe Text)
@@ -130,7 +130,7 @@ ptcpUploadProtocol
       (\ s a -> s{_ptcpUploadProtocol = a})
 
 -- | Required list of fields to be updated in this request.
-ptcpUpdateMask :: Lens' ProjectsTransferConfigsPatch (Maybe FieldMask)
+ptcpUpdateMask :: Lens' ProjectsTransferConfigsPatch (Maybe GFieldMask)
 ptcpUpdateMask
   = lens _ptcpUpdateMask
       (\ s a -> s{_ptcpUpdateMask = a})

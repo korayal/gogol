@@ -53,7 +53,7 @@ type ProjectsAgentSessionsEntityTypesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -70,7 +70,7 @@ type ProjectsAgentSessionsEntityTypesPatchResource =
 data ProjectsAgentSessionsEntityTypesPatch = ProjectsAgentSessionsEntityTypesPatch'
     { _paSetpXgafv          :: !(Maybe Xgafv)
     , _paSetpUploadProtocol :: !(Maybe Text)
-    , _paSetpUpdateMask     :: !(Maybe FieldMask)
+    , _paSetpUpdateMask     :: !(Maybe GFieldMask)
     , _paSetpAccessToken    :: !(Maybe Text)
     , _paSetpUploadType     :: !(Maybe Text)
     , _paSetpPayload        :: !GoogleCloudDialogflowV2SessionEntityType
@@ -125,7 +125,7 @@ paSetpUploadProtocol
       (\ s a -> s{_paSetpUploadProtocol = a})
 
 -- | Optional. The mask to control which fields get updated.
-paSetpUpdateMask :: Lens' ProjectsAgentSessionsEntityTypesPatch (Maybe FieldMask)
+paSetpUpdateMask :: Lens' ProjectsAgentSessionsEntityTypesPatch (Maybe GFieldMask)
 paSetpUpdateMask
   = lens _paSetpUpdateMask
       (\ s a -> s{_paSetpUpdateMask = a})

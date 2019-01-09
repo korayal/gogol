@@ -53,7 +53,7 @@ type ProjectsRolesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -66,7 +66,7 @@ type ProjectsRolesPatchResource =
 data ProjectsRolesPatch = ProjectsRolesPatch'
     { _prpXgafv          :: !(Maybe Xgafv)
     , _prpUploadProtocol :: !(Maybe Text)
-    , _prpUpdateMask     :: !(Maybe FieldMask)
+    , _prpUpdateMask     :: !(Maybe GFieldMask)
     , _prpAccessToken    :: !(Maybe Text)
     , _prpUploadType     :: !(Maybe Text)
     , _prpPayload        :: !Role
@@ -120,7 +120,7 @@ prpUploadProtocol
       (\ s a -> s{_prpUploadProtocol = a})
 
 -- | A mask describing which fields in the Role have changed.
-prpUpdateMask :: Lens' ProjectsRolesPatch (Maybe FieldMask)
+prpUpdateMask :: Lens' ProjectsRolesPatch (Maybe GFieldMask)
 prpUpdateMask
   = lens _prpUpdateMask
       (\ s a -> s{_prpUpdateMask = a})

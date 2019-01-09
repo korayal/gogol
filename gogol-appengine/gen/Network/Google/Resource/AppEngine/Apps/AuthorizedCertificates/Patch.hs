@@ -61,7 +61,7 @@ type AppsAuthorizedCertificatesPatchResource =
              Capture "authorizedCertificatesId" Text :>
                QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
-                   QueryParam "updateMask" FieldMask :>
+                   QueryParam "updateMask" GFieldMask :>
                      QueryParam "access_token" Text :>
                        QueryParam "uploadType" Text :>
                          QueryParam "callback" Text :>
@@ -80,7 +80,7 @@ data AppsAuthorizedCertificatesPatch = AppsAuthorizedCertificatesPatch'
     { _aacpAuthorizedCertificatesId :: !Text
     , _aacpXgafv                    :: !(Maybe Xgafv)
     , _aacpUploadProtocol           :: !(Maybe Text)
-    , _aacpUpdateMask               :: !(Maybe FieldMask)
+    , _aacpUpdateMask               :: !(Maybe GFieldMask)
     , _aacpAccessToken              :: !(Maybe Text)
     , _aacpUploadType               :: !(Maybe Text)
     , _aacpPayload                  :: !AuthorizedCertificate
@@ -146,7 +146,7 @@ aacpUploadProtocol
 
 -- | Standard field mask for the set of fields to be updated. Updates are
 -- only supported on the certificate_raw_data and display_name fields.
-aacpUpdateMask :: Lens' AppsAuthorizedCertificatesPatch (Maybe FieldMask)
+aacpUpdateMask :: Lens' AppsAuthorizedCertificatesPatch (Maybe GFieldMask)
 aacpUpdateMask
   = lens _aacpUpdateMask
       (\ s a -> s{_aacpUpdateMask = a})

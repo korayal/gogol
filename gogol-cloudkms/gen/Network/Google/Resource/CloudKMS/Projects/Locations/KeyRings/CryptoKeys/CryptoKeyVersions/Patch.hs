@@ -56,7 +56,7 @@ type ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsPatchResource
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -72,7 +72,7 @@ type ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsPatchResource
 data ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsPatch = ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsPatch'
     { _plkrckckvpXgafv          :: !(Maybe Xgafv)
     , _plkrckckvpUploadProtocol :: !(Maybe Text)
-    , _plkrckckvpUpdateMask     :: !(Maybe FieldMask)
+    , _plkrckckvpUpdateMask     :: !(Maybe GFieldMask)
     , _plkrckckvpAccessToken    :: !(Maybe Text)
     , _plkrckckvpUploadType     :: !(Maybe Text)
     , _plkrckckvpPayload        :: !CryptoKeyVersion
@@ -128,7 +128,7 @@ plkrckckvpUploadProtocol
       (\ s a -> s{_plkrckckvpUploadProtocol = a})
 
 -- | Required list of fields to be updated in this request.
-plkrckckvpUpdateMask :: Lens' ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsPatch (Maybe FieldMask)
+plkrckckvpUpdateMask :: Lens' ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsPatch (Maybe GFieldMask)
 plkrckckvpUpdateMask
   = lens _plkrckckvpUpdateMask
       (\ s a -> s{_plkrckckvpUpdateMask = a})

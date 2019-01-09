@@ -54,7 +54,7 @@ type ProjectsModelsVersionsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -69,7 +69,7 @@ type ProjectsModelsVersionsPatchResource =
 data ProjectsModelsVersionsPatch = ProjectsModelsVersionsPatch'
     { _pmvpXgafv          :: !(Maybe Xgafv)
     , _pmvpUploadProtocol :: !(Maybe Text)
-    , _pmvpUpdateMask     :: !(Maybe FieldMask)
+    , _pmvpUpdateMask     :: !(Maybe GFieldMask)
     , _pmvpAccessToken    :: !(Maybe Text)
     , _pmvpUploadType     :: !(Maybe Text)
     , _pmvpPayload        :: !GoogleCloudMlV1__Version
@@ -130,7 +130,7 @@ pmvpUploadProtocol
 -- specify the new value, as follows: { \"description\": \"foo\" }
 -- Currently the only supported update mask fields are \`description\` and
 -- \`autoScaling.minNodes\`.
-pmvpUpdateMask :: Lens' ProjectsModelsVersionsPatch (Maybe FieldMask)
+pmvpUpdateMask :: Lens' ProjectsModelsVersionsPatch (Maybe GFieldMask)
 pmvpUpdateMask
   = lens _pmvpUpdateMask
       (\ s a -> s{_pmvpUpdateMask = a})

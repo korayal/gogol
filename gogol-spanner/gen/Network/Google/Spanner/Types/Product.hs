@@ -4162,7 +4162,7 @@ instance ToJSON Delete' where
 --
 -- /See:/ 'updateInstanceRequest' smart constructor.
 data UpdateInstanceRequest = UpdateInstanceRequest'
-    { _uirFieldMask :: !(Maybe FieldMask)
+    { _uirFieldMask :: !(Maybe GFieldMask)
     , _uirInstance  :: !(Maybe Instance)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -4187,7 +4187,7 @@ updateInstanceRequest =
 -- prevents any future fields in
 -- [][google.spanner.admin.instance.v1.Instance] from being erased
 -- accidentally by clients that do not know about them.
-uirFieldMask :: Lens' UpdateInstanceRequest (Maybe FieldMask)
+uirFieldMask :: Lens' UpdateInstanceRequest (Maybe GFieldMask)
 uirFieldMask
   = lens _uirFieldMask (\ s a -> s{_uirFieldMask = a})
 

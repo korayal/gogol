@@ -60,7 +60,7 @@ type CoursesPatchResource =
          Capture "id" Text :>
            QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
-               QueryParam "updateMask" FieldMask :>
+               QueryParam "updateMask" GFieldMask :>
                  QueryParam "access_token" Text :>
                    QueryParam "uploadType" Text :>
                      QueryParam "callback" Text :>
@@ -79,7 +79,7 @@ type CoursesPatchResource =
 data CoursesPatch = CoursesPatch'
     { _cpXgafv          :: !(Maybe Xgafv)
     , _cpUploadProtocol :: !(Maybe Text)
-    , _cpUpdateMask     :: !(Maybe FieldMask)
+    , _cpUpdateMask     :: !(Maybe GFieldMask)
     , _cpAccessToken    :: !(Maybe Text)
     , _cpUploadType     :: !(Maybe Text)
     , _cpPayload        :: !Course
@@ -140,7 +140,7 @@ cpUploadProtocol
 -- immediately, but in practice it may take some time for the ownership
 -- transfer of all affected resources to complete. When set in a query
 -- parameter, this field should be specified as \`updateMask=,,...\`
-cpUpdateMask :: Lens' CoursesPatch (Maybe FieldMask)
+cpUpdateMask :: Lens' CoursesPatch (Maybe GFieldMask)
 cpUpdateMask
   = lens _cpUpdateMask (\ s a -> s{_cpUpdateMask = a})
 

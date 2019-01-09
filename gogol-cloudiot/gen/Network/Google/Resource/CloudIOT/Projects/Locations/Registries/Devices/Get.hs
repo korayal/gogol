@@ -54,7 +54,7 @@ type ProjectsLocationsRegistriesDevicesGetResource =
            QueryParam "upload_protocol" Text :>
              QueryParam "access_token" Text :>
                QueryParam "uploadType" Text :>
-                 QueryParam "fieldMask" FieldMask :>
+                 QueryParam "fieldMask" GFieldMask :>
                    QueryParam "callback" Text :>
                      QueryParam "alt" AltJSON :> Get '[JSON] Device
 
@@ -66,7 +66,7 @@ data ProjectsLocationsRegistriesDevicesGet = ProjectsLocationsRegistriesDevicesG
     , _plrdgUploadProtocol :: !(Maybe Text)
     , _plrdgAccessToken    :: !(Maybe Text)
     , _plrdgUploadType     :: !(Maybe Text)
-    , _plrdgFieldMask      :: !(Maybe FieldMask)
+    , _plrdgFieldMask      :: !(Maybe GFieldMask)
     , _plrdgName           :: !Text
     , _plrdgCallback       :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -127,7 +127,7 @@ plrdgUploadType
 
 -- | The fields of the \`Device\` resource to be returned in the response. If
 -- the field mask is unset or empty, all fields are returned.
-plrdgFieldMask :: Lens' ProjectsLocationsRegistriesDevicesGet (Maybe FieldMask)
+plrdgFieldMask :: Lens' ProjectsLocationsRegistriesDevicesGet (Maybe GFieldMask)
 plrdgFieldMask
   = lens _plrdgFieldMask
       (\ s a -> s{_plrdgFieldMask = a})

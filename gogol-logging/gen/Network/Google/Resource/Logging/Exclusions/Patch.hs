@@ -53,7 +53,7 @@ type ExclusionsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -67,7 +67,7 @@ type ExclusionsPatchResource =
 data ExclusionsPatch = ExclusionsPatch'
     { _epXgafv          :: !(Maybe Xgafv)
     , _epUploadProtocol :: !(Maybe Text)
-    , _epUpdateMask     :: !(Maybe FieldMask)
+    , _epUpdateMask     :: !(Maybe GFieldMask)
     , _epAccessToken    :: !(Maybe Text)
     , _epUploadType     :: !(Maybe Text)
     , _epPayload        :: !LogExclusion
@@ -126,7 +126,7 @@ epUploadProtocol
 -- update_mask are not changed and are ignored in the request.For example,
 -- to change the filter and description of an exclusion, specify an
 -- update_mask of \"filter,description\".
-epUpdateMask :: Lens' ExclusionsPatch (Maybe FieldMask)
+epUpdateMask :: Lens' ExclusionsPatch (Maybe GFieldMask)
 epUpdateMask
   = lens _epUpdateMask (\ s a -> s{_epUpdateMask = a})
 

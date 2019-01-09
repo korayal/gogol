@@ -56,7 +56,7 @@ type ProjectsAlertPoliciesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -73,7 +73,7 @@ type ProjectsAlertPoliciesPatchResource =
 data ProjectsAlertPoliciesPatch = ProjectsAlertPoliciesPatch'
     { _pAppXgafv          :: !(Maybe Xgafv)
     , _pAppUploadProtocol :: !(Maybe Text)
-    , _pAppUpdateMask     :: !(Maybe FieldMask)
+    , _pAppUpdateMask     :: !(Maybe GFieldMask)
     , _pAppAccessToken    :: !(Maybe Text)
     , _pAppUploadType     :: !(Maybe Text)
     , _pAppPayload        :: !AlertPolicy
@@ -144,7 +144,7 @@ pAppUploadProtocol
 -- condition includes the name field with that [CONDITION_ID]. If the
 -- supplied condition omits the name field, then a new [CONDITION_ID] is
 -- created.
-pAppUpdateMask :: Lens' ProjectsAlertPoliciesPatch (Maybe FieldMask)
+pAppUpdateMask :: Lens' ProjectsAlertPoliciesPatch (Maybe GFieldMask)
 pAppUpdateMask
   = lens _pAppUpdateMask
       (\ s a -> s{_pAppUpdateMask = a})

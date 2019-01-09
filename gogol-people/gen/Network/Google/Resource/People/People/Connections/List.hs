@@ -62,12 +62,12 @@ type PeopleConnectionsListResource =
            QueryParam "syncToken" Text :>
              QueryParam "$.xgafv" Xgafv :>
                QueryParam "upload_protocol" Text :>
-                 QueryParam "requestMask.includeField" FieldMask :>
+                 QueryParam "requestMask.includeField" GFieldMask :>
                    QueryParam "requestSyncToken" Bool :>
                      QueryParam "access_token" Text :>
                        QueryParam "uploadType" Text :>
                          QueryParam "sortOrder" Text :>
-                           QueryParam "personFields" FieldMask :>
+                           QueryParam "personFields" GFieldMask :>
                              QueryParam "pageToken" Text :>
                                QueryParam "pageSize" (Textual Int32) :>
                                  QueryParam "callback" Text :>
@@ -84,12 +84,12 @@ data PeopleConnectionsList = PeopleConnectionsList'
     , _pclXgafv                   :: !(Maybe Xgafv)
     , _pclUploadProtocol          :: !(Maybe Text)
     , _pclResourceName            :: !Text
-    , _pclRequestMaskIncludeField :: !(Maybe FieldMask)
+    , _pclRequestMaskIncludeField :: !(Maybe GFieldMask)
     , _pclRequestSyncToken        :: !(Maybe Bool)
     , _pclAccessToken             :: !(Maybe Text)
     , _pclUploadType              :: !(Maybe Text)
     , _pclSortOrder               :: !(Maybe Text)
-    , _pclPersonFields            :: !(Maybe FieldMask)
+    , _pclPersonFields            :: !(Maybe GFieldMask)
     , _pclPageToken               :: !(Maybe Text)
     , _pclPageSize                :: !(Maybe (Textual Int32))
     , _pclCallback                :: !(Maybe Text)
@@ -172,7 +172,7 @@ pclResourceName
 -- | **Required.** Comma-separated list of person fields to be included in
 -- the response. Each path should start with \`person.\`: for example,
 -- \`person.names\` or \`person.photos\`.
-pclRequestMaskIncludeField :: Lens' PeopleConnectionsList (Maybe FieldMask)
+pclRequestMaskIncludeField :: Lens' PeopleConnectionsList (Maybe GFieldMask)
 pclRequestMaskIncludeField
   = lens _pclRequestMaskIncludeField
       (\ s a -> s{_pclRequestMaskIncludeField = a})
@@ -212,7 +212,7 @@ pclSortOrder
 -- names * nicknames * occupations * organizations * phoneNumbers * photos
 -- * relations * relationshipInterests * relationshipStatuses * residences
 -- * sipAddresses * skills * taglines * urls * userDefined
-pclPersonFields :: Lens' PeopleConnectionsList (Maybe FieldMask)
+pclPersonFields :: Lens' PeopleConnectionsList (Maybe GFieldMask)
 pclPersonFields
   = lens _pclPersonFields
       (\ s a -> s{_pclPersonFields = a})

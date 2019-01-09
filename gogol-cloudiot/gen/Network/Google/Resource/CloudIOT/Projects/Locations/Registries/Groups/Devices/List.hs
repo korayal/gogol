@@ -71,7 +71,7 @@ type ProjectsLocationsRegistriesGroupsDevicesListResource
                        :>
                        QueryParam "uploadType" Text :>
                          QueryParams "deviceIds" Text :>
-                           QueryParam "fieldMask" FieldMask :>
+                           QueryParam "fieldMask" GFieldMask :>
                              QueryParam "gatewayListOptions.gatewayType" Text :>
                                QueryParam "pageToken" Text :>
                                  QueryParam "pageSize" (Textual Int32) :>
@@ -92,7 +92,7 @@ data ProjectsLocationsRegistriesGroupsDevicesList = ProjectsLocationsRegistriesG
     , _plrgdlGatewayListOptionsAssociationsGatewayId :: !(Maybe Text)
     , _plrgdlUploadType                              :: !(Maybe Text)
     , _plrgdlDeviceIds                               :: !(Maybe [Text])
-    , _plrgdlFieldMask                               :: !(Maybe FieldMask)
+    , _plrgdlFieldMask                               :: !(Maybe GFieldMask)
     , _plrgdlGatewayListOptionsGatewayType           :: !(Maybe Text)
     , _plrgdlPageToken                               :: !(Maybe Text)
     , _plrgdlPageSize                                :: !(Maybe (Textual Int32))
@@ -223,7 +223,7 @@ plrgdlDeviceIds
 -- | The fields of the \`Device\` resource to be returned in the response.
 -- The fields \`id\` and \`num_id\` are always returned, along with any
 -- other fields specified.
-plrgdlFieldMask :: Lens' ProjectsLocationsRegistriesGroupsDevicesList (Maybe FieldMask)
+plrgdlFieldMask :: Lens' ProjectsLocationsRegistriesGroupsDevicesList (Maybe GFieldMask)
 plrgdlFieldMask
   = lens _plrgdlFieldMask
       (\ s a -> s{_plrgdlFieldMask = a})

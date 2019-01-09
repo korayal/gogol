@@ -58,7 +58,7 @@ type OrganizationsSinksPatchResource =
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "uniqueWriterIdentity" Bool :>
              QueryParam "upload_protocol" Text :>
-               QueryParam "updateMask" FieldMask :>
+               QueryParam "updateMask" GFieldMask :>
                  QueryParam "access_token" Text :>
                    QueryParam "uploadType" Text :>
                      QueryParam "callback" Text :>
@@ -75,7 +75,7 @@ data OrganizationsSinksPatch = OrganizationsSinksPatch'
     { _ospXgafv                :: !(Maybe Xgafv)
     , _ospUniqueWriterIdentity :: !(Maybe Bool)
     , _ospUploadProtocol       :: !(Maybe Text)
-    , _ospUpdateMask           :: !(Maybe FieldMask)
+    , _ospUpdateMask           :: !(Maybe GFieldMask)
     , _ospAccessToken          :: !(Maybe Text)
     , _ospUploadType           :: !(Maybe Text)
     , _ospPayload              :: !LogSink
@@ -155,7 +155,7 @@ ospUploadProtocol
 -- see
 -- https:\/\/developers.google.com\/protocol-buffers\/docs\/reference\/google.protobuf#google.protobuf.FieldMaskExample:
 -- updateMask=filter.
-ospUpdateMask :: Lens' OrganizationsSinksPatch (Maybe FieldMask)
+ospUpdateMask :: Lens' OrganizationsSinksPatch (Maybe GFieldMask)
 ospUpdateMask
   = lens _ospUpdateMask
       (\ s a -> s{_ospUpdateMask = a})

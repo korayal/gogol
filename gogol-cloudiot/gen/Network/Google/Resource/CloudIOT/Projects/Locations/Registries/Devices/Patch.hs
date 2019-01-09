@@ -54,7 +54,7 @@ type ProjectsLocationsRegistriesDevicesPatchResource
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -67,7 +67,7 @@ type ProjectsLocationsRegistriesDevicesPatchResource
 data ProjectsLocationsRegistriesDevicesPatch = ProjectsLocationsRegistriesDevicesPatch'
     { _plrdpXgafv          :: !(Maybe Xgafv)
     , _plrdpUploadProtocol :: !(Maybe Text)
-    , _plrdpUpdateMask     :: !(Maybe FieldMask)
+    , _plrdpUpdateMask     :: !(Maybe GFieldMask)
     , _plrdpAccessToken    :: !(Maybe Text)
     , _plrdpUploadType     :: !(Maybe Text)
     , _plrdpPayload        :: !Device
@@ -125,7 +125,7 @@ plrdpUploadProtocol
 -- mask must not be empty, and it must not contain fields that are
 -- immutable or only set by the server. Mutable top-level fields:
 -- \`credentials\`, \`blocked\`, and \`metadata\`
-plrdpUpdateMask :: Lens' ProjectsLocationsRegistriesDevicesPatch (Maybe FieldMask)
+plrdpUpdateMask :: Lens' ProjectsLocationsRegistriesDevicesPatch (Maybe GFieldMask)
 plrdpUpdateMask
   = lens _plrdpUpdateMask
       (\ s a -> s{_plrdpUpdateMask = a})

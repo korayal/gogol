@@ -60,7 +60,7 @@ type ProjectsRegionsJobsPatchResource =
                  Capture "jobId" Text :>
                    QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
-                       QueryParam "updateMask" FieldMask :>
+                       QueryParam "updateMask" GFieldMask :>
                          QueryParam "access_token" Text :>
                            QueryParam "uploadType" Text :>
                              QueryParam "callback" Text :>
@@ -74,7 +74,7 @@ data ProjectsRegionsJobsPatch = ProjectsRegionsJobsPatch'
     { _prjpXgafv          :: !(Maybe Xgafv)
     , _prjpJobId          :: !Text
     , _prjpUploadProtocol :: !(Maybe Text)
-    , _prjpUpdateMask     :: !(Maybe FieldMask)
+    , _prjpUpdateMask     :: !(Maybe GFieldMask)
     , _prjpAccessToken    :: !(Maybe Text)
     , _prjpUploadType     :: !(Maybe Text)
     , _prjpPayload        :: !Job
@@ -147,7 +147,7 @@ prjpUploadProtocol
 -- would be specified as 'labels', and the PATCH request body would specify
 -- the new value. __Note:__ Currently, 'labels' is the only field that can
 -- be updated.
-prjpUpdateMask :: Lens' ProjectsRegionsJobsPatch (Maybe FieldMask)
+prjpUpdateMask :: Lens' ProjectsRegionsJobsPatch (Maybe GFieldMask)
 prjpUpdateMask
   = lens _prjpUpdateMask
       (\ s a -> s{_prjpUpdateMask = a})

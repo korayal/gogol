@@ -53,7 +53,7 @@ type CustomersConfigurationsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -67,7 +67,7 @@ type CustomersConfigurationsPatchResource =
 data CustomersConfigurationsPatch = CustomersConfigurationsPatch'
     { _ccpXgafv          :: !(Maybe Xgafv)
     , _ccpUploadProtocol :: !(Maybe Text)
-    , _ccpUpdateMask     :: !(Maybe FieldMask)
+    , _ccpUpdateMask     :: !(Maybe GFieldMask)
     , _ccpAccessToken    :: !(Maybe Text)
     , _ccpUploadType     :: !(Maybe Text)
     , _ccpPayload        :: !Configuration
@@ -124,7 +124,7 @@ ccpUploadProtocol
 -- updating the fields. To learn more about using field masks, read
 -- [FieldMask](\/protocol-buffers\/docs\/reference\/google.protobuf#fieldmask)
 -- in the Protocol Buffers documentation.
-ccpUpdateMask :: Lens' CustomersConfigurationsPatch (Maybe FieldMask)
+ccpUpdateMask :: Lens' CustomersConfigurationsPatch (Maybe GFieldMask)
 ccpUpdateMask
   = lens _ccpUpdateMask
       (\ s a -> s{_ccpUpdateMask = a})

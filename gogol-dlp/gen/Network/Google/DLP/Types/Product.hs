@@ -99,7 +99,7 @@ instance ToJSON GooglePrivacyDlpV2RedactConfig where
 --
 -- /See:/ 'googlePrivacyDlpV2UpdateJobTriggerRequest' smart constructor.
 data GooglePrivacyDlpV2UpdateJobTriggerRequest = GooglePrivacyDlpV2UpdateJobTriggerRequest'
-    { _gpdvujtrUpdateMask :: !(Maybe FieldMask)
+    { _gpdvujtrUpdateMask :: !(Maybe GFieldMask)
     , _gpdvujtrJobTrigger :: !(Maybe GooglePrivacyDlpV2JobTrigger)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -119,7 +119,7 @@ googlePrivacyDlpV2UpdateJobTriggerRequest =
     }
 
 -- | Mask to control which fields get updated.
-gpdvujtrUpdateMask :: Lens' GooglePrivacyDlpV2UpdateJobTriggerRequest (Maybe FieldMask)
+gpdvujtrUpdateMask :: Lens' GooglePrivacyDlpV2UpdateJobTriggerRequest (Maybe GFieldMask)
 gpdvujtrUpdateMask
   = lens _gpdvujtrUpdateMask
       (\ s a -> s{_gpdvujtrUpdateMask = a})
@@ -2214,7 +2214,7 @@ instance ToJSON
 --
 -- /See:/ 'googlePrivacyDlpV2UpdateInspectTemplateRequest' smart constructor.
 data GooglePrivacyDlpV2UpdateInspectTemplateRequest = GooglePrivacyDlpV2UpdateInspectTemplateRequest'
-    { _gpdvuitrUpdateMask      :: !(Maybe FieldMask)
+    { _gpdvuitrUpdateMask      :: !(Maybe GFieldMask)
     , _gpdvuitrInspectTemplate :: !(Maybe GooglePrivacyDlpV2InspectTemplate)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -2234,7 +2234,7 @@ googlePrivacyDlpV2UpdateInspectTemplateRequest =
     }
 
 -- | Mask to control which fields get updated.
-gpdvuitrUpdateMask :: Lens' GooglePrivacyDlpV2UpdateInspectTemplateRequest (Maybe FieldMask)
+gpdvuitrUpdateMask :: Lens' GooglePrivacyDlpV2UpdateInspectTemplateRequest (Maybe GFieldMask)
 gpdvuitrUpdateMask
   = lens _gpdvuitrUpdateMask
       (\ s a -> s{_gpdvuitrUpdateMask = a})
@@ -4563,7 +4563,7 @@ instance ToJSON GooglePrivacyDlpV2Regex where
 -- /See:/ 'googlePrivacyDlpV2UpdateStoredInfoTypeRequest' smart constructor.
 data GooglePrivacyDlpV2UpdateStoredInfoTypeRequest = GooglePrivacyDlpV2UpdateStoredInfoTypeRequest'
     { _gpdvusitrConfig     :: !(Maybe GooglePrivacyDlpV2StoredInfoTypeConfig)
-    , _gpdvusitrUpdateMask :: !(Maybe FieldMask)
+    , _gpdvusitrUpdateMask :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GooglePrivacyDlpV2UpdateStoredInfoTypeRequest' with the minimum fields required to make a request.
@@ -4590,7 +4590,7 @@ gpdvusitrConfig
       (\ s a -> s{_gpdvusitrConfig = a})
 
 -- | Mask to control which fields get updated.
-gpdvusitrUpdateMask :: Lens' GooglePrivacyDlpV2UpdateStoredInfoTypeRequest (Maybe FieldMask)
+gpdvusitrUpdateMask :: Lens' GooglePrivacyDlpV2UpdateStoredInfoTypeRequest (Maybe GFieldMask)
 gpdvusitrUpdateMask
   = lens _gpdvusitrUpdateMask
       (\ s a -> s{_gpdvusitrUpdateMask = a})
@@ -4678,7 +4678,7 @@ instance ToJSON
 --
 -- /See:/ 'googlePrivacyDlpV2UpdateDeidentifyTemplateRequest' smart constructor.
 data GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest = GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest'
-    { _gpdvudtrUpdateMask         :: !(Maybe FieldMask)
+    { _gpdvudtrUpdateMask         :: !(Maybe GFieldMask)
     , _gpdvudtrDeidentifyTemplate :: !(Maybe GooglePrivacyDlpV2DeidentifyTemplate)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -4698,7 +4698,7 @@ googlePrivacyDlpV2UpdateDeidentifyTemplateRequest =
     }
 
 -- | Mask to control which fields get updated.
-gpdvudtrUpdateMask :: Lens' GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest (Maybe FieldMask)
+gpdvudtrUpdateMask :: Lens' GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest (Maybe GFieldMask)
 gpdvudtrUpdateMask
   = lens _gpdvudtrUpdateMask
       (\ s a -> s{_gpdvudtrUpdateMask = a})

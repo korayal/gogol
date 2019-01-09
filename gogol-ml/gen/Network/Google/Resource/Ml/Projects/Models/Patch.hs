@@ -54,7 +54,7 @@ type ProjectsModelsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -69,7 +69,7 @@ type ProjectsModelsPatchResource =
 data ProjectsModelsPatch = ProjectsModelsPatch'
     { _pmpXgafv          :: !(Maybe Xgafv)
     , _pmpUploadProtocol :: !(Maybe Text)
-    , _pmpUpdateMask     :: !(Maybe FieldMask)
+    , _pmpUpdateMask     :: !(Maybe GFieldMask)
     , _pmpAccessToken    :: !(Maybe Text)
     , _pmpUploadType     :: !(Maybe Text)
     , _pmpPayload        :: !GoogleCloudMlV1__Model
@@ -130,7 +130,7 @@ pmpUploadProtocol
 -- \"description\": \"foo\", \"defaultVersion\": { \"name\":\"version_1\" }
 -- } Currently the supported update masks are \`description\` and
 -- \`default_version.name\`.
-pmpUpdateMask :: Lens' ProjectsModelsPatch (Maybe FieldMask)
+pmpUpdateMask :: Lens' ProjectsModelsPatch (Maybe GFieldMask)
 pmpUpdateMask
   = lens _pmpUpdateMask
       (\ s a -> s{_pmpUpdateMask = a})

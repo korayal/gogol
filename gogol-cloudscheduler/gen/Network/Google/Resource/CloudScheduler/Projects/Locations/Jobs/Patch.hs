@@ -58,7 +58,7 @@ type ProjectsLocationsJobsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -76,7 +76,7 @@ type ProjectsLocationsJobsPatchResource =
 data ProjectsLocationsJobsPatch = ProjectsLocationsJobsPatch'
     { _pljpXgafv          :: !(Maybe Xgafv)
     , _pljpUploadProtocol :: !(Maybe Text)
-    , _pljpUpdateMask     :: !(Maybe FieldMask)
+    , _pljpUpdateMask     :: !(Maybe GFieldMask)
     , _pljpAccessToken    :: !(Maybe Text)
     , _pljpUploadType     :: !(Maybe Text)
     , _pljpPayload        :: !Job
@@ -131,7 +131,7 @@ pljpUploadProtocol
       (\ s a -> s{_pljpUploadProtocol = a})
 
 -- | A mask used to specify which fields of the job are being updated.
-pljpUpdateMask :: Lens' ProjectsLocationsJobsPatch (Maybe FieldMask)
+pljpUpdateMask :: Lens' ProjectsLocationsJobsPatch (Maybe GFieldMask)
 pljpUpdateMask
   = lens _pljpUpdateMask
       (\ s a -> s{_pljpUpdateMask = a})

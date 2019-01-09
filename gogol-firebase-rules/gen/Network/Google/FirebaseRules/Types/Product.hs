@@ -1212,7 +1212,7 @@ instance ToJSON Issue where
 --
 -- /See:/ 'updateReleaseRequest' smart constructor.
 data UpdateReleaseRequest = UpdateReleaseRequest'
-    { _urrUpdateMask :: !(Maybe FieldMask)
+    { _urrUpdateMask :: !(Maybe GFieldMask)
     , _urrRelease    :: !(Maybe Release)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -1232,7 +1232,7 @@ updateReleaseRequest =
     }
 
 -- | Specifies which fields to update.
-urrUpdateMask :: Lens' UpdateReleaseRequest (Maybe FieldMask)
+urrUpdateMask :: Lens' UpdateReleaseRequest (Maybe GFieldMask)
 urrUpdateMask
   = lens _urrUpdateMask
       (\ s a -> s{_urrUpdateMask = a})

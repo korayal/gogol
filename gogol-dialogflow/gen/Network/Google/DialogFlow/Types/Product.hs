@@ -1797,7 +1797,7 @@ instance ToJSON GoogleCloudDialogflowV2QueryResult
 -- /See:/ 'googleCloudDialogflowV2BatchUpdateIntentsRequest' smart constructor.
 data GoogleCloudDialogflowV2BatchUpdateIntentsRequest = GoogleCloudDialogflowV2BatchUpdateIntentsRequest'
     { _gcdvbuirLanguageCode      :: !(Maybe Text)
-    , _gcdvbuirUpdateMask        :: !(Maybe FieldMask)
+    , _gcdvbuirUpdateMask        :: !(Maybe GFieldMask)
     , _gcdvbuirIntentView        :: !(Maybe GoogleCloudDialogflowV2BatchUpdateIntentsRequestIntentView)
     , _gcdvbuirIntentBatchURI    :: !(Maybe Text)
     , _gcdvbuirIntentBatchInline :: !(Maybe GoogleCloudDialogflowV2IntentBatch)
@@ -1839,7 +1839,7 @@ gcdvbuirLanguageCode
       (\ s a -> s{_gcdvbuirLanguageCode = a})
 
 -- | Optional. The mask to control which fields get updated.
-gcdvbuirUpdateMask :: Lens' GoogleCloudDialogflowV2BatchUpdateIntentsRequest (Maybe FieldMask)
+gcdvbuirUpdateMask :: Lens' GoogleCloudDialogflowV2BatchUpdateIntentsRequest (Maybe GFieldMask)
 gcdvbuirUpdateMask
   = lens _gcdvbuirUpdateMask
       (\ s a -> s{_gcdvbuirUpdateMask = a})
@@ -4412,7 +4412,7 @@ instance ToJSON
 -- /See:/ 'googleCloudDialogflowV2BatchUpdateEntitiesRequest' smart constructor.
 data GoogleCloudDialogflowV2BatchUpdateEntitiesRequest = GoogleCloudDialogflowV2BatchUpdateEntitiesRequest'
     { _gcdvbuerLanguageCode :: !(Maybe Text)
-    , _gcdvbuerUpdateMask   :: !(Maybe FieldMask)
+    , _gcdvbuerUpdateMask   :: !(Maybe GFieldMask)
     , _gcdvbuerEntities     :: !(Maybe [GoogleCloudDialogflowV2EntityTypeEntity])
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -4445,7 +4445,7 @@ gcdvbuerLanguageCode
       (\ s a -> s{_gcdvbuerLanguageCode = a})
 
 -- | Optional. The mask to control which fields get updated.
-gcdvbuerUpdateMask :: Lens' GoogleCloudDialogflowV2BatchUpdateEntitiesRequest (Maybe FieldMask)
+gcdvbuerUpdateMask :: Lens' GoogleCloudDialogflowV2BatchUpdateEntitiesRequest (Maybe GFieldMask)
 gcdvbuerUpdateMask
   = lens _gcdvbuerUpdateMask
       (\ s a -> s{_gcdvbuerUpdateMask = a})
@@ -5830,7 +5830,7 @@ instance ToJSON GoogleCloudDialogflowV2beta1Context
 -- /See:/ 'googleCloudDialogflowV2BatchUpdateEntityTypesRequest' smart constructor.
 data GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest = GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest'
     { _gcdvbuetrLanguageCode          :: !(Maybe Text)
-    , _gcdvbuetrUpdateMask            :: !(Maybe FieldMask)
+    , _gcdvbuetrUpdateMask            :: !(Maybe GFieldMask)
     , _gcdvbuetrEntityTypeBatchInline :: !(Maybe GoogleCloudDialogflowV2EntityTypeBatch)
     , _gcdvbuetrEntityTypeBatchURI    :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -5867,7 +5867,7 @@ gcdvbuetrLanguageCode
       (\ s a -> s{_gcdvbuetrLanguageCode = a})
 
 -- | Optional. The mask to control which fields get updated.
-gcdvbuetrUpdateMask :: Lens' GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest (Maybe FieldMask)
+gcdvbuetrUpdateMask :: Lens' GoogleCloudDialogflowV2BatchUpdateEntityTypesRequest (Maybe GFieldMask)
 gcdvbuetrUpdateMask
   = lens _gcdvbuetrUpdateMask
       (\ s a -> s{_gcdvbuetrUpdateMask = a})

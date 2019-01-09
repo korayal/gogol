@@ -63,7 +63,7 @@ type CoursesAnnouncementsPatchResource =
              Capture "id" Text :>
                QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
-                   QueryParam "updateMask" FieldMask :>
+                   QueryParam "updateMask" GFieldMask :>
                      QueryParam "access_token" Text :>
                        QueryParam "uploadType" Text :>
                          QueryParam "callback" Text :>
@@ -83,7 +83,7 @@ type CoursesAnnouncementsPatchResource =
 data CoursesAnnouncementsPatch = CoursesAnnouncementsPatch'
     { _capXgafv          :: !(Maybe Xgafv)
     , _capUploadProtocol :: !(Maybe Text)
-    , _capUpdateMask     :: !(Maybe FieldMask)
+    , _capUpdateMask     :: !(Maybe GFieldMask)
     , _capCourseId       :: !Text
     , _capAccessToken    :: !(Maybe Text)
     , _capUploadType     :: !(Maybe Text)
@@ -149,7 +149,7 @@ capUploadProtocol
 -- mask and not set in the Announcement object, an \`INVALID_ARGUMENT\`
 -- error will be returned. The following fields may be specified by
 -- teachers: * \`text\` * \`state\` * \`scheduled_time\`
-capUpdateMask :: Lens' CoursesAnnouncementsPatch (Maybe FieldMask)
+capUpdateMask :: Lens' CoursesAnnouncementsPatch (Maybe GFieldMask)
 capUpdateMask
   = lens _capUpdateMask
       (\ s a -> s{_capUpdateMask = a})

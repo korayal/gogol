@@ -978,7 +978,7 @@ instance ToJSON OperationMetadataV1Request where
 --
 -- /See:/ 'setIAMPolicyRequest' smart constructor.
 data SetIAMPolicyRequest = SetIAMPolicyRequest'
-    { _siprUpdateMask :: !(Maybe FieldMask)
+    { _siprUpdateMask :: !(Maybe GFieldMask)
     , _siprPolicy     :: !(Maybe Policy)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -1001,7 +1001,7 @@ setIAMPolicyRequest =
 -- Only the fields in the mask will be modified. If no mask is provided,
 -- the following default mask is used: paths: \"bindings, etag\" This field
 -- is only used by Cloud IAM.
-siprUpdateMask :: Lens' SetIAMPolicyRequest (Maybe FieldMask)
+siprUpdateMask :: Lens' SetIAMPolicyRequest (Maybe GFieldMask)
 siprUpdateMask
   = lens _siprUpdateMask
       (\ s a -> s{_siprUpdateMask = a})

@@ -53,7 +53,7 @@ type ProjectsLocationsFunctionsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -67,7 +67,7 @@ type ProjectsLocationsFunctionsPatchResource =
 data ProjectsLocationsFunctionsPatch = ProjectsLocationsFunctionsPatch'
     { _plfpXgafv          :: !(Maybe Xgafv)
     , _plfpUploadProtocol :: !(Maybe Text)
-    , _plfpUpdateMask     :: !(Maybe FieldMask)
+    , _plfpUpdateMask     :: !(Maybe GFieldMask)
     , _plfpAccessToken    :: !(Maybe Text)
     , _plfpUploadType     :: !(Maybe Text)
     , _plfpPayload        :: !CloudFunction
@@ -122,7 +122,7 @@ plfpUploadProtocol
       (\ s a -> s{_plfpUploadProtocol = a})
 
 -- | Required list of fields to be updated in this request.
-plfpUpdateMask :: Lens' ProjectsLocationsFunctionsPatch (Maybe FieldMask)
+plfpUpdateMask :: Lens' ProjectsLocationsFunctionsPatch (Maybe GFieldMask)
 plfpUpdateMask
   = lens _plfpUpdateMask
       (\ s a -> s{_plfpUpdateMask = a})

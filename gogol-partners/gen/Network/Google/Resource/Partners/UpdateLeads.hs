@@ -59,7 +59,7 @@ type UpdateLeadsResource =
        "leads" :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "requestMetadata.partnersSessionId" Text
@@ -90,7 +90,7 @@ type UpdateLeadsResource =
 data UpdateLeads = UpdateLeads'
     { _ulXgafv                                       :: !(Maybe Xgafv)
     , _ulUploadProtocol                              :: !(Maybe Text)
-    , _ulUpdateMask                                  :: !(Maybe FieldMask)
+    , _ulUpdateMask                                  :: !(Maybe GFieldMask)
     , _ulAccessToken                                 :: !(Maybe Text)
     , _ulUploadType                                  :: !(Maybe Text)
     , _ulPayload                                     :: !Lead
@@ -169,7 +169,7 @@ ulUploadProtocol
 -- | Standard field mask for the set of fields to be updated. Required with
 -- at least 1 value in FieldMask\'s paths. Only \`state\` and
 -- \`adwords_customer_id\` are currently supported.
-ulUpdateMask :: Lens' UpdateLeads (Maybe FieldMask)
+ulUpdateMask :: Lens' UpdateLeads (Maybe GFieldMask)
 ulUpdateMask
   = lens _ulUpdateMask (\ s a -> s{_ulUpdateMask = a})
 

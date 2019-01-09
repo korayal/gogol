@@ -53,7 +53,7 @@ type ProjectsNotesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -66,7 +66,7 @@ type ProjectsNotesPatchResource =
 data ProjectsNotesPatch = ProjectsNotesPatch'
     { _pnpXgafv          :: !(Maybe Xgafv)
     , _pnpUploadProtocol :: !(Maybe Text)
-    , _pnpUpdateMask     :: !(Maybe FieldMask)
+    , _pnpUpdateMask     :: !(Maybe GFieldMask)
     , _pnpAccessToken    :: !(Maybe Text)
     , _pnpUploadType     :: !(Maybe Text)
     , _pnpPayload        :: !Note
@@ -120,7 +120,7 @@ pnpUploadProtocol
       (\ s a -> s{_pnpUploadProtocol = a})
 
 -- | The fields to update.
-pnpUpdateMask :: Lens' ProjectsNotesPatch (Maybe FieldMask)
+pnpUpdateMask :: Lens' ProjectsNotesPatch (Maybe GFieldMask)
 pnpUpdateMask
   = lens _pnpUpdateMask
       (\ s a -> s{_pnpUpdateMask = a})

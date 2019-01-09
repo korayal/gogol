@@ -250,7 +250,7 @@ instance ToJSON DeleteNamedRangeRequest where
 -- /See:/ 'updateNamedRangeRequest' smart constructor.
 data UpdateNamedRangeRequest = UpdateNamedRangeRequest'
     { _unrrNamedRange :: !(Maybe NamedRange)
-    , _unrrFields     :: !(Maybe FieldMask)
+    , _unrrFields     :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateNamedRangeRequest' with the minimum fields required to make a request.
@@ -277,7 +277,7 @@ unrrNamedRange
 -- | The fields that should be updated. At least one field must be specified.
 -- The root \`namedRange\` is implied and should not be specified. A single
 -- \`\"*\"\` can be used as short-hand for listing every field.
-unrrFields :: Lens' UpdateNamedRangeRequest (Maybe FieldMask)
+unrrFields :: Lens' UpdateNamedRangeRequest (Maybe GFieldMask)
 unrrFields
   = lens _unrrFields (\ s a -> s{_unrrFields = a})
 
@@ -751,7 +751,7 @@ instance ToJSON DeleteDimensionGroupRequest where
 -- /See:/ 'updateDimensionGroupRequest' smart constructor.
 data UpdateDimensionGroupRequest = UpdateDimensionGroupRequest'
     { _udgrDimensionGroup :: !(Maybe DimensionGroup)
-    , _udgrFields         :: !(Maybe FieldMask)
+    , _udgrFields         :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDimensionGroupRequest' with the minimum fields required to make a request.
@@ -780,7 +780,7 @@ udgrDimensionGroup
 -- | The fields that should be updated. At least one field must be specified.
 -- The root \`dimensionGroup\` is implied and should not be specified. A
 -- single \`\"*\"\` can be used as short-hand for listing every field.
-udgrFields :: Lens' UpdateDimensionGroupRequest (Maybe FieldMask)
+udgrFields :: Lens' UpdateDimensionGroupRequest (Maybe GFieldMask)
 udgrFields
   = lens _udgrFields (\ s a -> s{_udgrFields = a})
 
@@ -1822,7 +1822,7 @@ instance ToJSON ClearBasicFilterRequest where
 data UpdateEmbeddedObjectPositionRequest = UpdateEmbeddedObjectPositionRequest'
     { _ueoprNewPosition :: !(Maybe EmbeddedObjectPosition)
     , _ueoprObjectId    :: !(Maybe (Textual Int32))
-    , _ueoprFields      :: !(Maybe FieldMask)
+    , _ueoprFields      :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateEmbeddedObjectPositionRequest' with the minimum fields required to make a request.
@@ -1864,7 +1864,7 @@ ueoprObjectId
 -- at least one field must be specified. The root
 -- \`newPosition.overlayPosition\` is implied and should not be specified.
 -- A single \`\"*\"\` can be used as short-hand for listing every field.
-ueoprFields :: Lens' UpdateEmbeddedObjectPositionRequest (Maybe FieldMask)
+ueoprFields :: Lens' UpdateEmbeddedObjectPositionRequest (Maybe GFieldMask)
 ueoprFields
   = lens _ueoprFields (\ s a -> s{_ueoprFields = a})
 
@@ -2137,7 +2137,7 @@ instance ToJSON PasteDataRequest where
 data AppendCellsRequest = AppendCellsRequest'
     { _acrRows    :: !(Maybe [RowData])
     , _acrSheetId :: !(Maybe (Textual Int32))
-    , _acrFields  :: !(Maybe FieldMask)
+    , _acrFields  :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AppendCellsRequest' with the minimum fields required to make a request.
@@ -2174,7 +2174,7 @@ acrSheetId
 -- be specified. The root is the CellData; \'row.values.\' should not be
 -- specified. A single \`\"*\"\` can be used as short-hand for listing
 -- every field.
-acrFields :: Lens' AppendCellsRequest (Maybe FieldMask)
+acrFields :: Lens' AppendCellsRequest (Maybe GFieldMask)
 acrFields
   = lens _acrFields (\ s a -> s{_acrFields = a})
 
@@ -2918,7 +2918,7 @@ instance ToJSON DeleteFilterViewRequest where
 -- /See:/ 'updateFilterViewRequest' smart constructor.
 data UpdateFilterViewRequest = UpdateFilterViewRequest'
     { _ufvrFilter :: !(Maybe FilterView)
-    , _ufvrFields :: !(Maybe FieldMask)
+    , _ufvrFields :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateFilterViewRequest' with the minimum fields required to make a request.
@@ -2944,7 +2944,7 @@ ufvrFilter
 -- | The fields that should be updated. At least one field must be specified.
 -- The root \`filter\` is implied and should not be specified. A single
 -- \`\"*\"\` can be used as short-hand for listing every field.
-ufvrFields :: Lens' UpdateFilterViewRequest (Maybe FieldMask)
+ufvrFields :: Lens' UpdateFilterViewRequest (Maybe GFieldMask)
 ufvrFields
   = lens _ufvrFields (\ s a -> s{_ufvrFields = a})
 
@@ -3169,7 +3169,7 @@ instance ToJSON AddProtectedRangeRequest where
 data RepeatCellRequest = RepeatCellRequest'
     { _rcrCell   :: !(Maybe CellData)
     , _rcrRange  :: !(Maybe GridRange)
-    , _rcrFields :: !(Maybe FieldMask)
+    , _rcrFields :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RepeatCellRequest' with the minimum fields required to make a request.
@@ -3201,7 +3201,7 @@ rcrRange = lens _rcrRange (\ s a -> s{_rcrRange = a})
 -- | The fields that should be updated. At least one field must be specified.
 -- The root \`cell\` is implied and should not be specified. A single
 -- \`\"*\"\` can be used as short-hand for listing every field.
-rcrFields :: Lens' RepeatCellRequest (Maybe FieldMask)
+rcrFields :: Lens' RepeatCellRequest (Maybe GFieldMask)
 rcrFields
   = lens _rcrFields (\ s a -> s{_rcrFields = a})
 
@@ -4310,7 +4310,7 @@ instance ToJSON DeleteConditionalFormatRuleRequest
 data UpdateDeveloperMetadataRequest = UpdateDeveloperMetadataRequest'
     { _udmrDataFilters       :: !(Maybe [DataFilter])
     , _udmrDeveloperMetadata :: !(Maybe DeveloperMetadata)
-    , _udmrFields            :: !(Maybe FieldMask)
+    , _udmrFields            :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDeveloperMetadataRequest' with the minimum fields required to make a request.
@@ -4349,7 +4349,7 @@ udmrDeveloperMetadata
 -- | The fields that should be updated. At least one field must be specified.
 -- The root \`developerMetadata\` is implied and should not be specified. A
 -- single \`\"*\"\` can be used as short-hand for listing every field.
-udmrFields :: Lens' UpdateDeveloperMetadataRequest (Maybe FieldMask)
+udmrFields :: Lens' UpdateDeveloperMetadataRequest (Maybe GFieldMask)
 udmrFields
   = lens _udmrFields (\ s a -> s{_udmrFields = a})
 
@@ -4983,7 +4983,7 @@ instance ToJSON BatchUpdateValuesResponse where
 --
 -- /See:/ 'updateSheetPropertiesRequest' smart constructor.
 data UpdateSheetPropertiesRequest = UpdateSheetPropertiesRequest'
-    { _usprFields     :: !(Maybe FieldMask)
+    { _usprFields     :: !(Maybe GFieldMask)
     , _usprProperties :: !(Maybe SheetProperties)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -5005,7 +5005,7 @@ updateSheetPropertiesRequest =
 -- | The fields that should be updated. At least one field must be specified.
 -- The root \`properties\` is implied and should not be specified. A single
 -- \`\"*\"\` can be used as short-hand for listing every field.
-usprFields :: Lens' UpdateSheetPropertiesRequest (Maybe FieldMask)
+usprFields :: Lens' UpdateSheetPropertiesRequest (Maybe GFieldMask)
 usprFields
   = lens _usprFields (\ s a -> s{_usprFields = a})
 
@@ -6202,7 +6202,7 @@ instance ToJSON AddBandingRequest where
 -- /See:/ 'updateDimensionPropertiesRequest' smart constructor.
 data UpdateDimensionPropertiesRequest = UpdateDimensionPropertiesRequest'
     { _udprRange      :: !(Maybe DimensionRange)
-    , _udprFields     :: !(Maybe FieldMask)
+    , _udprFields     :: !(Maybe GFieldMask)
     , _udprProperties :: !(Maybe DimensionProperties)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -6232,7 +6232,7 @@ udprRange
 -- | The fields that should be updated. At least one field must be specified.
 -- The root \`properties\` is implied and should not be specified. A single
 -- \`\"*\"\` can be used as short-hand for listing every field.
-udprFields :: Lens' UpdateDimensionPropertiesRequest (Maybe FieldMask)
+udprFields :: Lens' UpdateDimensionPropertiesRequest (Maybe GFieldMask)
 udprFields
   = lens _udprFields (\ s a -> s{_udprFields = a})
 
@@ -7434,7 +7434,7 @@ instance ToJSON DimensionRange where
 --
 -- /See:/ 'updateSpreadsheetPropertiesRequest' smart constructor.
 data UpdateSpreadsheetPropertiesRequest = UpdateSpreadsheetPropertiesRequest'
-    { _uFields     :: !(Maybe FieldMask)
+    { _uFields     :: !(Maybe GFieldMask)
     , _uProperties :: !(Maybe SpreadsheetProperties)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -7456,7 +7456,7 @@ updateSpreadsheetPropertiesRequest =
 -- | The fields that should be updated. At least one field must be specified.
 -- The root \'properties\' is implied and should not be specified. A single
 -- \`\"*\"\` can be used as short-hand for listing every field.
-uFields :: Lens' UpdateSpreadsheetPropertiesRequest (Maybe FieldMask)
+uFields :: Lens' UpdateSpreadsheetPropertiesRequest (Maybe GFieldMask)
 uFields = lens _uFields (\ s a -> s{_uFields = a})
 
 -- | The properties to update.
@@ -9263,7 +9263,7 @@ data UpdateCellsRequest = UpdateCellsRequest'
     { _updStart  :: !(Maybe GridCoordinate)
     , _updRows   :: !(Maybe [RowData])
     , _updRange  :: !(Maybe GridRange)
-    , _updFields :: !(Maybe FieldMask)
+    , _updFields :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateCellsRequest' with the minimum fields required to make a request.
@@ -9308,7 +9308,7 @@ updRange = lens _updRange (\ s a -> s{_updRange = a})
 -- be specified. The root is the CellData; \'row.values.\' should not be
 -- specified. A single \`\"*\"\` can be used as short-hand for listing
 -- every field.
-updFields :: Lens' UpdateCellsRequest (Maybe FieldMask)
+updFields :: Lens' UpdateCellsRequest (Maybe GFieldMask)
 updFields
   = lens _updFields (\ s a -> s{_updFields = a})
 
@@ -9529,7 +9529,7 @@ instance ToJSON DeleteProtectedRangeRequest where
 -- /See:/ 'updateProtectedRangeRequest' smart constructor.
 data UpdateProtectedRangeRequest = UpdateProtectedRangeRequest'
     { _uprrProtectedRange :: !(Maybe ProtectedRange)
-    , _uprrFields         :: !(Maybe FieldMask)
+    , _uprrFields         :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateProtectedRangeRequest' with the minimum fields required to make a request.
@@ -9556,7 +9556,7 @@ uprrProtectedRange
 -- | The fields that should be updated. At least one field must be specified.
 -- The root \`protectedRange\` is implied and should not be specified. A
 -- single \`\"*\"\` can be used as short-hand for listing every field.
-uprrFields :: Lens' UpdateProtectedRangeRequest (Maybe FieldMask)
+uprrFields :: Lens' UpdateProtectedRangeRequest (Maybe GFieldMask)
 uprrFields
   = lens _uprrFields (\ s a -> s{_uprrFields = a})
 
@@ -12249,7 +12249,7 @@ instance ToJSON DimensionProperties where
 -- /See:/ 'updateBandingRequest' smart constructor.
 data UpdateBandingRequest = UpdateBandingRequest'
     { _ubrBandedRange :: !(Maybe BandedRange)
-    , _ubrFields      :: !(Maybe FieldMask)
+    , _ubrFields      :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateBandingRequest' with the minimum fields required to make a request.
@@ -12276,7 +12276,7 @@ ubrBandedRange
 -- | The fields that should be updated. At least one field must be specified.
 -- The root \`bandedRange\` is implied and should not be specified. A
 -- single \`\"*\"\` can be used as short-hand for listing every field.
-ubrFields :: Lens' UpdateBandingRequest (Maybe FieldMask)
+ubrFields :: Lens' UpdateBandingRequest (Maybe GFieldMask)
 ubrFields
   = lens _ubrFields (\ s a -> s{_ubrFields = a})
 

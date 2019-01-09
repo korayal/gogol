@@ -56,10 +56,10 @@ type PeopleGetBatchGetResource =
        "people:batchGet" :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "requestMask.includeField" FieldMask :>
+             QueryParam "requestMask.includeField" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
-                   QueryParam "personFields" FieldMask :>
+                   QueryParam "personFields" GFieldMask :>
                      QueryParams "resourceNames" Text :>
                        QueryParam "callback" Text :>
                          QueryParam "alt" AltJSON :>
@@ -74,10 +74,10 @@ type PeopleGetBatchGetResource =
 data PeopleGetBatchGet = PeopleGetBatchGet'
     { _pgbgXgafv                   :: !(Maybe Xgafv)
     , _pgbgUploadProtocol          :: !(Maybe Text)
-    , _pgbgRequestMaskIncludeField :: !(Maybe FieldMask)
+    , _pgbgRequestMaskIncludeField :: !(Maybe GFieldMask)
     , _pgbgAccessToken             :: !(Maybe Text)
     , _pgbgUploadType              :: !(Maybe Text)
-    , _pgbgPersonFields            :: !(Maybe FieldMask)
+    , _pgbgPersonFields            :: !(Maybe GFieldMask)
     , _pgbgResourceNames           :: !(Maybe [Text])
     , _pgbgCallback                :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -129,7 +129,7 @@ pgbgUploadProtocol
 -- | **Required.** Comma-separated list of person fields to be included in
 -- the response. Each path should start with \`person.\`: for example,
 -- \`person.names\` or \`person.photos\`.
-pgbgRequestMaskIncludeField :: Lens' PeopleGetBatchGet (Maybe FieldMask)
+pgbgRequestMaskIncludeField :: Lens' PeopleGetBatchGet (Maybe GFieldMask)
 pgbgRequestMaskIncludeField
   = lens _pgbgRequestMaskIncludeField
       (\ s a -> s{_pgbgRequestMaskIncludeField = a})
@@ -154,7 +154,7 @@ pgbgUploadType
 -- names * nicknames * occupations * organizations * phoneNumbers * photos
 -- * relations * relationshipInterests * relationshipStatuses * residences
 -- * sipAddresses * skills * taglines * urls * userDefined
-pgbgPersonFields :: Lens' PeopleGetBatchGet (Maybe FieldMask)
+pgbgPersonFields :: Lens' PeopleGetBatchGet (Maybe GFieldMask)
 pgbgPersonFields
   = lens _pgbgPersonFields
       (\ s a -> s{_pgbgPersonFields = a})

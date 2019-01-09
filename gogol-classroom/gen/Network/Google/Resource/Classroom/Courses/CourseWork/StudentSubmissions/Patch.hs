@@ -72,7 +72,7 @@ type CoursesCourseWorkStudentSubmissionsPatchResource
                  Capture "id" Text :>
                    QueryParam "$.xgafv" Xgafv :>
                      QueryParam "upload_protocol" Text :>
-                       QueryParam "updateMask" FieldMask :>
+                       QueryParam "updateMask" GFieldMask :>
                          QueryParam "access_token" Text :>
                            QueryParam "uploadType" Text :>
                              QueryParam "callback" Text :>
@@ -97,7 +97,7 @@ type CoursesCourseWorkStudentSubmissionsPatchResource
 data CoursesCourseWorkStudentSubmissionsPatch = CoursesCourseWorkStudentSubmissionsPatch'
     { _ccwsspXgafv          :: !(Maybe Xgafv)
     , _ccwsspUploadProtocol :: !(Maybe Text)
-    , _ccwsspUpdateMask     :: !(Maybe FieldMask)
+    , _ccwsspUpdateMask     :: !(Maybe GFieldMask)
     , _ccwsspCourseId       :: !Text
     , _ccwsspAccessToken    :: !(Maybe Text)
     , _ccwsspUploadType     :: !(Maybe Text)
@@ -165,7 +165,7 @@ ccwsspUploadProtocol
 -- This field is required to do an update. The update fails if invalid
 -- fields are specified. The following fields may be specified by teachers:
 -- * \`draft_grade\` * \`assigned_grade\`
-ccwsspUpdateMask :: Lens' CoursesCourseWorkStudentSubmissionsPatch (Maybe FieldMask)
+ccwsspUpdateMask :: Lens' CoursesCourseWorkStudentSubmissionsPatch (Maybe GFieldMask)
 ccwsspUpdateMask
   = lens _ccwsspUpdateMask
       (\ s a -> s{_ccwsspUpdateMask = a})

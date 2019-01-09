@@ -58,7 +58,7 @@ type FoldersSinksUpdateResource =
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "uniqueWriterIdentity" Bool :>
              QueryParam "upload_protocol" Text :>
-               QueryParam "updateMask" FieldMask :>
+               QueryParam "updateMask" GFieldMask :>
                  QueryParam "access_token" Text :>
                    QueryParam "uploadType" Text :>
                      QueryParam "callback" Text :>
@@ -75,7 +75,7 @@ data FoldersSinksUpdate = FoldersSinksUpdate'
     { _fsuXgafv                :: !(Maybe Xgafv)
     , _fsuUniqueWriterIdentity :: !(Maybe Bool)
     , _fsuUploadProtocol       :: !(Maybe Text)
-    , _fsuUpdateMask           :: !(Maybe FieldMask)
+    , _fsuUpdateMask           :: !(Maybe GFieldMask)
     , _fsuAccessToken          :: !(Maybe Text)
     , _fsuUploadType           :: !(Maybe Text)
     , _fsuPayload              :: !LogSink
@@ -155,7 +155,7 @@ fsuUploadProtocol
 -- see
 -- https:\/\/developers.google.com\/protocol-buffers\/docs\/reference\/google.protobuf#google.protobuf.FieldMaskExample:
 -- updateMask=filter.
-fsuUpdateMask :: Lens' FoldersSinksUpdate (Maybe FieldMask)
+fsuUpdateMask :: Lens' FoldersSinksUpdate (Maybe GFieldMask)
 fsuUpdateMask
   = lens _fsuUpdateMask
       (\ s a -> s{_fsuUpdateMask = a})

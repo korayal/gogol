@@ -69,7 +69,7 @@ type CoursesCourseWorkPatchResource =
              Capture "id" Text :>
                QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
-                   QueryParam "updateMask" FieldMask :>
+                   QueryParam "updateMask" GFieldMask :>
                      QueryParam "access_token" Text :>
                        QueryParam "uploadType" Text :>
                          QueryParam "callback" Text :>
@@ -95,7 +95,7 @@ type CoursesCourseWorkPatchResource =
 data CoursesCourseWorkPatch = CoursesCourseWorkPatch'
     { _ccwpXgafv          :: !(Maybe Xgafv)
     , _ccwpUploadProtocol :: !(Maybe Text)
-    , _ccwpUpdateMask     :: !(Maybe FieldMask)
+    , _ccwpUpdateMask     :: !(Maybe GFieldMask)
     , _ccwpCourseId       :: !Text
     , _ccwpAccessToken    :: !(Maybe Text)
     , _ccwpUploadType     :: !(Maybe Text)
@@ -163,7 +163,7 @@ ccwpUploadProtocol
 -- be returned. The following fields may be specified by teachers: *
 -- \`title\` * \`description\` * \`state\` * \`due_date\` * \`due_time\` *
 -- \`max_points\` * \`scheduled_time\` * \`submission_modification_mode\`
-ccwpUpdateMask :: Lens' CoursesCourseWorkPatch (Maybe FieldMask)
+ccwpUpdateMask :: Lens' CoursesCourseWorkPatch (Maybe GFieldMask)
 ccwpUpdateMask
   = lens _ccwpUpdateMask
       (\ s a -> s{_ccwpUpdateMask = a})

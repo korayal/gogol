@@ -58,7 +58,7 @@ type SitesVersionsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -76,7 +76,7 @@ type SitesVersionsPatchResource =
 data SitesVersionsPatch = SitesVersionsPatch'
     { _svpXgafv          :: !(Maybe Xgafv)
     , _svpUploadProtocol :: !(Maybe Text)
-    , _svpUpdateMask     :: !(Maybe FieldMask)
+    , _svpUpdateMask     :: !(Maybe GFieldMask)
     , _svpAccessToken    :: !(Maybe Text)
     , _svpUploadType     :: !(Maybe Text)
     , _svpPayload        :: !Version
@@ -134,7 +134,7 @@ svpUploadProtocol
 -- A field will be overwritten if, and only if, it\'s in the mask.
 -- If a mask is not provided then a default mask of only
 -- [\`status\`](..\/sites.versions#Version.FIELDS.status) will be used.
-svpUpdateMask :: Lens' SitesVersionsPatch (Maybe FieldMask)
+svpUpdateMask :: Lens' SitesVersionsPatch (Maybe GFieldMask)
 svpUpdateMask
   = lens _svpUpdateMask
       (\ s a -> s{_svpUpdateMask = a})

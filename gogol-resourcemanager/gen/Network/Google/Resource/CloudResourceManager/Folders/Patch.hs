@@ -64,7 +64,7 @@ type FoldersPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -88,7 +88,7 @@ type FoldersPatchResource =
 data FoldersPatch = FoldersPatch'
     { _fpXgafv          :: !(Maybe Xgafv)
     , _fpUploadProtocol :: !(Maybe Text)
-    , _fpUpdateMask     :: !(Maybe FieldMask)
+    , _fpUpdateMask     :: !(Maybe GFieldMask)
     , _fpAccessToken    :: !(Maybe Text)
     , _fpUploadType     :: !(Maybe Text)
     , _fpPayload        :: !Folder
@@ -142,7 +142,7 @@ fpUploadProtocol
       (\ s a -> s{_fpUploadProtocol = a})
 
 -- | Fields to be updated. Only the \`display_name\` can be updated.
-fpUpdateMask :: Lens' FoldersPatch (Maybe FieldMask)
+fpUpdateMask :: Lens' FoldersPatch (Maybe GFieldMask)
 fpUpdateMask
   = lens _fpUpdateMask (\ s a -> s{_fpUpdateMask = a})
 

@@ -53,7 +53,7 @@ type ProjectsLocationsRegistriesPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -67,7 +67,7 @@ type ProjectsLocationsRegistriesPatchResource =
 data ProjectsLocationsRegistriesPatch = ProjectsLocationsRegistriesPatch'
     { _plrpXgafv          :: !(Maybe Xgafv)
     , _plrpUploadProtocol :: !(Maybe Text)
-    , _plrpUpdateMask     :: !(Maybe FieldMask)
+    , _plrpUpdateMask     :: !(Maybe GFieldMask)
     , _plrpAccessToken    :: !(Maybe Text)
     , _plrpUploadType     :: !(Maybe Text)
     , _plrpPayload        :: !DeviceRegistry
@@ -126,7 +126,7 @@ plrpUploadProtocol
 -- immutable or only set by the server. Mutable top-level fields:
 -- \`event_notification_config\`, \`http_config\`, \`mqtt_config\`, and
 -- \`state_notification_config\`.
-plrpUpdateMask :: Lens' ProjectsLocationsRegistriesPatch (Maybe FieldMask)
+plrpUpdateMask :: Lens' ProjectsLocationsRegistriesPatch (Maybe GFieldMask)
 plrpUpdateMask
   = lens _plrpUpdateMask
       (\ s a -> s{_plrpUpdateMask = a})

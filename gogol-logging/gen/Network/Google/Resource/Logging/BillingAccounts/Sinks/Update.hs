@@ -58,7 +58,7 @@ type BillingAccountsSinksUpdateResource =
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "uniqueWriterIdentity" Bool :>
              QueryParam "upload_protocol" Text :>
-               QueryParam "updateMask" FieldMask :>
+               QueryParam "updateMask" GFieldMask :>
                  QueryParam "access_token" Text :>
                    QueryParam "uploadType" Text :>
                      QueryParam "callback" Text :>
@@ -75,7 +75,7 @@ data BillingAccountsSinksUpdate = BillingAccountsSinksUpdate'
     { _basuXgafv                :: !(Maybe Xgafv)
     , _basuUniqueWriterIdentity :: !(Maybe Bool)
     , _basuUploadProtocol       :: !(Maybe Text)
-    , _basuUpdateMask           :: !(Maybe FieldMask)
+    , _basuUpdateMask           :: !(Maybe GFieldMask)
     , _basuAccessToken          :: !(Maybe Text)
     , _basuUploadType           :: !(Maybe Text)
     , _basuPayload              :: !LogSink
@@ -156,7 +156,7 @@ basuUploadProtocol
 -- see
 -- https:\/\/developers.google.com\/protocol-buffers\/docs\/reference\/google.protobuf#google.protobuf.FieldMaskExample:
 -- updateMask=filter.
-basuUpdateMask :: Lens' BillingAccountsSinksUpdate (Maybe FieldMask)
+basuUpdateMask :: Lens' BillingAccountsSinksUpdate (Maybe GFieldMask)
 basuUpdateMask
   = lens _basuUpdateMask
       (\ s a -> s{_basuUpdateMask = a})

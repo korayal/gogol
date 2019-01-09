@@ -53,7 +53,7 @@ type OrganizationsExclusionsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -67,7 +67,7 @@ type OrganizationsExclusionsPatchResource =
 data OrganizationsExclusionsPatch = OrganizationsExclusionsPatch'
     { _oepXgafv          :: !(Maybe Xgafv)
     , _oepUploadProtocol :: !(Maybe Text)
-    , _oepUpdateMask     :: !(Maybe FieldMask)
+    , _oepUpdateMask     :: !(Maybe GFieldMask)
     , _oepAccessToken    :: !(Maybe Text)
     , _oepUploadType     :: !(Maybe Text)
     , _oepPayload        :: !LogExclusion
@@ -126,7 +126,7 @@ oepUploadProtocol
 -- update_mask are not changed and are ignored in the request.For example,
 -- to change the filter and description of an exclusion, specify an
 -- update_mask of \"filter,description\".
-oepUpdateMask :: Lens' OrganizationsExclusionsPatch (Maybe FieldMask)
+oepUpdateMask :: Lens' OrganizationsExclusionsPatch (Maybe GFieldMask)
 oepUpdateMask
   = lens _oepUpdateMask
       (\ s a -> s{_oepUpdateMask = a})

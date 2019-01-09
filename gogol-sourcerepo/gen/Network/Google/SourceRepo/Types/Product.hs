@@ -308,7 +308,7 @@ instance ToJSON Empty where
 --
 -- /See:/ 'updateRepoRequest' smart constructor.
 data UpdateRepoRequest = UpdateRepoRequest'
-    { _urrUpdateMask :: !(Maybe FieldMask)
+    { _urrUpdateMask :: !(Maybe GFieldMask)
     , _urrRepo       :: !(Maybe Repo)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -330,7 +330,7 @@ updateRepoRequest =
 -- | A FieldMask specifying which fields of the repo to modify. Only the
 -- fields in the mask will be modified. If no mask is provided, this
 -- request is no-op.
-urrUpdateMask :: Lens' UpdateRepoRequest (Maybe FieldMask)
+urrUpdateMask :: Lens' UpdateRepoRequest (Maybe GFieldMask)
 urrUpdateMask
   = lens _urrUpdateMask
       (\ s a -> s{_urrUpdateMask = a})
@@ -357,7 +357,7 @@ instance ToJSON UpdateRepoRequest where
 --
 -- /See:/ 'setIAMPolicyRequest' smart constructor.
 data SetIAMPolicyRequest = SetIAMPolicyRequest'
-    { _siprUpdateMask :: !(Maybe FieldMask)
+    { _siprUpdateMask :: !(Maybe GFieldMask)
     , _siprPolicy     :: !(Maybe Policy)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -380,7 +380,7 @@ setIAMPolicyRequest =
 -- Only the fields in the mask will be modified. If no mask is provided,
 -- the following default mask is used: paths: \"bindings, etag\" This field
 -- is only used by Cloud IAM.
-siprUpdateMask :: Lens' SetIAMPolicyRequest (Maybe FieldMask)
+siprUpdateMask :: Lens' SetIAMPolicyRequest (Maybe GFieldMask)
 siprUpdateMask
   = lens _siprUpdateMask
       (\ s a -> s{_siprUpdateMask = a})
@@ -478,7 +478,7 @@ instance ToJSON PubsubConfig where
 -- /See:/ 'updateProjectConfigRequest' smart constructor.
 data UpdateProjectConfigRequest = UpdateProjectConfigRequest'
     { _upcrProjectConfig :: !(Maybe ProjectConfig)
-    , _upcrUpdateMask    :: !(Maybe FieldMask)
+    , _upcrUpdateMask    :: !(Maybe GFieldMask)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateProjectConfigRequest' with the minimum fields required to make a request.
@@ -505,7 +505,7 @@ upcrProjectConfig
 -- | A FieldMask specifying which fields of the project_config to modify.
 -- Only the fields in the mask will be modified. If no mask is provided,
 -- this request is no-op.
-upcrUpdateMask :: Lens' UpdateProjectConfigRequest (Maybe FieldMask)
+upcrUpdateMask :: Lens' UpdateProjectConfigRequest (Maybe GFieldMask)
 upcrUpdateMask
   = lens _upcrUpdateMask
       (\ s a -> s{_upcrUpdateMask = a})

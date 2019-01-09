@@ -60,7 +60,7 @@ type AppsDomainMAppingsPatchResource =
              Capture "domainMappingsId" Text :>
                QueryParam "$.xgafv" Xgafv :>
                  QueryParam "upload_protocol" Text :>
-                   QueryParam "updateMask" FieldMask :>
+                   QueryParam "updateMask" GFieldMask :>
                      QueryParam "access_token" Text :>
                        QueryParam "uploadType" Text :>
                          QueryParam "callback" Text :>
@@ -77,7 +77,7 @@ type AppsDomainMAppingsPatchResource =
 data AppsDomainMAppingsPatch = AppsDomainMAppingsPatch'
     { _admapXgafv            :: !(Maybe Xgafv)
     , _admapUploadProtocol   :: !(Maybe Text)
-    , _admapUpdateMask       :: !(Maybe FieldMask)
+    , _admapUpdateMask       :: !(Maybe GFieldMask)
     , _admapAccessToken      :: !(Maybe Text)
     , _admapUploadType       :: !(Maybe Text)
     , _admapPayload          :: !DomainMApping
@@ -137,7 +137,7 @@ admapUploadProtocol
       (\ s a -> s{_admapUploadProtocol = a})
 
 -- | Standard field mask for the set of fields to be updated.
-admapUpdateMask :: Lens' AppsDomainMAppingsPatch (Maybe FieldMask)
+admapUpdateMask :: Lens' AppsDomainMAppingsPatch (Maybe GFieldMask)
 admapUpdateMask
   = lens _admapUpdateMask
       (\ s a -> s{_admapUpdateMask = a})

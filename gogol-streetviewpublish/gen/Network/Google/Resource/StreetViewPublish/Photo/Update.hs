@@ -65,7 +65,7 @@ type PhotoUpdateResource =
          Capture "id" Text :>
            QueryParam "$.xgafv" Xgafv :>
              QueryParam "upload_protocol" Text :>
-               QueryParam "updateMask" FieldMask :>
+               QueryParam "updateMask" GFieldMask :>
                  QueryParam "access_token" Text :>
                    QueryParam "uploadType" Text :>
                      QueryParam "callback" Text :>
@@ -89,7 +89,7 @@ type PhotoUpdateResource =
 data PhotoUpdate = PhotoUpdate'
     { _puXgafv          :: !(Maybe Xgafv)
     , _puUploadProtocol :: !(Maybe Text)
-    , _puUpdateMask     :: !(Maybe FieldMask)
+    , _puUpdateMask     :: !(Maybe GFieldMask)
     , _puAccessToken    :: !(Maybe Text)
     , _puUploadType     :: !(Maybe Text)
     , _puPayload        :: !Photo
@@ -154,7 +154,7 @@ puUploadProtocol
 -- updateMask contains \`connections\` and
 -- \`UpdatePhotoRequest.photo.connections\` is empty, all connections will
 -- be removed.
-puUpdateMask :: Lens' PhotoUpdate (Maybe FieldMask)
+puUpdateMask :: Lens' PhotoUpdate (Maybe GFieldMask)
 puUpdateMask
   = lens _puUpdateMask (\ s a -> s{_puUpdateMask = a})
 

@@ -54,7 +54,7 @@ type ProjectsScanConfigsPatchResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -69,7 +69,7 @@ type ProjectsScanConfigsPatchResource =
 data ProjectsScanConfigsPatch = ProjectsScanConfigsPatch'
     { _pscpXgafv          :: !(Maybe Xgafv)
     , _pscpUploadProtocol :: !(Maybe Text)
-    , _pscpUpdateMask     :: !(Maybe FieldMask)
+    , _pscpUpdateMask     :: !(Maybe GFieldMask)
     , _pscpAccessToken    :: !(Maybe Text)
     , _pscpUploadType     :: !(Maybe Text)
     , _pscpPayload        :: !ScanConfig
@@ -126,7 +126,7 @@ pscpUploadProtocol
 -- | Required. The update mask applies to the resource. For the \`FieldMask\`
 -- definition, see
 -- https:\/\/developers.google.com\/protocol-buffers\/docs\/reference\/google.protobuf#fieldmask
-pscpUpdateMask :: Lens' ProjectsScanConfigsPatch (Maybe FieldMask)
+pscpUpdateMask :: Lens' ProjectsScanConfigsPatch (Maybe GFieldMask)
 pscpUpdateMask
   = lens _pscpUpdateMask
       (\ s a -> s{_pscpUpdateMask = a})

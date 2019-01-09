@@ -53,7 +53,7 @@ type SpacesMessagesUpdateResource =
        Capture "name" Text :>
          QueryParam "$.xgafv" Xgafv :>
            QueryParam "upload_protocol" Text :>
-             QueryParam "updateMask" FieldMask :>
+             QueryParam "updateMask" GFieldMask :>
                QueryParam "access_token" Text :>
                  QueryParam "uploadType" Text :>
                    QueryParam "callback" Text :>
@@ -66,7 +66,7 @@ type SpacesMessagesUpdateResource =
 data SpacesMessagesUpdate = SpacesMessagesUpdate'
     { _smuXgafv          :: !(Maybe Xgafv)
     , _smuUploadProtocol :: !(Maybe Text)
-    , _smuUpdateMask     :: !(Maybe FieldMask)
+    , _smuUpdateMask     :: !(Maybe GFieldMask)
     , _smuAccessToken    :: !(Maybe Text)
     , _smuUploadType     :: !(Maybe Text)
     , _smuPayload        :: !Message
@@ -121,7 +121,7 @@ smuUploadProtocol
 
 -- | Required. The field paths to be updated. Currently supported field
 -- paths: \"text\", \"cards\".
-smuUpdateMask :: Lens' SpacesMessagesUpdate (Maybe FieldMask)
+smuUpdateMask :: Lens' SpacesMessagesUpdate (Maybe GFieldMask)
 smuUpdateMask
   = lens _smuUpdateMask
       (\ s a -> s{_smuUpdateMask = a})

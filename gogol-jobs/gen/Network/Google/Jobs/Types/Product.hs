@@ -330,7 +330,7 @@ instance ToJSON RequestMetadata where
 --
 -- /See:/ 'updateCompanyRequest' smart constructor.
 data UpdateCompanyRequest = UpdateCompanyRequest'
-    { _ucrUpdateMask :: !(Maybe FieldMask)
+    { _ucrUpdateMask :: !(Maybe GFieldMask)
     , _ucrCompany    :: !(Maybe Company)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -354,7 +354,7 @@ updateCompanyRequest =
 -- updated. Otherwise all the fields are updated. A field mask to specify
 -- the company fields to be updated. Only top level fields of Company are
 -- supported.
-ucrUpdateMask :: Lens' UpdateCompanyRequest (Maybe FieldMask)
+ucrUpdateMask :: Lens' UpdateCompanyRequest (Maybe GFieldMask)
 ucrUpdateMask
   = lens _ucrUpdateMask
       (\ s a -> s{_ucrUpdateMask = a})
@@ -383,7 +383,7 @@ instance ToJSON UpdateCompanyRequest where
 --
 -- /See:/ 'updateJobRequest' smart constructor.
 data UpdateJobRequest = UpdateJobRequest'
-    { _ujrUpdateMask :: !(Maybe FieldMask)
+    { _ujrUpdateMask :: !(Maybe GFieldMask)
     , _ujrJob        :: !(Maybe Job)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -407,7 +407,7 @@ updateJobRequest =
 -- are updated. Otherwise all the fields are updated. A field mask to
 -- restrict the fields that are updated. Only top level fields of Job are
 -- supported.
-ujrUpdateMask :: Lens' UpdateJobRequest (Maybe FieldMask)
+ujrUpdateMask :: Lens' UpdateJobRequest (Maybe GFieldMask)
 ujrUpdateMask
   = lens _ujrUpdateMask
       (\ s a -> s{_ujrUpdateMask = a})
