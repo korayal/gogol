@@ -4469,7 +4469,7 @@ instance ToJSON JobListJobsItem where
 data TimePartitioning = TimePartitioning'
     { _tpField                  :: !(Maybe Text)
     , _tpExpirationMs           :: !(Maybe (Textual Int64))
-    , _tpRequirePartitionFilter :: !Bool
+    , _tpRequirePartitionFilter :: !(Maybe Bool)
     , _tpType                   :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -4490,7 +4490,7 @@ timePartitioning =
     TimePartitioning'
     { _tpField = Nothing
     , _tpExpirationMs = Nothing
-    , _tpRequirePartitionFilter = False
+    , _tpRequirePartitionFilter = Nothing
     , _tpType = Nothing
     }
 
@@ -4511,10 +4511,7 @@ tpExpirationMs
       (\ s a -> s{_tpExpirationMs = a})
       . mapping _Coerce
 
--- | [Beta] [Optional] If set to true, queries over this table require a
--- partition filter that can be used for partition elimination to be
--- specified.
-tpRequirePartitionFilter :: Lens' TimePartitioning Bool
+tpRequirePartitionFilter :: Lens' TimePartitioning (Maybe Bool)
 tpRequirePartitionFilter
   = lens _tpRequirePartitionFilter
       (\ s a -> s{_tpRequirePartitionFilter = a})
@@ -4530,7 +4527,7 @@ instance FromJSON TimePartitioning where
               (\ o ->
                  TimePartitioning' <$>
                    (o .:? "field") <*> (o .:? "expirationMs") <*>
-                     (o .:? "requirePartitionFilter" .!= False)
+                     (o .:? "requirePartitionFilter")
                      <*> (o .:? "type"))
 
 instance ToJSON TimePartitioning where
@@ -4539,9 +4536,8 @@ instance ToJSON TimePartitioning where
               (catMaybes
                  [("field" .=) <$> _tpField,
                   ("expirationMs" .=) <$> _tpExpirationMs,
-                  Just
-                    ("requirePartitionFilter" .=
-                       _tpRequirePartitionFilter),
+                  ("requirePartitionFilter" .=) <$>
+                    _tpRequirePartitionFilter,
                   ("type" .=) <$> _tpType])
 
 -- | [Optional] The struct field values, in order of the struct type\'s
@@ -6521,6 +6517,7 @@ data DataSetAccessItem = DataSetAccessItem'
     , _dsaiDomain       :: !(Maybe Text)
     , _dsaiSpecialGroup :: !(Maybe Text)
     , _dsaiRole         :: !(Maybe Text)
+    , _dsaiIAMMember    :: !(Maybe Text)
     , _dsaiView         :: !(Maybe TableReference)
     , _dsaiUserByEmail  :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -6537,6 +6534,8 @@ data DataSetAccessItem = DataSetAccessItem'
 --
 -- * 'dsaiRole'
 --
+-- * 'dsaiIAMMember'
+--
 -- * 'dsaiView'
 --
 -- * 'dsaiUserByEmail'
@@ -6548,11 +6547,13 @@ dataSetAccessItem =
     , _dsaiDomain = Nothing
     , _dsaiSpecialGroup = Nothing
     , _dsaiRole = Nothing
+    , _dsaiIAMMember = Nothing
     , _dsaiView = Nothing
     , _dsaiUserByEmail = Nothing
     }
 
--- | [Pick one] An email address of a Google Group to grant access to.
+-- | [Pick one] An email address of a Google Group to grant access to. Maps
+-- to IAM policy member \"group:GROUP\".
 dsaiGroupByEmail :: Lens' DataSetAccessItem (Maybe Text)
 dsaiGroupByEmail
   = lens _dsaiGroupByEmail
@@ -6560,7 +6561,7 @@ dsaiGroupByEmail
 
 -- | [Pick one] A domain to grant access to. Any users signed in with the
 -- domain specified will be granted the specified access. Example:
--- \"example.com\".
+-- \"example.com\". Maps to IAM policy member \"domain:DOMAIN\".
 dsaiDomain :: Lens' DataSetAccessItem (Maybe Text)
 dsaiDomain
   = lens _dsaiDomain (\ s a -> s{_dsaiDomain = a})
@@ -6568,7 +6569,8 @@ dsaiDomain
 -- | [Pick one] A special group to grant access to. Possible values include:
 -- projectOwners: Owners of the enclosing project. projectReaders: Readers
 -- of the enclosing project. projectWriters: Writers of the enclosing
--- project. allAuthenticatedUsers: All authenticated BigQuery users.
+-- project. allAuthenticatedUsers: All authenticated BigQuery users. Maps
+-- to similarly-named IAM members.
 dsaiSpecialGroup :: Lens' DataSetAccessItem (Maybe Text)
 dsaiSpecialGroup
   = lens _dsaiSpecialGroup
@@ -6580,6 +6582,13 @@ dsaiSpecialGroup
 dsaiRole :: Lens' DataSetAccessItem (Maybe Text)
 dsaiRole = lens _dsaiRole (\ s a -> s{_dsaiRole = a})
 
+-- | [Pick one] Some other type of member that appears in the IAM Policy but
+-- isn\'t a user, group, domain, or special group.
+dsaiIAMMember :: Lens' DataSetAccessItem (Maybe Text)
+dsaiIAMMember
+  = lens _dsaiIAMMember
+      (\ s a -> s{_dsaiIAMMember = a})
+
 -- | [Pick one] A view from a different dataset to grant access to. Queries
 -- executed against that view will have read access to tables in this
 -- dataset. The role field is not required when this field is set. If that
@@ -6589,7 +6598,8 @@ dsaiView :: Lens' DataSetAccessItem (Maybe TableReference)
 dsaiView = lens _dsaiView (\ s a -> s{_dsaiView = a})
 
 -- | [Pick one] An email address of a user to grant access to. For example:
--- fred\'example.com.
+-- fred\'example.com. Maps to IAM policy member \"user:EMAIL\" or
+-- \"serviceAccount:EMAIL\".
 dsaiUserByEmail :: Lens' DataSetAccessItem (Maybe Text)
 dsaiUserByEmail
   = lens _dsaiUserByEmail
@@ -6603,6 +6613,7 @@ instance FromJSON DataSetAccessItem where
                    (o .:? "groupByEmail") <*> (o .:? "domain") <*>
                      (o .:? "specialGroup")
                      <*> (o .:? "role")
+                     <*> (o .:? "iamMember")
                      <*> (o .:? "view")
                      <*> (o .:? "userByEmail"))
 
@@ -6613,7 +6624,9 @@ instance ToJSON DataSetAccessItem where
                  [("groupByEmail" .=) <$> _dsaiGroupByEmail,
                   ("domain" .=) <$> _dsaiDomain,
                   ("specialGroup" .=) <$> _dsaiSpecialGroup,
-                  ("role" .=) <$> _dsaiRole, ("view" .=) <$> _dsaiView,
+                  ("role" .=) <$> _dsaiRole,
+                  ("iamMember" .=) <$> _dsaiIAMMember,
+                  ("view" .=) <$> _dsaiView,
                   ("userByEmail" .=) <$> _dsaiUserByEmail])
 
 --

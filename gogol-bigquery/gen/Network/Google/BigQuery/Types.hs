@@ -678,6 +678,7 @@ module Network.Google.BigQuery.Types
     , dsaiDomain
     , dsaiSpecialGroup
     , dsaiRole
+    , dsaiIAMMember
     , dsaiView
     , dsaiUserByEmail
 

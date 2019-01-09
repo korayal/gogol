@@ -962,17 +962,20 @@ instance ToJSON CreateManagedShortLinkRequest where
 --
 -- /See:/ 'getIosReopenAttributionResponse' smart constructor.
 data GetIosReopenAttributionResponse = GetIosReopenAttributionResponse'
-    { _girarDeepLink     :: !(Maybe Text)
-    , _girarResolvedLink :: !(Maybe Text)
-    , _girarUtmMedium    :: !(Maybe Text)
-    , _girarInvitationId :: !(Maybe Text)
-    , _girarUtmCampaign  :: !(Maybe Text)
-    , _girarUtmSource    :: !(Maybe Text)
+    { _girarIosMinAppVersion :: !(Maybe Text)
+    , _girarDeepLink         :: !(Maybe Text)
+    , _girarResolvedLink     :: !(Maybe Text)
+    , _girarUtmMedium        :: !(Maybe Text)
+    , _girarInvitationId     :: !(Maybe Text)
+    , _girarUtmCampaign      :: !(Maybe Text)
+    , _girarUtmSource        :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetIosReopenAttributionResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'girarIosMinAppVersion'
 --
 -- * 'girarDeepLink'
 --
@@ -989,13 +992,21 @@ getIosReopenAttributionResponse
     :: GetIosReopenAttributionResponse
 getIosReopenAttributionResponse =
     GetIosReopenAttributionResponse'
-    { _girarDeepLink = Nothing
+    { _girarIosMinAppVersion = Nothing
+    , _girarDeepLink = Nothing
     , _girarResolvedLink = Nothing
     , _girarUtmMedium = Nothing
     , _girarInvitationId = Nothing
     , _girarUtmCampaign = Nothing
     , _girarUtmSource = Nothing
     }
+
+-- | FDL input value of the \"&imv=\" parameter, minimum app version to be
+-- returned to Google Firebase SDK running on iOS-9.
+girarIosMinAppVersion :: Lens' GetIosReopenAttributionResponse (Maybe Text)
+girarIosMinAppVersion
+  = lens _girarIosMinAppVersion
+      (\ s a -> s{_girarIosMinAppVersion = a})
 
 -- | The deep-link attributed the app universal link open. For both regular
 -- FDL links and invite FDL links.
@@ -1041,8 +1052,9 @@ instance FromJSON GetIosReopenAttributionResponse
           = withObject "GetIosReopenAttributionResponse"
               (\ o ->
                  GetIosReopenAttributionResponse' <$>
-                   (o .:? "deepLink") <*> (o .:? "resolvedLink") <*>
-                     (o .:? "utmMedium")
+                   (o .:? "iosMinAppVersion") <*> (o .:? "deepLink") <*>
+                     (o .:? "resolvedLink")
+                     <*> (o .:? "utmMedium")
                      <*> (o .:? "invitationId")
                      <*> (o .:? "utmCampaign")
                      <*> (o .:? "utmSource"))
@@ -1051,7 +1063,8 @@ instance ToJSON GetIosReopenAttributionResponse where
         toJSON GetIosReopenAttributionResponse'{..}
           = object
               (catMaybes
-                 [("deepLink" .=) <$> _girarDeepLink,
+                 [("iosMinAppVersion" .=) <$> _girarIosMinAppVersion,
+                  ("deepLink" .=) <$> _girarDeepLink,
                   ("resolvedLink" .=) <$> _girarResolvedLink,
                   ("utmMedium" .=) <$> _girarUtmMedium,
                   ("invitationId" .=) <$> _girarInvitationId,

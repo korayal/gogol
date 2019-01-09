@@ -161,6 +161,7 @@ module Network.Google.FirebaseDynamicLinks
     -- ** GetIosReopenAttributionResponse
     , GetIosReopenAttributionResponse
     , getIosReopenAttributionResponse
+    , girarIosMinAppVersion
     , girarDeepLink
     , girarResolvedLink
     , girarUtmMedium

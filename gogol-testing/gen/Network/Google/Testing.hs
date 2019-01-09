@@ -362,6 +362,7 @@ module Network.Google.Testing
     , tmState
     , tmTestMatrixId
     , tmTestSpecification
+    , tmFlakyTestAttempts
     , tmClientInfo
     , tmTestExecutions
     , tmResultStorage
@@ -387,6 +388,7 @@ module Network.Google.Testing
     , iosXcTest
     , ixtXctestrun
     , ixtXcodeVersion
+    , ixtAppBundleId
     , ixtTestsZip
 
     -- ** ResultStorage

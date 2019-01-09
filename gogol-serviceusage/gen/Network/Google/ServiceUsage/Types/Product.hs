@@ -407,8 +407,10 @@ gasMonitoring
   = lens _gasMonitoring
       (\ s a -> s{_gasMonitoring = a})
 
--- | The DNS address at which this service is available, e.g.
--- \`calendar.googleapis.com\`.
+-- | The service name, which is a DNS-like logical identifier for the
+-- service, such as \`calendar.googleapis.com\`. The service name typically
+-- goes through DNS verification to make sure the owner of the service also
+-- owns the DNS name.
 gasName :: Lens' GoogleAPIService (Maybe Text)
 gasName = lens _gasName (\ s a -> s{_gasName = a})
 

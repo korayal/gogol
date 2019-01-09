@@ -35,6 +35,15 @@ module Network.Google.Speech
     -- ** speech.operations.list
     , module Network.Google.Resource.Speech.Operations.List
 
+    -- ** speech.projects.locations.operations.get
+    , module Network.Google.Resource.Speech.Projects.Locations.Operations.Get
+
+    -- ** speech.projects.locations.operations.list
+    , module Network.Google.Resource.Speech.Projects.Locations.Operations.List
+
+    -- ** speech.projects.operations.manualRecognitionTasks.get
+    , module Network.Google.Resource.Speech.Projects.Operations.ManualRecognitionTasks.Get
+
     -- ** speech.speech.longrunningrecognize
     , module Network.Google.Resource.Speech.Speech.Longrunningrecognize
 
@@ -207,6 +216,9 @@ module Network.Google.Speech
 import           Network.Google.Prelude
 import           Network.Google.Resource.Speech.Operations.Get
 import           Network.Google.Resource.Speech.Operations.List
+import           Network.Google.Resource.Speech.Projects.Locations.Operations.Get
+import           Network.Google.Resource.Speech.Projects.Locations.Operations.List
+import           Network.Google.Resource.Speech.Projects.Operations.ManualRecognitionTasks.Get
 import           Network.Google.Resource.Speech.Speech.Longrunningrecognize
 import           Network.Google.Resource.Speech.Speech.Recognize
 import           Network.Google.Speech.Types
@@ -221,3 +233,7 @@ type SpeechAPI =
        SpeechLongrunningrecognizeResource
        :<|> OperationsListResource
        :<|> OperationsGetResource
+       :<|>
+       ProjectsOperationsManualRecognitionTasksGetResource
+       :<|> ProjectsLocationsOperationsListResource
+       :<|> ProjectsLocationsOperationsGetResource

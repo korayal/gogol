@@ -2626,6 +2626,7 @@ data TestMatrix = TestMatrix'
     { _tmState                :: !(Maybe TestMatrixState)
     , _tmTestMatrixId         :: !(Maybe Text)
     , _tmTestSpecification    :: !(Maybe TestSpecification)
+    , _tmFlakyTestAttempts    :: !(Maybe (Textual Int32))
     , _tmClientInfo           :: !(Maybe ClientInfo)
     , _tmTestExecutions       :: !(Maybe [TestExecution])
     , _tmResultStorage        :: !(Maybe ResultStorage)
@@ -2644,6 +2645,8 @@ data TestMatrix = TestMatrix'
 -- * 'tmTestMatrixId'
 --
 -- * 'tmTestSpecification'
+--
+-- * 'tmFlakyTestAttempts'
 --
 -- * 'tmClientInfo'
 --
@@ -2665,6 +2668,7 @@ testMatrix =
     { _tmState = Nothing
     , _tmTestMatrixId = Nothing
     , _tmTestSpecification = Nothing
+    , _tmFlakyTestAttempts = Nothing
     , _tmClientInfo = Nothing
     , _tmTestExecutions = Nothing
     , _tmResultStorage = Nothing
@@ -2690,6 +2694,15 @@ tmTestSpecification :: Lens' TestMatrix (Maybe TestSpecification)
 tmTestSpecification
   = lens _tmTestSpecification
       (\ s a -> s{_tmTestSpecification = a})
+
+-- | The number of times a TestExecution should be re-attempted if one or
+-- more of its test cases fail for any reason. The maximum number of reruns
+-- allowed is 10. Default is 0, which implies no reruns.
+tmFlakyTestAttempts :: Lens' TestMatrix (Maybe Int32)
+tmFlakyTestAttempts
+  = lens _tmFlakyTestAttempts
+      (\ s a -> s{_tmFlakyTestAttempts = a})
+      . mapping _Coerce
 
 -- | Information about the client which invoked the test.
 tmClientInfo :: Lens' TestMatrix (Maybe ClientInfo)
@@ -2742,6 +2755,7 @@ instance FromJSON TestMatrix where
                  TestMatrix' <$>
                    (o .:? "state") <*> (o .:? "testMatrixId") <*>
                      (o .:? "testSpecification")
+                     <*> (o .:? "flakyTestAttempts")
                      <*> (o .:? "clientInfo")
                      <*> (o .:? "testExecutions" .!= mempty)
                      <*> (o .:? "resultStorage")
@@ -2757,6 +2771,7 @@ instance ToJSON TestMatrix where
                  [("state" .=) <$> _tmState,
                   ("testMatrixId" .=) <$> _tmTestMatrixId,
                   ("testSpecification" .=) <$> _tmTestSpecification,
+                  ("flakyTestAttempts" .=) <$> _tmFlakyTestAttempts,
                   ("clientInfo" .=) <$> _tmClientInfo,
                   ("testExecutions" .=) <$> _tmTestExecutions,
                   ("resultStorage" .=) <$> _tmResultStorage,
@@ -2874,6 +2889,7 @@ instance ToJSON ToolResultsExecution where
 data IosXcTest = IosXcTest'
     { _ixtXctestrun    :: !(Maybe FileReference)
     , _ixtXcodeVersion :: !(Maybe Text)
+    , _ixtAppBundleId  :: !(Maybe Text)
     , _ixtTestsZip     :: !(Maybe FileReference)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -2885,6 +2901,8 @@ data IosXcTest = IosXcTest'
 --
 -- * 'ixtXcodeVersion'
 --
+-- * 'ixtAppBundleId'
+--
 -- * 'ixtTestsZip'
 iosXcTest
     :: IosXcTest
@@ -2892,6 +2910,7 @@ iosXcTest =
     IosXcTest'
     { _ixtXctestrun = Nothing
     , _ixtXcodeVersion = Nothing
+    , _ixtAppBundleId = Nothing
     , _ixtTestsZip = Nothing
     }
 
@@ -2911,6 +2930,12 @@ ixtXcodeVersion
   = lens _ixtXcodeVersion
       (\ s a -> s{_ixtXcodeVersion = a})
 
+-- | Output only. The bundle id for the application under test.
+ixtAppBundleId :: Lens' IosXcTest (Maybe Text)
+ixtAppBundleId
+  = lens _ixtAppBundleId
+      (\ s a -> s{_ixtAppBundleId = a})
+
 -- | Required. The .zip containing the .xctestrun file and the contents of
 -- the DerivedData\/Build\/Products directory. The .xctestrun file in this
 -- zip is ignored if the xctestrun field is specified.
@@ -2924,7 +2949,8 @@ instance FromJSON IosXcTest where
               (\ o ->
                  IosXcTest' <$>
                    (o .:? "xctestrun") <*> (o .:? "xcodeVersion") <*>
-                     (o .:? "testsZip"))
+                     (o .:? "appBundleId")
+                     <*> (o .:? "testsZip"))
 
 instance ToJSON IosXcTest where
         toJSON IosXcTest'{..}
@@ -2932,6 +2958,7 @@ instance ToJSON IosXcTest where
               (catMaybes
                  [("xctestrun" .=) <$> _ixtXctestrun,
                   ("xcodeVersion" .=) <$> _ixtXcodeVersion,
+                  ("appBundleId" .=) <$> _ixtAppBundleId,
                   ("testsZip" .=) <$> _ixtTestsZip])
 
 -- | Locations where the results of running the test are stored.

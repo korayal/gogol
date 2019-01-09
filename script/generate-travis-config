@@ -40,8 +40,8 @@ TITLE
 }
 
 ghc_802=( 8.0.2 )
-ghc_82=( 8.2 )
-ghc_all=( 8.2 8.0.2 7.10.3 )
+ghc_82=( 8.2.2 )
+ghc_all=( 8.2.2 8.0.2 7.10.3 )
 
 travis=".travis.yml"
 

@@ -1434,8 +1434,10 @@ sMonitoring :: Lens' Service (Maybe Monitoring)
 sMonitoring
   = lens _sMonitoring (\ s a -> s{_sMonitoring = a})
 
--- | The DNS address at which this service is available, e.g.
--- \`calendar.googleapis.com\`.
+-- | The service name, which is a DNS-like logical identifier for the
+-- service, such as \`calendar.googleapis.com\`. The service name typically
+-- goes through DNS verification to make sure the owner of the service also
+-- owns the DNS name.
 sName :: Lens' Service (Maybe Text)
 sName = lens _sName (\ s a -> s{_sName = a})
 

@@ -154,11 +154,15 @@ olUploadType :: Lens' OperationsList (Maybe Text)
 olUploadType
   = lens _olUploadType (\ s a -> s{_olUploadType = a})
 
--- | The name of the operation\'s parent resource.
+-- | Must not be set.
 olName :: Lens' OperationsList (Maybe Text)
 olName = lens _olName (\ s a -> s{_olName = a})
 
--- | The standard list filter.
+-- | Required. A filter for matching the requested operations.
+-- The supported formats of __filter__ are:
+-- To query for specific function: 'project:*,location:*,function:*'
+-- To query for all of the latest operations for a project:
+-- 'project:*,latest:true'
 olFilter :: Lens' OperationsList (Maybe Text)
 olFilter = lens _olFilter (\ s a -> s{_olFilter = a})
 

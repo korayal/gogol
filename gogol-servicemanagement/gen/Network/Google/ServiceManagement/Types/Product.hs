@@ -1946,8 +1946,10 @@ sMonitoring :: Lens' Service (Maybe Monitoring)
 sMonitoring
   = lens _sMonitoring (\ s a -> s{_sMonitoring = a})
 
--- | The DNS address at which this service is available, e.g.
--- \`calendar.googleapis.com\`.
+-- | The service name, which is a DNS-like logical identifier for the
+-- service, such as \`calendar.googleapis.com\`. The service name typically
+-- goes through DNS verification to make sure the owner of the service also
+-- owns the DNS name.
 sName :: Lens' Service (Maybe Text)
 sName = lens _sName (\ s a -> s{_sName = a})
 
@@ -3441,9 +3443,11 @@ monitoring =
     }
 
 -- | Monitoring configurations for sending metrics to the producer project.
--- There can be multiple producer destinations, each one must have a
--- different monitored resource type. A metric can be used in at most one
--- producer destination.
+-- There can be multiple producer destinations. A monitored resouce type
+-- may appear in multiple monitoring destinations if different aggregations
+-- are needed for different sets of metrics associated with that monitored
+-- resource type. A monitored resource and metric pair may only be used
+-- once in the Monitoring configuration.
 mProducerDestinations :: Lens' Monitoring [MonitoringDestination]
 mProducerDestinations
   = lens _mProducerDestinations
@@ -3452,9 +3456,11 @@ mProducerDestinations
       . _Coerce
 
 -- | Monitoring configurations for sending metrics to the consumer project.
--- There can be multiple consumer destinations, each one must have a
--- different monitored resource type. A metric can be used in at most one
--- consumer destination.
+-- There can be multiple consumer destinations. A monitored resouce type
+-- may appear in multiple monitoring destinations if different aggregations
+-- are needed for different sets of metrics associated with that monitored
+-- resource type. A monitored resource and metric pair may only be used
+-- once in the Monitoring configuration.
 mConsumerDestinations :: Lens' Monitoring [MonitoringDestination]
 mConsumerDestinations
   = lens _mConsumerDestinations
@@ -4847,7 +4853,7 @@ monitoringDestination =
     , _mdMonitoredResource = Nothing
     }
 
--- | Names of the metrics to report to this monitoring destination. Each name
+-- | Types of the metrics to report to this monitoring destination. Each type
 -- must be defined in Service.metrics section.
 mdMetrics :: Lens' MonitoringDestination [Text]
 mdMetrics

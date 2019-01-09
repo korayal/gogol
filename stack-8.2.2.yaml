@@ -14,8 +14,13 @@ packages:
   - gogol
   - examples
 # GENERATED
+  - gogol-abusiveexperiencereport
+  - gogol-acceleratedmobilepageurl
+  - gogol-accesscontextmanager
   - gogol-adexchange-buyer
+  - gogol-adexchangebuyer2
   - gogol-adexchange-seller
+  - gogol-adexperiencereport
   - gogol-admin-datatransfer
   - gogol-admin-directory
   - gogol-admin-emailmigration
@@ -23,8 +28,12 @@ packages:
   - gogol-adsense
   - gogol-adsense-host
   - gogol-affiliates
+  - gogol-alertcenter
   - gogol-analytics
+  - gogol-analyticsreporting
+  - gogol-androiddeviceprovisioning
   - gogol-android-enterprise
+  - gogol-androidmanagement
   - gogol-android-publisher
   - gogol-appengine
   - gogol-apps-activity
@@ -35,15 +44,33 @@ packages:
   - gogol-appstate
   - gogol-autoscaler
   - gogol-bigquery
+  - gogol-bigquerydatatransfer
+  - gogol-bigtableadmin
   - gogol-billing
+  - gogol-binaryauthorization
   - gogol-blogger
   - gogol-books
+  - gogol-chat
   - gogol-civicinfo
   - gogol-classroom
+  - gogol-cloudasset
+  - gogol-clouderrorreporting
+  - gogol-cloudfunctions
+  - gogol-cloudidentity
+  - gogol-cloudiot
+  - gogol-cloudkms
   - gogol-cloudmonitoring
+  - gogol-cloudprofiler
+  - gogol-cloudscheduler
+  - gogol-cloudsearch
+  - gogol-cloudshell
+  - gogol-cloudtasks
   - gogol-cloudtrace
+  - gogol-composer
   - gogol-compute
+  - gogol-consumersurveys
   - gogol-container
+  - gogol-containeranalysis
   - gogol-containerbuilder
   - gogol-customsearch
   - gogol-dataflow
@@ -52,13 +79,21 @@ packages:
   - gogol-debugger
   - gogol-deploymentmanager
   - gogol-dfareporting
+  - gogol-dialogflow
+  - gogol-digitalassetlinks
   - gogol-discovery
+  - gogol-dlp
   - gogol-dns
   - gogol-doubleclick-bids
   - gogol-doubleclick-search
   - gogol-drive
+  - gogol-driveactivity
+  - gogol-file
   - gogol-firebase-dynamiclinks
+  - gogol-firebasehosting
+  - gogol-firebaseremoteconfig
   - gogol-firebase-rules
+  - gogol-firestore
   - gogol-fitness
   - gogol-fonts
   - gogol-freebasesearch
@@ -71,10 +106,15 @@ packages:
   - gogol-groups-migration
   - gogol-groups-settings
   - gogol-iam
+  - gogol-iamcredentials
+  - gogol-iap
   - gogol-identity-toolkit
+  - gogol-indexing
+  - gogol-jobs
   - gogol-kgsearch
   - gogol-language
   - gogol-latencytest
+  - gogol-libraryagent
   - gogol-logging
   - gogol-manufacturers
   - gogol-maps-coordinate
@@ -83,16 +123,22 @@ packages:
   - gogol-ml
   - gogol-monitoring
   - gogol-oauth2
+  - gogol-oslogin
   - gogol-pagespeed
   - gogol-partners
   - gogol-people
+  - gogol-photoslibrary
+  - gogol-playcustomapp
   - gogol-play-moviespartner
   - gogol-plus
   - gogol-plus-domains
+  - gogol-poly
   - gogol-prediction
   - gogol-proximitybeacon
   - gogol-pubsub
   - gogol-qpxexpress
+  - gogol-redis
+  - gogol-remotebuildexecution
   - gogol-replicapool
   - gogol-replicapool-updater
   - gogol-resourcemanager
@@ -100,23 +146,42 @@ packages:
   - gogol-runtimeconfig
   - gogol-safebrowsing
   - gogol-script
+  - gogol-searchconsole
+  - gogol-servicebroker
+  - gogol-serviceconsumermanagement
   - gogol-servicecontrol
   - gogol-servicemanagement
+  - gogol-servicenetworking
+  - gogol-serviceusage
+  - gogol-serviceuser
   - gogol-sheets
   - gogol-shopping-content
   - gogol-siteverification
   - gogol-slides
+  - gogol-sourcerepo
+  - gogol-spanner
   - gogol-spectrum
+  - gogol-speech
   - gogol-sqladmin
   - gogol-storage
   - gogol-storage-transfer
+  - gogol-streetviewpublish
+  - gogol-surveys
   - gogol-tagmanager
   - gogol-taskqueue
+  - gogol-testing
+  - gogol-texttospeech
+  - gogol-toolresults
+  - gogol-tpu
+  - gogol-tracing
   - gogol-translate
   - gogol-urlshortener
   - gogol-useraccounts
+  - gogol-vault
+  - gogol-videointelligence
   - gogol-vision
   - gogol-webmaster-tools
+  - gogol-websecurityscanner
   - gogol-youtube
   - gogol-youtube-analytics
   - gogol-youtube-reporting

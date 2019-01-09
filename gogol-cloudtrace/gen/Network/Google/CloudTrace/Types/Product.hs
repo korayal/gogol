@@ -369,10 +369,10 @@ instance ToJSON Status where
                   ("message" .=) <$> _sMessage])
 
 -- | The set of attributes. Each attribute\'s key can be up to 128 bytes
--- long. The value can be a string up to 256 bytes, an integer, or the
--- Boolean values \`true\` and \`false\`. For example: \"\/instance_id\":
--- \"my-instance\" \"\/http\/user_agent\": \"\" \"\/http\/request_bytes\":
--- 300 \"abc.com\/myattribute\": true
+-- long. The value can be a string up to 256 bytes, a signed 64-bit
+-- integer, or the Boolean values \`true\` and \`false\`. For example:
+-- \"\/instance_id\": \"my-instance\" \"\/http\/user_agent\": \"\"
+-- \"\/http\/request_bytes\": 300 \"abc.com\/myattribute\": true
 --
 -- /See:/ 'attributesAttributeMap' smart constructor.
 newtype AttributesAttributeMap = AttributesAttributeMap'
@@ -845,10 +845,10 @@ aDroppedAttributesCount
       . mapping _Coerce
 
 -- | The set of attributes. Each attribute\'s key can be up to 128 bytes
--- long. The value can be a string up to 256 bytes, an integer, or the
--- Boolean values \`true\` and \`false\`. For example: \"\/instance_id\":
--- \"my-instance\" \"\/http\/user_agent\": \"\" \"\/http\/request_bytes\":
--- 300 \"abc.com\/myattribute\": true
+-- long. The value can be a string up to 256 bytes, a signed 64-bit
+-- integer, or the Boolean values \`true\` and \`false\`. For example:
+-- \"\/instance_id\": \"my-instance\" \"\/http\/user_agent\": \"\"
+-- \"\/http\/request_bytes\": 300 \"abc.com\/myattribute\": true
 aAttributeMap :: Lens' Attributes (Maybe AttributesAttributeMap)
 aAttributeMap
   = lens _aAttributeMap
