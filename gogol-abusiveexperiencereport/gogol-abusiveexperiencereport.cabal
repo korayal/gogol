@@ -34,14 +34,14 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.Google.AdExchangeBuyer
-        , Network.Google.AdExchangeBuyer.Types
-        , Network.Google.Resource.Abusiveexperiencereport.Sites.Get
-        , Network.Google.Resource.Abusiveexperiencereport.ViolatingSites.List
+          Network.Google.AbusiveExperienceReport
+        , Network.Google.AbusiveExperienceReport.Types
+        , Network.Google.Resource.AbusiveExperienceReport.Sites.Get
+        , Network.Google.Resource.AbusiveExperienceReport.ViolatingSites.List
 
     other-modules:
-          Network.Google.AdExchangeBuyer.Types.Product
-        , Network.Google.AdExchangeBuyer.Types.Sum
+          Network.Google.AbusiveExperienceReport.Types.Product
+        , Network.Google.AbusiveExperienceReport.Types.Sum
 
     build-depends:
           gogol-core == 0.3.0.*

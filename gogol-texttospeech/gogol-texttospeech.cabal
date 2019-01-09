@@ -34,14 +34,14 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.Google.AdExchangeBuyer
-        , Network.Google.AdExchangeBuyer.Types
-        , Network.Google.Resource.Texttospeech.Text.Synthesize
-        , Network.Google.Resource.Texttospeech.Voices.List
+          Network.Google.Resource.TextToSpeech.Text.Synthesize
+        , Network.Google.Resource.TextToSpeech.Voices.List
+        , Network.Google.TextToSpeech
+        , Network.Google.TextToSpeech.Types
 
     other-modules:
-          Network.Google.AdExchangeBuyer.Types.Product
-        , Network.Google.AdExchangeBuyer.Types.Sum
+          Network.Google.TextToSpeech.Types.Product
+        , Network.Google.TextToSpeech.Types.Sum
 
     build-depends:
           gogol-core == 0.3.0.*
