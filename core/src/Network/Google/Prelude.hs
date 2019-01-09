@@ -28,7 +28,7 @@ import Network.HTTP.Client as Export (RequestBody)
 import Numeric.Natural     as Export (Natural)
 import Prelude             as Export hiding (product, span, Word)
 import Servant.API         as Export hiding (Headers, Link, getResponse, Stream, ResponseHeader)
-import Servant.Utils.Links as Export hiding (Link)
+import Servant.Links       as Export hiding (Link)
 import Web.HttpApiData     as Export (FromHttpApiData (..), ToHttpApiData (..))
 
 import Network.Google.Data.Bytes   as Export

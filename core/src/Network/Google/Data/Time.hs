@@ -14,7 +14,7 @@
 module Network.Google.Data.Time
     ( Time'
     , Date'
-    , DateTime'
+    , DateTime' (..)
     , Duration
 
     , _Time
